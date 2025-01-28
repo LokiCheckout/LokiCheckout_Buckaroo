@@ -1,6 +1,44 @@
 {
   "module": {
     "Module Setup": "complete",
-    "Intended functionality": "complete"
+    "Intended functionality": "processing"
+  },
+  "payment_methods": {
+    "iDEAL": "pending",
+    "Credit and debit card Vault": "pending",
+    "Credit and debit card": "pending",
+    "Mastercard": "pending",
+    "Maestro": "pending",
+    "Visa": "pending",
+    "American Express": "pending",
+    "Cartes Bancaires": "pending",
+    "Klarna": "pending",
+    "SEPA Direct Debit / Bank Transfer": "pending",
+    "PayPal": "pending",
+    "Riverty": "pending",
+    "in3 Business": "pending",
+    "Billie": "pending",
+    "Bancontact": "pending",
+    "Satispay": "pending",
+    "PostePay": "pending",
+    "BANCOMAT Pay": "pending",
+    "Bacs": "pending",
+    "paysafecard": "pending",
+    "TWINT": "pending",
+    "Gift cards": "pending",
+    "Alma": "pending",
+    "Edenred": "pending",
+    "Belfius": "pending",
+    "KBC": "pending",
+    "EPS": "pending",
+    "Przelewy24": "pending",
+    "BLIK": "pending",
+    "Trustly": "pending",
+    "Swish": "pending",
+    "Pay by Bank": "pending",
+    "iDEAL in3": "processing",
+    "Google Pay": "processing",
+    "ApplePay (portal)": "pending",
+    "ApplePay": "pending"
   }
 }
