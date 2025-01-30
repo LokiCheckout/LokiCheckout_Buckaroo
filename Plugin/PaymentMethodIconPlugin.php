@@ -7,11 +7,6 @@ use Yireo\LokiCheckout\ViewModel\PaymentMethodIcon;
 
 class PaymentMethodIconPlugin
 {
-    public function __construct(
-        private ComponentRegistrar $componentRegistrar
-    ) {
-    }
-
     public function afterGetIcon(
         PaymentMethodIcon $paymentMethodIcon,
         string $result,
@@ -22,16 +17,15 @@ class PaymentMethodIconPlugin
             return $result;
         };
 
-        if (empty($match)) {
+        $iconFilePath = $paymentMethodIcon->getIconPath(
+            'Buckaroo_Magento2',
+            'view/base/web/images/svg/'.$match[1].'.svg'
+        );
+
+        if (false === $iconFilePath) {
             return $result;
         }
 
-        $modulePath = $this->componentRegistrar->getPath(ComponentRegistrar::MODULE, 'Buckaroo_Magento2');
-        $iconFilePath = $modulePath . '/view/base/web/images/svg/'.$match[1].'.svg';
-        if (false === file_exists($iconFilePath)) {
-            return $result;
-        }
-
-        return file_get_contents($iconFilePath);
+        return $paymentMethodIcon->getIconOutput($iconFilePath, 'svg');
     }
 }
