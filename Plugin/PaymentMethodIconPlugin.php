@@ -18,7 +18,7 @@ class PaymentMethodIconPlugin
         string $paymentMethodCode
     ): string {
 
-        if (false === preg_match('/^buckaroo_magento2_(.*)$/', $paymentMethodCode, $match)) {
+        if (!preg_match('/^buckaroo_magento2_(.*)$/', $paymentMethodCode, $match)) {
             return $result;
         };
 
