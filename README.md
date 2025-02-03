@@ -12,6 +12,7 @@ composer require yireo/magento2-loki-checkout-buckaroo
 
 Next, enable this module:
 ```bash
-bin/magento module:enable Yireo_LokiCheckoutBuckaroo
+bin/magento module:enable Yireo_LokiCheckoutBuckaroo Buckaroo_Magento2
+bin/magento setup:upgrade
 ```
 
