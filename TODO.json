@@ -1,47 +1,170 @@
 {
-  "module": {
-    "Module Setup": "complete",
-    "Payment logos": "complete"
-  },
-  "payment_methods": {
-    "iDEAL": "processing",
-    "Bancontact": "complete",
-    "Bancomat Pay": "complete",
-    "Belfius": "complete",
-    "SOFORT": "complete",
-    "Bank Transfer": "complete",
-    "Trustly": "complete",
-    "EPS": "complete",
-    "Blik": "complete",
-    "KBC/CBC": "complete",
-    "MB WAY": "complete",
-    "Multibanco": "complete",
-    "Cartes Bancaires": "complete",
-    "Visa": "pending",
-    "Visa Debit": "pending",
-    "Mastercard": "pending",
-    "American Express": "pending",
-    "SEPA Direct Debit": "pending",
-    "SEPA Credit Transfer": "pending",
-    "PostePay": "pending",
-    "Nexi": "pending",
-    "Giftcard": "complete",
-    "Tegoedvoucher": "complete",
-    "Personalized gift cards": "complete",
-    "Riverty": "complete",
-    "Klarna": "complete",
-    "Klarna Pay Later": "complete",
-    "Klarna Pay Now": "complete",
-    "PayPal": "complete",
-    "Payment Link / Admin Payment": "complete",
-    "Payconiq": "complete",
-    "Apple Pay": "complete",
-    "Instant Refunds": "complete",
-    "PayperEmail": "complete",
-    "Przelewy24": "complete",
-    "iDIN": "complete",
-    "WeChatPay": "complete",
-    "Alipay": "complete",
-    "goSettle": "complete"
-  }
+    "module": {
+        "Module Setup": {
+            "version": "1.0",
+            "status": "complete"
+        },
+        "Payment logos": {
+            "version": "1.0",
+            "status": "complete"
+        }
+    },
+    "payment_methods": {
+        "iDEAL": {
+            "version": "1.0",
+            "status": "processing"
+        },
+        "Bancontact": {
+            "version": "1.0",
+            "status": "complete"
+        },
+        "Bancomat Pay": {
+            "version": "1.0",
+            "status": "complete"
+        },
+        "Belfius": {
+            "version": "1.0",
+            "status": "complete"
+        },
+        "SOFORT": {
+            "version": "1.0",
+            "status": "complete"
+        },
+        "Bank Transfer": {
+            "version": "1.0",
+            "status": "complete"
+        },
+        "Trustly": {
+            "version": "1.0",
+            "status": "complete"
+        },
+        "EPS": {
+            "version": "1.0",
+            "status": "complete"
+        },
+        "Blik": {
+            "version": "1.0",
+            "status": "complete"
+        },
+        "KBC\/CBC": {
+            "version": "1.0",
+            "status": "complete"
+        },
+        "MB WAY": {
+            "version": "1.0",
+            "status": "complete"
+        },
+        "Multibanco": {
+            "version": "1.0",
+            "status": "complete"
+        },
+        "Cartes Bancaires": {
+            "version": "1.0",
+            "status": "complete"
+        },
+        "Visa": {
+            "version": "1.0",
+            "status": "pending"
+        },
+        "Visa Debit": {
+            "version": "1.0",
+            "status": "pending"
+        },
+        "Mastercard": {
+            "version": "1.0",
+            "status": "pending"
+        },
+        "American Express": {
+            "version": "1.0",
+            "status": "pending"
+        },
+        "SEPA Direct Debit": {
+            "version": "1.0",
+            "status": "pending"
+        },
+        "SEPA Credit Transfer": {
+            "version": "1.0",
+            "status": "pending"
+        },
+        "PostePay": {
+            "version": "1.0",
+            "status": "pending"
+        },
+        "Nexi": {
+            "version": "1.0",
+            "status": "pending"
+        },
+        "Giftcard": {
+            "version": "1.0",
+            "status": "complete"
+        },
+        "Tegoedvoucher": {
+            "version": "1.0",
+            "status": "complete"
+        },
+        "Personalized gift cards": {
+            "version": "1.0",
+            "status": "complete"
+        },
+        "Riverty": {
+            "version": "1.0",
+            "status": "complete"
+        },
+        "Klarna": {
+            "version": "1.0",
+            "status": "complete"
+        },
+        "Klarna Pay Later": {
+            "version": "1.0",
+            "status": "complete"
+        },
+        "Klarna Pay Now": {
+            "version": "1.0",
+            "status": "complete"
+        },
+        "PayPal": {
+            "version": "1.0",
+            "status": "complete"
+        },
+        "Payment Link \/ Admin Payment": {
+            "version": "1.0",
+            "status": "complete"
+        },
+        "Payconiq": {
+            "version": "1.0",
+            "status": "complete"
+        },
+        "Apple Pay": {
+            "version": "1.0",
+            "status": "pending"
+        },
+        "Instant Refunds": {
+            "version": "1.0",
+            "status": "complete"
+        },
+        "PayperEmail": {
+            "version": "1.0",
+            "status": "complete"
+        },
+        "Przelewy24": {
+            "version": "1.0",
+            "status": "complete"
+        },
+        "iDIN": {
+            "version": "1.0",
+            "status": "complete"
+        },
+        "WeChatPay": {
+            "version": "1.0",
+            "status": "complete"
+        },
+        "Alipay": {
+            "version": "1.0",
+            "status": "complete"
+        },
+        "goSettle": {
+            "version": "1.0",
+            "status": "complete"
+        }
+    }
 }
