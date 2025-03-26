@@ -1,0 +1,39 @@
+Alipay
+American Express
+Apple Pay
+Bancomat Pay
+Bancontact
+Bank Transfer
+Belfius
+Blik
+Cartes Bancaires
+EPS
+Giftcard
+Instant Refunds
+KBC/CBC
+Klarna
+Klarna Pay Later
+Klarna Pay Now
+MB WAY
+Mastercard
+Multibanco
+Nexi
+PayPal
+Payconiq
+Payment Link / Admin Payment
+PayperEmail
+Personalized gift cards
+PostePay
+Przelewy24
+Riverty
+SEPA Credit Transfer
+SEPA Direct Debit
+SOFORT
+Tegoedvoucher
+Trustly
+Visa
+Visa Debit
+WeChatPay
+goSettle
+iDEAL
+iDIN
