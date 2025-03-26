@@ -1,0 +1,9 @@
+{
+    "modules": [
+        "Buckaroo_Magento2",
+        "Yireo_LokiCheckout",
+        "Yireo_LokiComponents"
+    ],
+    "components": [],
+    "config": []
+}
