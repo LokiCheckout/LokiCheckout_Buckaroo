@@ -2,6 +2,7 @@
     "name": "yireo/magento2-loki-checkout-buckaroo",
     "version": "0.0.1",
     "description": "N/A",
+    "keywords": ["loki-payment"],
     "homepage": "https://loki-checkout.com/",
     "authors": [
         {
