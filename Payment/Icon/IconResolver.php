@@ -1,31 +1,36 @@
 <?php declare(strict_types=1);
 
-namespace Yireo\LokiCheckoutPayNl\Payment\Icon;
+namespace Yireo\LokiCheckoutBuckaroo\Payment\Icon;
 
 use Magento\Framework\Module\Manager as ModuleManager;
-use Paynl\Payment\Model\Config;
 use Yireo\LokiCheckout\Payment\Icon\IconResolverContext;
 use Yireo\LokiCheckout\Payment\Icon\IconResolverInterface;
 
 class IconResolver implements IconResolverInterface
 {
     public function __construct(
-        private Config $config,
         private ModuleManager $moduleManager,
     ) {
     }
 
     public function resolve(IconResolverContext $iconResolverContext): false|string
     {
+        if (false === $this->moduleManager->isEnabled('Buckaroo_Magento2')) {
+            return false;
+        }
+
         $paymentMethodCode = $iconResolverContext->getPaymentMethodCode();
-        if (false === $this->moduleManager->isEnabled('Paynl_Payment')) {
-            return false;
-        }
 
-        if (!preg_match('/^paynl_(.*)$/', $paymentMethodCode)) {
+        if (!preg_match('/^buckaroo_magento2_(.*)$/', $paymentMethodCode, $match)) {
             return false;
-        }
+        };
 
-        return '<img src="'.$this->config->getIconUrl($paymentMethodCode).'" />';
+        $iconFilePath = $iconResolverContext->getIconPath(
+            'Buckaroo_Magento2',
+            'view/base/web/images/svg/'.$match[1].'.svg'
+        );
+
+        return $iconResolverContext->getIconOutput($iconFilePath, 'svg');
+
     }
 }
