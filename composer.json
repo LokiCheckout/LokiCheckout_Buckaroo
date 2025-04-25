@@ -14,7 +14,7 @@
     "require": {
         "magento/framework": "^103.0",
         "buckaroo/magento2": "^1.51",
-        "yireo/magento2-loki-checkout": "~0.0"
+        "yireo/magento2-loki-checkout": "~0.0 | ^1.0"
     },
     "license": "OSL-3.0",
     "autoload": {
