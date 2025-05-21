@@ -1,0 +1,47 @@
+<script>
+    let buckarooHostedFieldsClient;
+
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('LokiCheckoutBuckarooHostedFields', () => ({
+            ...LokiCheckoutComponentType,
+            jwtToken: '',
+            async initHostedFields() {
+                buckarooHostedFieldsClient = new BuckarooHostedFieldsSdk.HFClient(this.jwtToken);
+                buckarooHostedFieldsClient.setLanguage('nl');
+                buckarooHostedFieldsClient.setSupportedServices(['MasterCard', 'Amex']);
+
+                let chnameOptions = {
+                    id: "ccname",
+                    placeHolder: "John Doe",
+                    labelSelector: "#cc-name-label",
+                    baseStyling: styling,
+                    validStyling: validStyling, //optional
+                    invalidStyling: invalidStyling, //optional
+                };
+
+                await buckarooHostedFieldsClient.mountCardHolderName('#' + this.elementId + "-cc-name-wrapper", options)
+                    .then(function (cardHolderNameField) {
+                        cardHolderNameField.focus();
+                    });
+            },
+            async beforePostNextStep() {
+                await buckarooHostedFieldsClient.startSession(function (event) {
+                    // @todo: See https://docs.buckaroo.io/docs/creditcards-hosted-fields#initialize-hosted-fields
+                    buckarooHostedFieldsClient.handleValidation(
+                        event,
+                        this.elementId + '-cc-name-error',
+                        this.elementId + '-cc-number-error',
+                        this.elementId + '-cc-expiry-error',
+                        this.elementId + '-cc-cvc-error'
+                    );
+                });
+
+
+
+
+                //this.post({
+                //});
+            }
+        }));
+    });
+</script>

@@ -1,0 +1,29 @@
+<?php
+declare(strict_types=1);
+
+use Magento\Framework\View\Element\Template;
+use Yireo\LokiCheckoutBuckaroo\Component\HostedFields\HostedFieldsViewModel;
+use Yireo\LokiComponents\Util\Block\CssClass;
+
+/** @var HostedFieldsViewModel $viewModel */
+/** @var Template $block */
+/** @var CssClass $css */
+?>
+<div class="<?= $css('') ?>">
+    <div>
+        <div id="<?= $viewModel->getElementId() ?>-cc-name-wrapper"></div>
+        <div id="<?= $viewModel->getElementId() ?>-cc-name-error"></div>
+    </div>
+    <div>
+        <div id="<?= $viewModel->getElementId() ?>-cc-number-wrapper"></div>
+        <div id="<?= $viewModel->getElementId() ?>-cc-number-error"></div>
+    </div>
+    <div>
+        <div id="<?= $viewModel->getElementId() ?>-cc-expiry-wrapper"></div>
+        <div id="<?= $viewModel->getElementId() ?>-cc-expiry-error"></div>
+    </div>
+    <div>
+        <div id="<?= $viewModel->getElementId() ?>-cc-cvc-wrapper"></div>
+        <div id="<?= $viewModel->getElementId() ?>-cc-cvc-error"></div>
+    </div>
+</div>

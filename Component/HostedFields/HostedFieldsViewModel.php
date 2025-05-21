@@ -1,0 +1,40 @@
+<?php declare(strict_types=1);
+
+namespace Yireo\LokiCheckoutBuckaroo\Component\HostedFields;
+
+use Yireo\LokiCheckout\Component\Base\Generic\CheckoutViewModel;
+
+/**
+ * @method HostedFieldsContext getContext()
+ */
+class HostedFieldsViewModel extends CheckoutViewModel
+{
+    public function getJsComponentName(): ?string
+    {
+        return 'LokiCheckoutBuckarooHostedFields';
+    }
+
+    public function isAllowRendering(): bool
+    {
+        $paymentMethod = (string)$this->getBlock()->getMethod();
+        return $paymentMethod === 'buckaroo_magento2_creditcards';
+    }
+
+    public function isValid(): bool
+    {
+        return false;
+    }
+
+    public function isDisabled(): bool
+    {
+        return true;
+    }
+
+    public function getJsData(): array
+    {
+        return [
+            ...parent::getJsData(),
+            'jwtToken' => '', // @todo: See \Buckaroo\Magento2\Controller\CredentialsChecker\GetToken
+        ];
+    }
+}
