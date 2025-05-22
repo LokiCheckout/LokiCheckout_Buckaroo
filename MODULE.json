@@ -3,9 +3,12 @@
         "Buckaroo_Magento2",
         "Magento_Store",
         "Yireo_LokiCheckout",
-        "Yireo_LokiComponents"
+        "Yireo_LokiComponents",
+        "Yireo_IntegrationTestHelper"
     ],
-    "components": [],
+    "components": [
+        "loki-checkout.payment.payment-methods.buckaroo_magento2_creditcards.form"
+    ],
     "config": [],
     "tests": {
         "unit": 0,
