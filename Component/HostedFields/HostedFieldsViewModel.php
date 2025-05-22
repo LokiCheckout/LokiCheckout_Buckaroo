@@ -14,12 +14,6 @@ class HostedFieldsViewModel extends CheckoutViewModel
         return 'LokiCheckoutBuckarooHostedFields';
     }
 
-    public function isAllowRendering(): bool
-    {
-        $paymentMethod = (string)$this->getBlock()->getMethod();
-        return $paymentMethod === 'buckaroo_magento2_creditcards';
-    }
-
     public function isValid(): bool
     {
         return false;
@@ -34,7 +28,7 @@ class HostedFieldsViewModel extends CheckoutViewModel
     {
         return [
             ...parent::getJsData(),
-            'jwtToken' => '', // @todo: See \Buckaroo\Magento2\Controller\CredentialsChecker\GetToken
+            'jwtToken' => $this->getContext()->getTokenService()->getToken(),
         ];
     }
 }

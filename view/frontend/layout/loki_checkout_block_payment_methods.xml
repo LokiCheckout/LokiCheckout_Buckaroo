@@ -2,7 +2,7 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:View/Layout:etc/page_configuration.xsd">
     <body>
         <block
-            name="loki-checkout.payment.payment-methods.HostedFields.form"
+            name="loki-checkout.payment.payment-methods.buckaroo_magento2_creditcards.form"
             template="Yireo_LokiCheckoutBuckaroo::checkout/payment/method/hosted-fields.phtml"/>
     </body>
 </page>

@@ -8,6 +8,6 @@
 
     <component
         name="loki-checkout.payment.payment-methods.buckaroo_magento2_creditcards.form"
-        group="buckaroo-payment-components"
+        group="buckaroo-hosted-fields"
     />
 </components>

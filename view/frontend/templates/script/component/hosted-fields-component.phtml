@@ -10,19 +10,27 @@
                 buckarooHostedFieldsClient.setLanguage('nl');
                 buckarooHostedFieldsClient.setSupportedServices(['MasterCard', 'Amex']);
 
-                let chnameOptions = {
-                    id: "ccname",
+                let options = {
+                    id: this.elementId + "-cc-number",
                     placeHolder: "John Doe",
                     labelSelector: "#cc-name-label",
-                    baseStyling: styling,
-                    validStyling: validStyling, //optional
-                    invalidStyling: invalidStyling, //optional
+                    baseStyling: {
+                        width: "100",
+                        background: "inherit",
+                        placeholderColor:'grey'
+                    },
+                    validStyling: {},
+                    invalidStyling: {},
                 };
 
-                await buckarooHostedFieldsClient.mountCardHolderName('#' + this.elementId + "-cc-name-wrapper", options)
+                buckarooHostedFieldsClient.mountCardNumber('#' + this.elementId + "-cc-number-wrapper", options);
+                //buckarooHostedFieldsClient.mountCardHolderName('#' + this.elementId + "-cc-name-wrapper", options);
+                /*await buckarooHostedFieldsClient.mountCardHolderName('#' + this.elementId + "-cc-name-wrapper", options)
                     .then(function (cardHolderNameField) {
                         cardHolderNameField.focus();
-                    });
+                    });*/
+
+                buckarooHostedFieldsClient.startSession();
             },
             async beforePostNextStep() {
                 await buckarooHostedFieldsClient.startSession(function (event) {
