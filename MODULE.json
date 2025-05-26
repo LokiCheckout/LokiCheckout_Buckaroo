@@ -4,6 +4,7 @@
         "Magento_Store",
         "Yireo_LokiCheckout",
         "Yireo_LokiComponents",
+        "Yireo_LokiFieldComponents",
         "Yireo_IntegrationTestHelper"
     ],
     "components": [
