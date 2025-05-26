@@ -30,6 +30,13 @@ class IconResolver implements IconResolverInterface
             'view/base/web/images/svg/'.$match[1].'.svg'
         );
 
+        if (false === $iconFilePath) {
+            $iconFilePath = $iconResolverContext->getIconPath(
+                'Buckaroo_Magento2',
+                'view/frontend/web/images/svg/'.$match[1].'.svg'
+            );
+        }
+
         return $iconResolverContext->getIconOutput($iconFilePath, 'svg');
 
     }
