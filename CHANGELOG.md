@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.1] - 26 May 2025
+### Fixed
+- Better support for images
+- Search for view/frontend icons as well
+- Fix issues with redirect to portal
+
 ## [0.0.2] - 25 April 2025
 ### Fixed
 - Allow upgrading to LokiFieldComponents and LokiCheckout 1.0
