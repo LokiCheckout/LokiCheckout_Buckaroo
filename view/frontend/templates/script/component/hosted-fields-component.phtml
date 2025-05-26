@@ -23,6 +23,29 @@
                     invalidStyling: {},
                 };
 
+                await buckarooHostedFieldsClient.startSession(function (event) {
+                    // @todo: See https://docs.buckaroo.io/docs/creditcards-hosted-fields#initialize-hosted-fields
+                    buckarooHostedFieldsClient.handleValidation(
+                        event,
+                        this.elementId + '-cc-name-error',
+                        this.elementId + '-cc-number-error',
+                        this.elementId + '-cc-expiry-error',
+                        this.elementId + '-cc-cvc-error'
+                    );
+                });
+
+                buckarooHostedFieldsClient.mountCardHolderName("#" + this.elementId + "-cc-name-wrapper", {
+                    id: "ccname",
+                    placeHolder: "John Doe",
+                    labelSelector: "#" + this.elementId + "-cc-name-label",
+                    baseStyling: {}
+                }).then(field => {
+                    field.focus();
+                    return field;
+                });
+
+                return;
+
                 buckarooHostedFieldsClient.mountCardNumber('#' + this.elementId + "-cc-number-wrapper", options);
                 //buckarooHostedFieldsClient.mountCardHolderName('#' + this.elementId + "-cc-name-wrapper", options);
                 /*await buckarooHostedFieldsClient.mountCardHolderName('#' + this.elementId + "-cc-name-wrapper", options)
@@ -30,9 +53,9 @@
                         cardHolderNameField.focus();
                     });*/
 
-                buckarooHostedFieldsClient.startSession();
             },
             async beforePostNextStep() {
+                //buckarooHostedFieldsClient.startSession();
                 await buckarooHostedFieldsClient.startSession(function (event) {
                     // @todo: See https://docs.buckaroo.io/docs/creditcards-hosted-fields#initialize-hosted-fields
                     buckarooHostedFieldsClient.handleValidation(
