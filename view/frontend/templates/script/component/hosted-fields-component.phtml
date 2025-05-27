@@ -5,10 +5,11 @@
         Alpine.data('LokiCheckoutBuckarooHostedFields', () => ({
             ...LokiCheckoutComponentType,
             jwtToken: '',
+            allowedIssuers: [],
             async initHostedFields() {
                 buckarooHostedFieldsClient = new BuckarooHostedFieldsSdk.HFClient(this.jwtToken);
                 buckarooHostedFieldsClient.setLanguage('nl');
-                buckarooHostedFieldsClient.setSupportedServices(['MasterCard', 'Amex']);
+                buckarooHostedFieldsClient.setSupportedServices(this.allowedIssuers);
 
                 let options = {
                     id: this.elementId + "-cc-number",

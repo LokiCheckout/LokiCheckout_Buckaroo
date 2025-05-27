@@ -2,6 +2,7 @@
 
 namespace Yireo\LokiCheckoutBuckaroo\Component\HostedFields;
 
+use Magento\Framework\App\Config\ScopeConfigInterface;
 use Yireo\LokiCheckout\Util\Component\StepProvider;
 use Yireo\LokiCheckout\ViewModel\CheckoutState;
 use Yireo\LokiCheckoutBuckaroo\Service\TokenService;
@@ -12,7 +13,8 @@ class HostedFieldsContext implements  ComponentContextInterface
     public function __construct(
         private CheckoutState $checkoutState,
         private StepProvider $stepProvider,
-        private TokenService $tokenService
+        private TokenService $tokenService,
+        private ScopeConfigInterface $scopeConfig
     ) {
     }
 
@@ -29,5 +31,10 @@ class HostedFieldsContext implements  ComponentContextInterface
     public function getTokenService(): TokenService
     {
         return $this->tokenService;
+    }
+
+    public function getScopeConfig(): ScopeConfigInterface
+    {
+        return $this->scopeConfig;
     }
 }
