@@ -12,19 +12,31 @@ use Yireo\LokiComponents\Util\Block\CssClass;
 <div class="<?= $css('') ?>">
     HOSTED FIELDS
     <div>
-        <div id="<?= $viewModel->getElementId() ?>-cc-name-wrapper"></div>
+        <label id="<?= $viewModel->getElementId() ?>-cc-name-label" for="<?= $viewModel->getElementId() ?>-cc-name-wrapper">
+            <?php __('Cardholder Name') ?>
+        </label>
+        <div id="<?= $viewModel->getElementId() ?>-cc-name-wrapper" class="shadow h-12 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></div>
         <div id="<?= $viewModel->getElementId() ?>-cc-name-error"></div>
     </div>
     <div>
-        <div id="<?= $viewModel->getElementId() ?>-cc-number-wrapper"></div>
+        <label id="<?= $viewModel->getElementId() ?>-cc-number-label" for="<?= $viewModel->getElementId() ?>-cc-number-wrapper">
+            <?php __('Card Number') ?>
+        </label>
+        <div id="<?= $viewModel->getElementId() ?>-cc-number-wrapper" class="shadow h-12 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></div>
         <div id="<?= $viewModel->getElementId() ?>-cc-number-error"></div>
     </div>
     <div>
-        <div id="<?= $viewModel->getElementId() ?>-cc-expiry-wrapper"></div>
+        <label id="<?= $viewModel->getElementId() ?>-cc-expiry-label" for="<?= $viewModel->getElementId() ?>-cc-expiry-wrapper">
+            <?php __('Expiry Date') ?>
+        </label>
+        <div id="<?= $viewModel->getElementId() ?>-cc-expiry-wrapper" class="shadow h-12 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></div>
         <div id="<?= $viewModel->getElementId() ?>-cc-expiry-error"></div>
     </div>
     <div>
-        <div id="<?= $viewModel->getElementId() ?>-cc-cvc-wrapper"></div>
+        <label id="<?= $viewModel->getElementId() ?>-cc-cvc-label" for="<?= $viewModel->getElementId() ?>-cc-cvc-wrapper">
+            <?php __('CVC') ?>
+        </label>
+        <div id="<?= $viewModel->getElementId() ?>-cc-cvc-wrapper" class="shadow h-12 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></div>
         <div id="<?= $viewModel->getElementId() ?>-cc-cvc-error"></div>
     </div>
 </div>

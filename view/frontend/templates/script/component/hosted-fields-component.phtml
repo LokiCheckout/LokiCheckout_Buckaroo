@@ -5,12 +5,18 @@
         Alpine.data('LokiCheckoutBuckarooHostedFields', () => ({
             ...LokiCheckoutComponentType,
             jwtToken: '',
+            //tokenExpires: 0, @todo: Automatically expire token
             allowedIssuers: [],
             async initHostedFields() {
-                buckarooHostedFieldsClient = new BuckarooHostedFieldsSdk.HFClient(this.jwtToken);
-                buckarooHostedFieldsClient.setLanguage('nl');
-                buckarooHostedFieldsClient.setSupportedServices(this.allowedIssuers);
+                const jwtToken = JSON.parse(JSON.stringify(this.jwtToken));
+                const allowedIssuers = JSON.parse(JSON.stringify(this.allowedIssuers));
+                console.log('Buckaroo initHostedFields', jwtToken, allowedIssuers);
 
+                buckarooHostedFieldsClient = new BuckarooHostedFieldsSdk.HFClient(jwtToken);
+                buckarooHostedFieldsClient.setLanguage('nl');
+                buckarooHostedFieldsClient.setSupportedServices(allowedIssuers);
+
+                /*
                 let options = {
                     id: this.elementId + "-cc-number",
                     placeHolder: "John Doe",
@@ -24,7 +30,18 @@
                     invalidStyling: {},
                 };
 
-                await buckarooHostedFieldsClient.startSession(function (event) {
+                const subtextStyle = {
+                    color: '#757575',
+                    fontWeight: 'bold',
+                };
+
+                 */
+
+                // @todo: window.location.replace(response.RequiredAction.RedirectURL);
+                // @todo: shippingAddress.extension_attributes.tig_housenumber
+                // @todo: shippingAddress.extension_attributes.tig_housenumber_addition
+
+                await buckarooHostedFieldsClient.startSession((event) => {
                     // @todo: See https://docs.buckaroo.io/docs/creditcards-hosted-fields#initialize-hosted-fields
                     buckarooHostedFieldsClient.handleValidation(
                         event,
@@ -33,21 +50,53 @@
                         this.elementId + '-cc-expiry-error',
                         this.elementId + '-cc-cvc-error'
                     );
+                    // this.valid = buckarooHostedFieldsClient.formIsValid();
+                    // buckarooHostedFieldsClient.getService()
                 });
 
-                buckarooHostedFieldsClient.mountCardHolderName("#" + this.elementId + "-cc-name-wrapper", {
+                const cardLogoStyling = {
+                    height: "80%",
+                    position: 'absolute',
+                    border: '1px solid #d6d6d6',
+                    borderRadius: "4px",
+                    opacity: '1',
+                    transition: 'all 0.3s ease',
+                    right: '5px',
+                    backgroundColor: 'inherit'
+                };
+
+                const styling = {
+                    fontSize: "14px",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    fontFamily: 'Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif',
+                    textAlign: 'left',
+                    background: '#fefefe',
+                    color: '#333333',
+                    placeholderColor: '#888888',
+                    borderRadius: '5px',
+                    padding: '8px 10px',
+                    boxShadow: 'none',
+                    transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+                    border: '1px solid #d6d6d6',
+                    cardLogoStyling: cardLogoStyling
+                };
+
+                const mountCardHolderNamePromise =  buckarooHostedFieldsClient.mountCardHolderName("#" + this.elementId + "-cc-name-wrapper", {
                     id: "ccname",
                     placeHolder: "John Doe",
                     labelSelector: "#" + this.elementId + "-cc-name-label",
-                    baseStyling: {}
+                    baseStyling: styling,
                 }).then(field => {
                     field.focus();
                     return field;
                 });
 
-                return;
+                await Promise.all([
+                    mountCardHolderNamePromise,
+                ]);
 
-                buckarooHostedFieldsClient.mountCardNumber('#' + this.elementId + "-cc-number-wrapper", options);
+                //buckarooHostedFieldsClient.mountCardNumber('#' + this.elementId + "-cc-number-wrapper", options);
                 //buckarooHostedFieldsClient.mountCardHolderName('#' + this.elementId + "-cc-name-wrapper", options);
                 /*await buckarooHostedFieldsClient.mountCardHolderName('#' + this.elementId + "-cc-name-wrapper", options)
                     .then(function (cardHolderNameField) {
@@ -56,23 +105,20 @@
 
             },
             async beforePostNextStep() {
-                //buckarooHostedFieldsClient.startSession();
-                await buckarooHostedFieldsClient.startSession(function (event) {
-                    // @todo: See https://docs.buckaroo.io/docs/creditcards-hosted-fields#initialize-hosted-fields
-                    buckarooHostedFieldsClient.handleValidation(
-                        event,
-                        this.elementId + '-cc-name-error',
-                        this.elementId + '-cc-number-error',
-                        this.elementId + '-cc-expiry-error',
-                        this.elementId + '-cc-cvc-error'
-                    );
+                if (!this.valid) {
+                    return;
+                }
+
+                // @todo: Add token expiration
+                /*if (Date.now() > this.tokenExpiresAt) {
+                    this.valid = false;
+                    return;
+                }*/
+
+                const paymentToken = await buckarooHostedFieldsClient.submitSession();
+                this.post({
+                    paymentToken
                 });
-
-
-
-
-                //this.post({
-                //});
             }
         }));
     });

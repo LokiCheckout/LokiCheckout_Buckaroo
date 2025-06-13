@@ -39,10 +39,10 @@ class HostedFieldsViewModel extends CheckoutViewModel
     private function getAllowIssuers(): array
     {
         $defaultIssuers = [
-            'Amex',
+            //'Amex',
             'Mastercard',
-            'Maestro',
-            'Visa'
+            //'Maestro',
+            //'Visa'
         ];
 
         $scopeConfig = $this->getContext()->getScopeConfig();
