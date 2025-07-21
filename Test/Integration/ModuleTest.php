@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Yireo\LokiCheckoutBuckaroo\Test\Integration;
+namespace LokiCheckout\Buckaroo\Test\Integration;
 
 use PHPUnit\Framework\TestCase;
 use Yireo\IntegrationTestHelper\Test\Integration\Traits\AssertModuleIsEnabled;
@@ -16,9 +16,9 @@ class ModuleTest extends TestCase
     public function testIfModuleIsEnabled()
     {
         $requiredModules = [
-            'Yireo_LokiCheckoutBuckaroo',
-            'Yireo_LokiCheckout',
-            'Yireo_LokiComponents',
+            'LokiCheckout_Buckaroo',
+            'LokiCheckout_Core',
+            'Loki_Components',
             'Buckaroo_Magento2',
         ];
         foreach ($requiredModules as $moduleName) {

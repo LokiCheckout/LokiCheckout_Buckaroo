@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace Yireo\LokiCheckoutBuckaroo\Payment\Redirect;
+namespace LokiCheckout\Buckaroo\Payment\Redirect;
 
 use Buckaroo\Magento2\Model\Method\AbstractMethod;
-use Yireo\LokiCheckout\Payment\Redirect\RedirectResolverInterface;
-use Yireo\LokiCheckout\Step\FinalStep\RedirectContext;
+use LokiCheckout\Core\Payment\Redirect\RedirectResolverInterface;
+use LokiCheckout\Core\Step\FinalStep\RedirectContext;
 use Magento\Framework\Registry;
 
 class RedirectResolver implements RedirectResolverInterface

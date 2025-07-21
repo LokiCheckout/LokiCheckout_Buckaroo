@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <type name="Yireo\LokiCheckout\Payment\Icon\IconResolverListing">
+    <type name="LokiCheckout\Core\Payment\Icon\IconResolverListing">
         <arguments>
             <argument name="iconResolvers" xsi:type="array">
-                <item name="buckaroo" xsi:type="object">Yireo\LokiCheckoutBuckaroo\Payment\Icon\IconResolver</item>
+                <item name="buckaroo" xsi:type="object">LokiCheckout\Buckaroo\Payment\Icon\IconResolver</item>
             </argument>
         </arguments>
     </type>
 
-    <type name="Yireo\LokiCheckout\Payment\Redirect\RedirectResolverListing">
+    <type name="LokiCheckout\Core\Payment\Redirect\RedirectResolverListing">
         <arguments>
             <argument name="redirectResolvers" xsi:type="array">
-                <item name="buckaroo" xsi:type="object">Yireo\LokiCheckoutBuckaroo\Payment\Redirect\RedirectResolver</item>
+                <item name="buckaroo" xsi:type="object">LokiCheckout\Buckaroo\Payment\Redirect\RedirectResolver</item>
             </argument>
         </arguments>
     </type>

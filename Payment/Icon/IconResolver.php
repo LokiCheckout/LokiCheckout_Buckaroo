@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace Yireo\LokiCheckoutBuckaroo\Payment\Icon;
+namespace LokiCheckout\Buckaroo\Payment\Icon;
 
 use Magento\Framework\Module\Manager as ModuleManager;
-use Yireo\LokiCheckout\Payment\Icon\IconResolverContext;
-use Yireo\LokiCheckout\Payment\Icon\IconResolverInterface;
-use Yireo\LokiFieldComponents\ViewModel\ImageOutput;
+use LokiCheckout\Core\Payment\Icon\IconResolverContext;
+use LokiCheckout\Core\Payment\Icon\IconResolverInterface;
+use Loki\Field\ViewModel\ImageOutput;
 
 class IconResolver implements IconResolverInterface
 {

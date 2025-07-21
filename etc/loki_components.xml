@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<components xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Yireo_LokiComponents:etc/loki_components.xsd">
+<components xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Loki_Components:etc/loki_components.xsd">
     <group name="buckaroo-hosted-fields"
-           context="Yireo\LokiCheckoutBuckaroo\Component\HostedFields\HostedFieldsContext"
-           viewModel="Yireo\LokiCheckoutBuckaroo\Component\HostedFields\HostedFieldsViewModel"
-           repository="Yireo\LokiCheckoutBuckaroo\Component\HostedFields\HostedFieldsRepository"
+           context="LokiCheckout\Buckaroo\Component\HostedFields\HostedFieldsContext"
+           viewModel="LokiCheckout\Buckaroo\Component\HostedFields\HostedFieldsViewModel"
+           repository="LokiCheckout\Buckaroo\Component\HostedFields\HostedFieldsRepository"
     />
 
     <component

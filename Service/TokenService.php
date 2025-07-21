@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Yireo\LokiCheckoutBuckaroo\Service;
+namespace LokiCheckout\Buckaroo\Service;
 
 use Buckaroo\Magento2\Model\ConfigProvider\Method\Creditcards;
 use Magento\Framework\Encryption\EncryptorInterface;

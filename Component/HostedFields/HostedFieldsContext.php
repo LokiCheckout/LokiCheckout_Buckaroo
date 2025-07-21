@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace Yireo\LokiCheckoutBuckaroo\Component\HostedFields;
+namespace LokiCheckout\Buckaroo\Component\HostedFields;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
-use Yireo\LokiCheckout\Util\Component\StepProvider;
-use Yireo\LokiCheckout\ViewModel\CheckoutState;
-use Yireo\LokiCheckoutBuckaroo\Service\TokenService;
-use Yireo\LokiComponents\Component\ComponentContextInterface;
+use LokiCheckout\Core\Util\Component\StepProvider;
+use LokiCheckout\Core\ViewModel\CheckoutState;
+use LokiCheckout\Buckaroo\Service\TokenService;
+use Loki\Components\Component\ComponentContextInterface;
 
 class HostedFieldsContext implements  ComponentContextInterface
 {

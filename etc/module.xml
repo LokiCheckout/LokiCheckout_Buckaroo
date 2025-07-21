@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
-    <module name="Yireo_LokiCheckoutBuckaroo">
+    <module name="LokiCheckout_Buckaroo">
         <sequence>
             <module name="Buckaroo_Magento2"/>
             <module name="Magento_Store"/>
-            <module name="Yireo_LokiCheckout"/>
-            <module name="Yireo_LokiComponents"/>
-            <module name="Yireo_LokiFieldComponents"/>
+            <module name="LokiCheckout_Core"/>
+            <module name="Loki_Components"/>
+            <module name="Loki_FieldComponents"/>
             <module name="Yireo_IntegrationTestHelper"/>
         </sequence>
     </module>

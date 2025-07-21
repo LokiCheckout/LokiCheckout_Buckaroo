@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Yireo\LokiCheckoutBuckaroo\Component\HostedFields;
+namespace LokiCheckout\Buckaroo\Component\HostedFields;
 
-use Yireo\LokiComponents\Component\ComponentRepository;
+use Loki\Components\Component\ComponentRepository;
 
 /**
  * @method HostedFieldsContext getContext()
