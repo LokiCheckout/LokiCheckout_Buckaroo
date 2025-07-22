@@ -17,7 +17,7 @@
         "buckaroo/magento2": "^1.40",
         "loki/magento2-components": "^1.0",
         "loki/magento2-field-components": "^1.0",
-        "loki-checkout/magento2-core": "~0.0 | ^1.0",
+        "loki-checkout/magento2-core": "^2.0",
         "ext-json": "*",
         "ext-pcre": "*"
     },
