@@ -11,34 +11,35 @@ use Loki\Components\Util\Block\CssClass;
 /** @var Template $block */
 /** @var CssClass $css */
 ?>
-<div class="<?= $css('') ?>">
+<div class="<?= /* @noEscape */
+$css('') ?>">
     HOSTED FIELDS
     <div>
-        <label id="<?= $viewModel->getElementId() ?>-cc-name-label" for="<?= $viewModel->getElementId() ?>-cc-name-wrapper">
+        <label id="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-name-label" for="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-name-wrapper">
             <?php __('Cardholder Name') ?>
         </label>
-        <div id="<?= $viewModel->getElementId() ?>-cc-name-wrapper" class="shadow h-12 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></div>
-        <div id="<?= $viewModel->getElementId() ?>-cc-name-error"></div>
+        <div id="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-name-wrapper" class="shadow h-12 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></div>
+        <div id="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-name-error"></div>
     </div>
     <div>
-        <label id="<?= $viewModel->getElementId() ?>-cc-number-label" for="<?= $viewModel->getElementId() ?>-cc-number-wrapper">
+        <label id="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-number-label" for="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-number-wrapper">
             <?php __('Card Number') ?>
         </label>
-        <div id="<?= $viewModel->getElementId() ?>-cc-number-wrapper" class="shadow h-12 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></div>
-        <div id="<?= $viewModel->getElementId() ?>-cc-number-error"></div>
+        <div id="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-number-wrapper" class="shadow h-12 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></div>
+        <div id="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-number-error"></div>
     </div>
     <div>
-        <label id="<?= $viewModel->getElementId() ?>-cc-expiry-label" for="<?= $viewModel->getElementId() ?>-cc-expiry-wrapper">
+        <label id="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-expiry-label" for="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-expiry-wrapper">
             <?php __('Expiry Date') ?>
         </label>
-        <div id="<?= $viewModel->getElementId() ?>-cc-expiry-wrapper" class="shadow h-12 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></div>
-        <div id="<?= $viewModel->getElementId() ?>-cc-expiry-error"></div>
+        <div id="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-expiry-wrapper" class="shadow h-12 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></div>
+        <div id="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-expiry-error"></div>
     </div>
     <div>
-        <label id="<?= $viewModel->getElementId() ?>-cc-cvc-label" for="<?= $viewModel->getElementId() ?>-cc-cvc-wrapper">
+        <label id="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-cvc-label" for="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-cvc-wrapper">
             <?php __('CVC') ?>
         </label>
-        <div id="<?= $viewModel->getElementId() ?>-cc-cvc-wrapper" class="shadow h-12 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></div>
-        <div id="<?= $viewModel->getElementId() ?>-cc-cvc-error"></div>
+        <div id="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-cvc-wrapper" class="shadow h-12 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></div>
+        <div id="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-cvc-error"></div>
     </div>
 </div>
