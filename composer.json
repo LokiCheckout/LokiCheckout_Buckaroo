@@ -16,6 +16,7 @@
         "magento/module-store": "^101.0",
         "buckaroo/magento2": "^1.40",
         "loki/magento2-components": "^2.0",
+        "loki/magento2-css-utils": "^1.0",
         "loki-checkout/magento2-core": "^2.0",
         "ext-json": "*",
         "ext-pcre": "*"
