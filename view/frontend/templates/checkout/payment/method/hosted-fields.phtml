@@ -13,8 +13,7 @@ use Loki\Components\Util\Block\CssClass;
 /** @var Template $block */
 /** @var CssClass $css */
 ?>
-<div class="<?= /* @noEscape */
-$css('') ?>">
+<div class="<?= /* @noEscape */ $css('') ?>">
     HOSTED FIELDS
     <div>
         <label id="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-name-label" for="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-name-wrapper">
