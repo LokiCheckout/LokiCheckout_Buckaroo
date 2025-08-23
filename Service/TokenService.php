@@ -5,6 +5,7 @@ namespace LokiCheckout\Buckaroo\Service;
 use Buckaroo\Magento2\Model\ConfigProvider\Method\Creditcards;
 use Magento\Framework\Encryption\EncryptorInterface;
 use Magento\Framework\HTTP\Client\Curl;
+use Magento\Framework\Module\Manager as ModuleManager;
 use Magento\Store\Api\Data\StoreInterface;
 use Magento\Store\Model\StoreManagerInterface;
 use RuntimeException;
@@ -16,11 +17,16 @@ class TokenService
         private Creditcards $configProviderCreditcard,
         private EncryptorInterface $encryptor,
         private StoreManagerInterface $storeManager,
+        private ModuleManager $moduleManager,
     ) {
     }
 
     public function getToken(): string
     {
+        if (false === $this->moduleManager->isEnabled('Buckaroo_Magento2')) {
+            throw new RuntimeException('Module "Buckaroo_Magento2" is not enabled.');
+        }
+
         $hostedFieldsClientId = $this->getHostedFieldsClientId();
         $hostedFieldsClientSecret = $this->getHostedFieldsClientSecret();
         $issuers = $this->getAllowedIssuers();

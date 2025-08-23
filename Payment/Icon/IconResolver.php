@@ -2,6 +2,7 @@
 
 namespace LokiCheckout\Buckaroo\Payment\Icon;
 
+use Buckaroo\Magento2\Block\Info;
 use Magento\Framework\Module\Manager as ModuleManager;
 use LokiCheckout\Core\Payment\Icon\IconResolverContext;
 use LokiCheckout\Core\Payment\Icon\IconResolverInterface;
@@ -12,7 +13,7 @@ class IconResolver implements IconResolverInterface
     public function __construct(
         private ModuleManager $moduleManager,
         private ImageOutput $imageOutput,
-        private \Buckaroo\Magento2\Block\Info $infoBlock,
+        private Info $infoBlock,
     ) {
     }
 
