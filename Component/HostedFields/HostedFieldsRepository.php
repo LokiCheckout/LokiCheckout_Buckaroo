@@ -20,7 +20,7 @@ class HostedFieldsRepository extends ComponentRepository
             return;
         }
 
-        $additionalInformation = [];
+        $additionalInformation = []; // @todo: Pass through the right information
 
         $quote = $this->getContext()->getCheckoutState()->getQuote();
         $quote->getPayment()->setAdditionalInformation($additionalInformation);
