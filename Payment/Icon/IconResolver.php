@@ -40,6 +40,5 @@ class IconResolver implements IconResolverInterface
         );
 
         return $iconResolverContext->getIconOutput($iconFilePath, 'svg');
-
     }
 }

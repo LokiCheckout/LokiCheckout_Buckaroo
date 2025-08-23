@@ -8,4 +8,16 @@
             </argument>
         </arguments>
     </type>
+
+    <type name="LokiCheckout\Buckaroo\Service\TokenService">
+        <arguments>
+            <argument name="configProviderCreditcard" xsi:type="object">Buckaroo\Magento2\Model\ConfigProvider\Method\Creditcards\Proxy</argument>
+        </arguments>
+    </type>
+
+    <type name="LokiCheckout\Buckaroo\Payment\Icon\IconResolver">
+        <arguments>
+            <argument name="infoBlock" xsi:type="object">Buckaroo\Magento2\Block\Info\Proxy</argument>
+        </arguments>
+    </type>
 </config>
