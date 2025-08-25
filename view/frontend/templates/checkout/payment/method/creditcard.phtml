@@ -24,8 +24,6 @@ $cards = $viewModel->getCards();
 <div class="<?= /* @noEscape */ $css('mt-4') ?>">
     <span class="<?= /* @noScape */ $css('', 'label') ?>">
         <?= __('Select a Credit Card or Debit Card:') ?>
-
-        Value: <?= $viewModel->getValue() ?>
     </span>
     <div>
         <?php foreach ($cards as $card): ?>
