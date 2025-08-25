@@ -10,4 +10,11 @@
         name="loki-checkout.payment.payment-methods.buckaroo_magento2_creditcards.form"
         group="buckaroo-hosted-fields"
     />
+
+    <component
+        name="loki-checkout.payment.payment-methods.buckaroo_magento2_creditcard.form"
+        context="LokiCheckout\Buckaroo\Component\Creditcard\CreditcardContext"
+        viewModel="LokiCheckout\Buckaroo\Component\Creditcard\CreditcardViewModel"
+        repository="LokiCheckout\Buckaroo\Component\Creditcard\CreditcardRepository"
+    />
 </components>

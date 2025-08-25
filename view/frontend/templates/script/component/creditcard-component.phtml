@@ -1,0 +1,22 @@
+<?php
+declare(strict_types=1);
+
+use Magento\Framework\View\Element\Template;
+
+/** @var Template $block */
+?>
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('LokiCheckoutBuckarooCreditcard', () => ({
+            ...LokiCheckoutComponentType,
+            selectCard(event) {
+                const card = event.target.getAttribute('name');
+                this.post(card);
+            },
+            cardChecked() {
+                const card = this.$element.getAttribute('name');
+                return card === this.value;
+            }
+        }));
+    });
+</script>
