@@ -15,6 +15,15 @@ use Magento\Framework\View\Element\Template;
             //tokenExpires: 0, @todo: Automatically expire token
             allowedIssuers: [],
             async initHostedFields() {
+                var script = document.createElement('script');
+                script.src = 'https://hostedfields-externalapi.prod-pci.buckaroo.io/v1/sdk';
+                script.onload = () => {
+                    this.renderHostedFields();
+                };
+
+                document.head.append(script);
+            },
+            async renderHostedFields() {
                 const jwtToken = JSON.parse(JSON.stringify(this.jwtToken));
                 const allowedIssuers = JSON.parse(JSON.stringify(this.allowedIssuers));
                 console.log('Buckaroo initHostedFields', jwtToken, allowedIssuers);

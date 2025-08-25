@@ -1,10 +1,6 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:View/Layout:etc/page_configuration.xsd">
     <body>
-        <referenceContainer name="before.body.end">
-            <block template="LokiCheckout_Buckaroo::script/hosted-fields-loader.phtml"/>
-        </referenceContainer>
-
         <referenceContainer name="loki-components">
             <block template="LokiCheckout_Buckaroo::script/component/creditcard-component.phtml"/>
             <block template="LokiCheckout_Buckaroo::script/component/hosted-fields-component.phtml"/>
