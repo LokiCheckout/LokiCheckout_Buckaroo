@@ -2,34 +2,14 @@
 
 namespace LokiCheckout\Buckaroo\Component\Afterpay;
 
+use Loki\Field\Component\Base\Field\FieldViewModel;
 use LokiCheckout\Core\Component\Base\Generic\CheckoutContext;
-use LokiCheckout\Core\Component\Base\Generic\CheckoutViewModel;
 
 /**
  * @method CheckoutContext getContext()
  */
-class AfterpayViewModel extends CheckoutViewModel
+class AfterpayViewModel extends FieldViewModel
 {
-    public function getJsComponentName(): ?string
-    {
-        return 'LokiCheckoutBuckarooAfterpay';
-    }
-
-    public function getCustomerDob(): string
-    {
-        return (string)$this->getProperty('customer_Dob', '');
-    }
-
-    public function getCustomerIban(): string
-    {
-        return (string)$this->getProperty('customer_iban', '');
-    }
-
-    public function getTermsCondition(): int
-    {
-        return (int)$this->getProperty('termsCondition', 0);
-    }
-
     public function getTermsConditionsText(): string
     {
         return (string)$this->getContext()->getScopeConfig()->getValue('loki_checkout/buckaroo/afterpay_terms');
@@ -55,13 +35,20 @@ class AfterpayViewModel extends CheckoutViewModel
         return (string)$this->getContext()->getScopeConfig()->getValue('loki_checkout/buckaroo/afterpay_cookie_statement_url');
     }
 
-    private function getProperty(string $propertyName, mixed $defaultValue = null): mixed
+    public function getFieldLabel(): string
     {
-        $additionalInformation = $this->getValue();
-        if (array_key_exists($propertyName, $additionalInformation)) {
-            return $additionalInformation[$propertyName];
+        if (str_ends_with($this->getComponentName(), '.terms')) {
+            return (string)__('Terms and Conditions');
         }
 
-        return $defaultValue;
+        if (str_ends_with($this->getComponentName(), '.iban')) {
+            return (string)__('Bank Account Number:');
+        }
+
+        if (str_ends_with($this->getComponentName(), '.dob')) {
+            return (string)__('Date of Birth:');
+        }
+
+        return '';
     }
 }

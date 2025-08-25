@@ -3,13 +3,21 @@
     <group name="buckaroo-hosted-fields"
            context="LokiCheckout\Buckaroo\Component\HostedFields\HostedFieldsContext"
            viewModel="LokiCheckout\Buckaroo\Component\HostedFields\HostedFieldsViewModel"
-           repository="LokiCheckout\Buckaroo\Component\HostedFields\HostedFieldsRepository"
-    />
+           repository="LokiCheckout\Buckaroo\Component\HostedFields\HostedFieldsRepository">
+        <target name="loki-checkout-buckaroo.sidebar.preview.payment_details.additional"/>
+    </group>
 
     <component
         name="loki-checkout.payment.payment-methods.buckaroo_magento2_creditcards.form"
         group="buckaroo-hosted-fields"
     />
+
+    <group name="buckaroo-afterpay-fields"
+           context="LokiCheckout\Core\Component\Base\Generic\CheckoutContext"
+           viewModel="LokiCheckout\Buckaroo\Component\Afterpay\AfterpayViewModel"
+           repository="LokiCheckout\Buckaroo\Component\Afterpay\AfterpayRepository">
+        <target name="loki-checkout-buckaroo.sidebar.preview.payment_details.additional"/>
+    </group>
 
     <component
         name="loki-checkout.payment.payment-methods.buckaroo_magento2_creditcard.form"
@@ -19,20 +27,38 @@
     />
 
     <component
-        name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay.form"
-        group="checkout"
-        viewModel="LokiCheckout\Buckaroo\Component\Afterpay\AfterpayViewModel"
-        repository="LokiCheckout\Buckaroo\Component\Afterpay\AfterpayRepository"
+        name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay.form.dob"
+        group="buckaroo-afterpay-fields"
     >
-        <target name="loki-checkout-buckaroo.sidebar.preview.payment_details.additional"/>
     </component>
 
     <component
-        name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay2.form"
-        group="checkout"
-        viewModel="LokiCheckout\Buckaroo\Component\Afterpay\AfterpayViewModel"
-        repository="LokiCheckout\Buckaroo\Component\Afterpay\AfterpayRepository"
+        name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay.form.iban"
+        group="buckaroo-afterpay-fields"
     >
-        <target name="loki-checkout-buckaroo.sidebar.preview.payment_details.additional"/>
+    </component>
+
+    <component
+        name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay.form.terms"
+        group="buckaroo-afterpay-fields"
+    >
+    </component>
+
+    <component
+        name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay2.form.dob"
+        group="buckaroo-afterpay-fields"
+    >
+    </component>
+
+    <component
+        name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay2.form.iban"
+        group="buckaroo-afterpay-fields"
+    >
+    </component>
+
+    <component
+        name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay2.form.terms"
+        group="buckaroo-afterpay-fields"
+    >
     </component>
 </components>

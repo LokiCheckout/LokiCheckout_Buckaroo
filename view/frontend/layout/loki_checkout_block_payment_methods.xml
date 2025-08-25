@@ -7,11 +7,61 @@
 
         <block
             name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay.form"
-            template="LokiCheckout_Buckaroo::checkout/payment/method/afterpay.phtml"/>
+            template="LokiCheckout_Buckaroo::checkout/payment/method/afterpay2.phtml">
+            <block
+                name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay.form.dob" as="dob"
+                template="Loki_FieldComponents::form/field.phtml">
+                <arguments>
+                    <argument name="is_required" xsi:type="boolean">true</argument>
+                </arguments>
+            </block>
+
+            <block
+                name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay.form.iban" as="iban"
+                template="Loki_FieldComponents::form/field.phtml">
+                <arguments>
+                    <argument name="is_required" xsi:type="boolean">true</argument>
+                </arguments>
+            </block>
+
+            <block
+                name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay.form.terms" as="terms"
+                template="Loki_FieldComponents::form/field.phtml">
+                <arguments>
+                    <argument name="input_type" xsi:type="string">checkbox</argument>
+                    <argument name="is_required" xsi:type="boolean">true</argument>
+                </arguments>
+            </block>
+        </block>
 
         <block
             name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay2.form"
-            template="LokiCheckout_Buckaroo::checkout/payment/method/afterpay2.phtml"/>
+            template="LokiCheckout_Buckaroo::checkout/payment/method/afterpay2.phtml">
+            <block
+                name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay2.form.dob" as="dob"
+                template="Loki_FieldComponents::form/field.phtml">
+                <arguments>
+                    <argument name="is_required" xsi:type="boolean">true</argument>
+                </arguments>
+            </block>
+
+            <block
+                name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay2.form.iban" as="iban"
+                template="Loki_FieldComponents::form/field.phtml">
+                <arguments>
+                    <argument name="is_required" xsi:type="boolean">true</argument>
+                </arguments>
+            </block>
+
+            <block
+                name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay2.form.terms" as="terms"
+                template="Loki_FieldComponents::form/field.phtml">
+                <arguments>
+                    <argument name="input_type" xsi:type="string">checkbox</argument>
+                    <argument name="is_required" xsi:type="boolean">true</argument>
+                </arguments>
+            </block>
+        </block>
 
         <block
             name="loki-checkout.payment.payment-methods.buckaroo_magento2_creditcards.form"

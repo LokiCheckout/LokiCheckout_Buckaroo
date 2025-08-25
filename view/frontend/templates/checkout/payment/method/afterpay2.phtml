@@ -1,0 +1,12 @@
+<?php
+declare(strict_types=1);
+
+use Magento\Framework\View\Element\Template;
+use Loki\CssUtils\Util\CssClass;
+
+/** @var Template $block */
+/** @var CssClass $css */
+?>
+<div class="<?= /* @noEscape */ $css('') ?>">
+    <?= $block->getChildHtml() ?>
+</div>

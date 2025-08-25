@@ -30,8 +30,8 @@ class AdditionalPaymentDetails implements ArgumentInterface
     private function getAfterpayProperties(): array
     {
         return [
-            'Date of Birth' => $this->getProperty('customer_DoB'),
-            'Bank Account Number' => $this->getProperty('customer_iban'),
+            'Date of Birth:' => $this->getProperty('customer_Dob'),
+            'Bank Account Number:' => $this->getProperty('customer_iban'),
         ];
     }
 

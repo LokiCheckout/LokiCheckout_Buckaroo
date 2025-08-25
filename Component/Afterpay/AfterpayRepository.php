@@ -12,7 +12,19 @@ class AfterpayRepository extends ComponentRepository
 {
     public function getValue(): mixed
     {
-        return $this->getContext()->getQuote()->getPayment()->getAdditionalInformation();
+        if (str_ends_with($this->getComponentName(), '.terms')) {
+            return (int)$this->getProperty('termsCondition', 0);
+        }
+
+        if (str_ends_with($this->getComponentName(), '.iban')) {
+            return (string)$this->getProperty('customer_iban', '');
+        }
+
+        if (str_ends_with($this->getComponentName(), '.dob')) {
+            return (string)$this->getProperty('customer_Dob', '');
+        }
+
+        return '';
     }
 
     public function saveValue(mixed $value): void
@@ -35,13 +47,28 @@ class AfterpayRepository extends ComponentRepository
         }
     }
 
+    private function getProperty(string $propertyName, mixed $defaultValue = null): mixed
+    {
+        $additionalInformation = $this->getAdditionalPaymentInformation();
+        if (array_key_exists($propertyName, $additionalInformation)) {
+            return $additionalInformation[$propertyName];
+        }
+
+        return $defaultValue;
+    }
+
     private function saveProperty(string $propertyName, mixed $propertyValue): void
     {
         $quote = $this->getContext()->getCheckoutState()->getQuote();
-        $additionalInformation = $quote->getPayment()->getAdditionalInformation();
+        $additionalInformation = $this->getAdditionalPaymentInformation();
         $additionalInformation[$propertyName] = $propertyValue;
 
         $quote->getPayment()->setAdditionalInformation($additionalInformation);
         $this->getContext()->getCheckoutState()->saveQuote($quote);
+    }
+
+    private function getAdditionalPaymentInformation(): array
+    {
+        return $this->getContext()->getCheckoutState()->getQuote()->getPayment()->getAdditionalInformation();
     }
 }
