@@ -15,6 +15,11 @@ class AfterpayViewModel extends FieldViewModel
         return (string)$this->getContext()->getScopeConfig()->getValue('loki_checkout/buckaroo/afterpay_terms');
     }
 
+    public function isRequired(): bool
+    {
+        return true;
+    }
+
     public function getPaymentMethodLabel(): string
     {
         return (string)$this->getContext()->getQuote()->getPayment()->getMethodInstance()->getTitle();
