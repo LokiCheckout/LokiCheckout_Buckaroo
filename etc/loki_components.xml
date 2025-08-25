@@ -28,37 +28,35 @@
 
     <component
         name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay.form.dob"
-        group="buckaroo-afterpay-fields"
-    >
+        group="buckaroo-afterpay-fields">
+        <validator name="dob"/>
     </component>
 
     <component
         name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay.form.iban"
-        group="buckaroo-afterpay-fields"
-    >
+        group="buckaroo-afterpay-fields">
+        <validator name="iban"/>
     </component>
 
     <component
         name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay.form.terms"
         group="buckaroo-afterpay-fields"
-    >
-    </component>
+    />
 
     <component
         name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay2.form.dob"
-        group="buckaroo-afterpay-fields"
-    >
+        group="buckaroo-afterpay-fields">
+        <validator name="dob"/>
     </component>
 
     <component
         name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay2.form.iban"
-        group="buckaroo-afterpay-fields"
-    >
+        group="buckaroo-afterpay-fields">
+        <validator name="iban"/>
     </component>
 
     <component
         name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay2.form.terms"
         group="buckaroo-afterpay-fields"
-    >
-    </component>
+    />
 </components>
