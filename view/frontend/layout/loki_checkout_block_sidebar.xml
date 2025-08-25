@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:View/Layout:etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="loki-checkout.sidebar.preview.payment_details">
+            <block
+                name="loki-checkout-buckaroo.sidebar.preview.payment_details.additional"
+                template="LokiCheckout_Buckaroo::checkout/sidebar/preview/payment_details/additional.phtml"
+            />
+        </referenceBlock>
+    </body>
+</page>

@@ -13,8 +13,26 @@
 
     <component
         name="loki-checkout.payment.payment-methods.buckaroo_magento2_creditcard.form"
-        context="LokiCheckout\Buckaroo\Component\Creditcard\CreditcardContext"
+        group="checkout"
         viewModel="LokiCheckout\Buckaroo\Component\Creditcard\CreditcardViewModel"
         repository="LokiCheckout\Buckaroo\Component\Creditcard\CreditcardRepository"
     />
+
+    <component
+        name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay.form"
+        group="checkout"
+        viewModel="LokiCheckout\Buckaroo\Component\Afterpay\AfterpayViewModel"
+        repository="LokiCheckout\Buckaroo\Component\Afterpay\AfterpayRepository"
+    >
+        <target name="loki-checkout-buckaroo.sidebar.preview.payment_details.additional"/>
+    </component>
+
+    <component
+        name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay2.form"
+        group="checkout"
+        viewModel="LokiCheckout\Buckaroo\Component\Afterpay\AfterpayViewModel"
+        repository="LokiCheckout\Buckaroo\Component\Afterpay\AfterpayRepository"
+    >
+        <target name="loki-checkout-buckaroo.sidebar.preview.payment_details.additional"/>
+    </component>
 </components>

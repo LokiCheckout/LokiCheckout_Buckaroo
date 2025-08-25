@@ -1,0 +1,23 @@
+<?php
+declare(strict_types=1);
+
+use Magento\Framework\View\Element\Template;
+use Loki\Components\Factory\ViewModelFactory;
+use LokiCheckout\Buckaroo\ViewModel\AdditionalPaymentDetails;
+
+/** @var Template $block */
+/** @var ViewModelFactory $viewModelFactory */
+/** @var AdditionalPaymentDetails $additionalPaymentDetails */
+$additionalPaymentDetails = $viewModelFactory->create(AdditionalPaymentDetails::class);
+$details = $additionalPaymentDetails->getAdditionalDetails();
+
+if (empty($details)) {
+    return;
+}
+?>
+<dl>
+    <?php foreach ($details as $detailLabel => $detailValue): ?>
+    <dt><?= /* @noEscape */ __($detailLabel) ?></dt>
+    <dd><?= /* @noEscape */ $detailValue ?></dd>
+    <?php endforeach; ?>
+</dl>

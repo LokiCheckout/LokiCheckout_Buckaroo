@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <loki_checkout>
+            <buckaroo>
+                <afterpay_terms><![CDATA[Je moet minimaal 18+ zijn om deze dienst te gebruiken. Als je op tijd betaalt, voorkom je extra kosten en zorg je dat je in de toekomst nogmaals gebruik kunt maken van de diensten van Achteraf betalen via %1. Door verder te gaan, accepteer je de <a target="_blank" href="%2">Algemene Voorwaarden</a> en bevestig je dat je de <a target="_blank" href="%3">Privacyverklaring</a> en <a target="_blank" href="%4">Cookieverklaring</a> hebt gelezen.]]></afterpay_terms>
+                <afterpay_terms_conditions_url/>
+                <afterpay_privacy_statement_url/>
+                <afterpay_cookie_statement_url/>
+            </buckaroo>
+        </loki_checkout>
+    </default>
+</config>

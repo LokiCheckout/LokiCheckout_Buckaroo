@@ -12,10 +12,6 @@ use Magento\Framework\View\Element\Template;
             selectCard(event) {
                 const card = event.target.getAttribute('name');
                 this.post(card);
-            },
-            cardChecked() {
-                const card = this.$element.getAttribute('name');
-                return card === this.value;
             }
         }));
     });

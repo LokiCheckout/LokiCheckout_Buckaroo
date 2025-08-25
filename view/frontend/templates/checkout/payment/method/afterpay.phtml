@@ -1,0 +1,96 @@
+<?php
+declare(strict_types=1);
+
+/** @version 2.0.0 */
+
+use Loki\Components\Factory\ViewModelFactory;
+use Loki\Field\ViewModel\ImageOutput;
+use LokiCheckout\Buckaroo\Component\Afterpay\AfterpayViewModel;
+use Magento\Framework\Escaper;
+use Magento\Framework\View\Element\Template;
+use Loki\CssUtils\Util\CssClass;
+
+/** @var Escaper $escaper */
+/** @var Template $block */
+/** @var CssClass $css */
+/** @var AfterpayViewModel $viewModel */
+/** @var ViewModelFactory $viewModelFactory */
+/** @var ImageOutput $imageOutput */
+
+?>
+<div class="<?= /* @noEscape */
+$css('grid grid-cols-2 gap-4') ?>">
+    <label
+        for="<?= $escaper->escapeHtml($viewModel->getElementId() . '-customer-dob') ?>"
+        class="<?= /* @noScape */ $css('text-right', 'label') ?>"
+        required
+    >
+        <?= __('Date of Birth:') ?>
+    </label>
+    <div>
+        <input
+            id="<?= $escaper->escapeHtml($viewModel->getElementId() . '-customer-dob') ?>"
+            class="<?= $css('', 'input') ?>"
+            @change="saveCustomerDob"
+            value="<?= $viewModel->getCustomerDob() ?>"
+            type="date"
+            required
+        />
+    </div>
+
+    <label
+        for="<?= $escaper->escapeHtml($viewModel->getElementId() . '-customer-iban') ?>"
+        class="<?= /* @noScape */ $css('text-right', 'label') ?>"
+        required
+    >
+        <?= __('Bank Account Number:') ?>
+    </label>
+    <div>
+        <input
+            id="<?= $escaper->escapeHtml($viewModel->getElementId() . '-customer-iban') ?>"
+            class="<?= $css('', 'input') ?>"
+            @change="saveCustomerIban"
+            value="<?= $viewModel->getCustomerIban() ?>"
+            type="text"
+            required
+        />
+    </div>
+
+    <label
+        for="<?= $escaper->escapeHtml($viewModel->getElementId() . '-terms-conditions') ?>"
+        class="<?= /* @noScape */ $css('text-right', 'label') ?>"
+        required
+    >
+        <?= __('Terms and Conditions:') ?>
+    </label>
+    <div class="<?= /* @noScape */ $css('', 'terms-container') ?>">
+        <input
+            id="<?= $escaper->escapeHtml($viewModel->getElementId() . '-terms-conditions') ?>"
+            class="<?= $css('', 'terms-input') ?>"
+            @change="saveTermsCondition"
+            <?php if ($viewModel->getTermsCondition() === 1): ?>checked<?php endif; ?>
+            type="checkbox"
+            required
+        />
+
+        <label
+            for="<?= $escaper->escapeHtml($viewModel->getElementId() . '-terms-conditions') ?>"
+            class="<?= /* @noScape */ $css('inline', 'terms-label') ?>"
+            required
+        >
+            <?= __('The general Terms and Conditions for the Riverty payment method apply. The privacy policy of Riverty can be found here.') ?>
+        </label>
+
+        <div class="<?= /* @noScape */ $css('mt-4', 'terms-text') ?>">
+            <?= __(
+                $viewModel->getTermsConditionsText(),
+                $viewModel->getPaymentMethodLabel(),
+                $viewModel->getTermsAndConditionsUrl(),
+                $viewModel->getPrivacyPolicyUrl(),
+                $viewModel->getCookieStatementUrl(),
+            ) ?>
+        </div>
+    </div>
+
+
+</div>

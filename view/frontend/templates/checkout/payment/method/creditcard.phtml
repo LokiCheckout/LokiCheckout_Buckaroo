@@ -4,7 +4,6 @@ declare(strict_types=1);
 /** @version 2.0.0 */
 
 use Loki\Components\Factory\ViewModelFactory;
-use Loki\Field\ViewModel\ImageOutput;
 use LokiCheckout\Buckaroo\Component\Creditcard\CreditcardViewModel;
 use Magento\Framework\Escaper;
 use Magento\Framework\View\Element\Template;
@@ -15,9 +14,6 @@ use Loki\CssUtils\Util\CssClass;
 /** @var CssClass $css */
 /** @var CreditcardViewModel $viewModel */
 /** @var ViewModelFactory $viewModelFactory */
-/** @var ImageOutput $imageOutput */
-
-$imageOutput = $viewModelFactory->create(ImageOutput::class);
 
 $cards = $viewModel->getCards();
 ?>

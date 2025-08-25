@@ -3,9 +3,10 @@
 namespace LokiCheckout\Buckaroo\Component\Creditcard;
 
 use Loki\Components\Component\ComponentRepository;
+use LokiCheckout\Core\Component\Base\Generic\CheckoutContext;
 
 /**
- * @method CreditcardContext getContext()
+ * @method CheckoutContext getContext()
  */
 class CreditcardRepository extends ComponentRepository
 {

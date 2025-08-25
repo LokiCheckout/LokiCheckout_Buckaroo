@@ -8,7 +8,7 @@ use LokiCheckout\Core\ViewModel\CheckoutState;
 use LokiCheckout\Buckaroo\Service\TokenService;
 use Loki\Components\Component\ComponentContextInterface;
 
-class HostedFieldsContext implements  ComponentContextInterface
+class HostedFieldsContext implements ComponentContextInterface
 {
     public function __construct(
         private CheckoutState $checkoutState,
