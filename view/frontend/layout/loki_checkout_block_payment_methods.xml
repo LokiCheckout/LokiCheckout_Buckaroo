@@ -28,7 +28,7 @@
                 name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay.form.terms" as="terms"
                 template="Loki_FieldComponents::form/field.phtml">
                 <arguments>
-                    <argument name="input_type" xsi:type="string">checkbox</argument>
+                    <argument name="field_type" xsi:type="string">checkbox</argument>
                     <argument name="is_required" xsi:type="boolean">true</argument>
                 </arguments>
             </block>
@@ -57,7 +57,7 @@
                 name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay2.form.terms" as="terms"
                 template="Loki_FieldComponents::form/field.phtml">
                 <arguments>
-                    <argument name="input_type" xsi:type="string">checkbox</argument>
+                    <argument name="field_type" xsi:type="string">checkbox</argument>
                     <argument name="is_required" xsi:type="boolean">true</argument>
                 </arguments>
             </block>
