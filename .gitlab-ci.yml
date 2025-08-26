@@ -56,7 +56,7 @@ magento-integration-tests:
 services:
   - mysql:8.0
   - redis:latest
-  - name: yireo/opensearch
+  - name: yireo/opensearch-dummy
     alias: opensearch
     command: ["./bin/opensearch", "-E", "discovery.type=single-node"]
 
