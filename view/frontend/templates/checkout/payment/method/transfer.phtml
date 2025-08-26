@@ -1,8 +1,6 @@
 <?php
 declare(strict_types=1);
 
-/** @version 2.0.3 */
-
 /** @var Template $block */
 /** @var Escaper $escaper */
 /** @var CssClass $css */
@@ -10,6 +8,8 @@ declare(strict_types=1);
 use Loki\CssUtils\Util\CssClass;
 use Magento\Framework\Escaper;
 use Magento\Framework\View\Element\Template;
+
+/** @version 2.0.3 */
 ?>
 <div class="<?= /* @noEscape */ $css('my-4') ?>">
     <?= $escaper->escapeHtml(__('You will receive an email with further payment instructions when you place your order.')) ?>
