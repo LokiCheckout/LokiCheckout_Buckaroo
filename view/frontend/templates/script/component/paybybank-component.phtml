@@ -1,0 +1,19 @@
+<?php
+declare(strict_types=1);
+
+use Magento\Framework\View\Element\Template;
+
+/** @version 2.0.3 */
+/** @var Template $block */
+?>
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('LokiCheckoutBuckarooPaybybank', () => ({
+            ...LokiCheckoutComponentType,
+            selectIssuer(event) {
+                const issuer = event.target.getAttribute('name');
+                this.post(issuer);
+            }
+        }));
+    });
+</script>

@@ -1,0 +1,48 @@
+<?php
+declare(strict_types=1);
+
+use Loki\Components\Factory\ViewModelFactory;
+use LokiCheckout\Buckaroo\Component\Creditcard\CreditcardViewModel;
+use LokiCheckout\Buckaroo\Component\Paybybank\PaybybankViewModel;
+use Magento\Framework\Escaper;
+use Magento\Framework\View\Element\Template;
+use Loki\CssUtils\Util\CssClass;
+
+/** @version 2.0.3 */
+/** @var Escaper $escaper */
+/** @var Template $block */
+/** @var CssClass $css */
+/** @var PayByBankViewModel $viewModel */
+/** @var ViewModelFactory $viewModelFactory */
+
+$issuers = $viewModel->getIssuers();
+?>
+<div class="<?= /* @noEscape */ $css('mt-4') ?>">
+    <span class="<?= /* @noEscape */ $css('', 'label') ?>">
+        <?= $escaper->escapeHtml(__('Select an issuer:')) ?>
+    </span>
+    <div>
+        <?php foreach ($issuers as $card): ?>
+            <div class="<?= /* @noEscape */ $css('flex gap-3 my-3', 'item') ?>">
+                <div class="<?= /* @noEscape */ $css('w-8', 'item-image') ?>">
+                    <img src="<?= $escaper->escapeUrl($card['img']) ?>""/>
+                </div>
+                <input
+                    id="<?= $escaper->escapeHtml($viewModel->getElementId() . '-' . $card['code']) ?>"
+                    class="<?= /* @noEscape */ $css('', 'item-input') ?>"
+                    @change="selectIssuer"
+                    <?php if ($viewModel->getValue() === $card['code']): ?>checked<?php endif; ?>
+                    type="radio"
+                    required
+                    name="<?= $escaper->escapeHtml($card['code']) ?>"
+                />
+                <label
+                    for="<?= $escaper->escapeHtml($viewModel->getElementId() . '-' . $card['code']) ?>"
+                    class="<?= /* @noEscape */ $css('', 'item-label') ?>"
+                >
+                    <?= $escaper->escapeHtml($card['name']) ?>
+                </label>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</div>

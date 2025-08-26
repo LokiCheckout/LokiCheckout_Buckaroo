@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <components xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Loki_Components:etc/loki_components.xsd">
+    <!-- Individual components -->
     <component
         name="loki-checkout.payment.payment-methods.buckaroo_magento2_creditcard.form.card_type"
         group="checkout"
@@ -9,6 +10,25 @@
         <target name="loki-checkout-buckaroo.sidebar.preview.payment_details.additional"/>
     </component>
 
+    <component
+        name="loki-checkout.payment.payment-methods.buckaroo_magento2_paybybank.form.issuer"
+        group="checkout"
+        viewModel="LokiCheckout\Buckaroo\Component\Paybybank\PaybybankViewModel"
+        repository="LokiCheckout\Buckaroo\Component\Paybybank\PaybybankRepository"
+    >
+        <target name="loki-checkout-buckaroo.sidebar.preview.payment_details.additional"/>
+    </component>
+
+    <component
+        name="loki-checkout.payment.payment-methods.buckaroo_magento2_voucher.form.voucher"
+        group="checkout"
+        viewModel="LokiCheckout\Buckaroo\Component\Voucher\VoucherViewModel"
+        repository="LokiCheckout\Buckaroo\Component\Voucher\VoucherRepository"
+    >
+        <target name="loki-checkout-buckaroo.sidebar.preview.payment_details.additional"/>
+    </component>
+
+    <!-- Hosted Fields components -->
     <group name="buckaroo-hosted-fields"
            context="LokiCheckout\Buckaroo\Component\HostedFields\HostedFieldsContext"
            viewModel="LokiCheckout\Buckaroo\Component\HostedFields\HostedFieldsViewModel"
@@ -23,6 +43,7 @@
         <target name="loki-checkout-buckaroo.sidebar.preview.payment_details.additional"/>
     </component>
 
+    <!-- afterpay components -->
     <group name="buckaroo-afterpay-fields"
            context="LokiCheckout\Core\Component\Base\Generic\CheckoutContext"
            viewModel="LokiCheckout\Buckaroo\Component\Afterpay\AfterpayViewModel"
@@ -64,6 +85,7 @@
         group="buckaroo-afterpay-fields"
     />
 
+    <!-- sepadirectdebit components -->
     <group name="buckaroo-sepadirectdebit-fields"
            context="LokiCheckout\Core\Component\Base\Generic\CheckoutContext"
            viewModel="LokiCheckout\Buckaroo\Component\Sepadirectdebit\SepadirectdebitViewModel"

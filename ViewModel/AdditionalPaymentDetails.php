@@ -32,6 +32,10 @@ class AdditionalPaymentDetails implements ArgumentInterface
             $details = array_merge($details, $this->getCreditcardProperties());
         }
 
+        if ($paymentMethodCode === 'buckaroo_magento2_paybybank') {
+            $details = array_merge($details, $this->getPaybybankProperties());
+        }
+
         return $details;
     }
 
@@ -48,6 +52,13 @@ class AdditionalPaymentDetails implements ArgumentInterface
         return [
             'Bank account holder' => $this->getProperty('customer_account_name'),
             'Bank account number' => $this->getProperty('customer_iban'),
+        ];
+    }
+
+    private function getPaybybankProperties(): array
+    {
+        return [
+            'Issuer' => $this->getProperty('issuer'),
         ];
     }
 

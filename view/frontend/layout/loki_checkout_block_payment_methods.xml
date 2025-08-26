@@ -14,6 +14,28 @@
             template="LokiCheckout_Buckaroo::checkout/payment/method/transfer.phtml"/>
 
         <block
+            name="loki-checkout.payment.payment-methods.buckaroo_magento2_voucher.form"
+            template="LokiCheckout_Core::generic/container.phtml">
+            <block
+                name="loki-checkout.payment.payment-methods.buckaroo_magento2_voucher.form.voucher" as="voucher"
+                template="Loki_FieldComponents::form/field.phtml">
+                <arguments>
+                    <argument name="field_label" xsi:type="string">Voucher code:</argument>
+                    <argument name="is_required" xsi:type="boolean">true</argument>
+                </arguments>
+            </block>
+        </block>
+
+        <block
+            name="loki-checkout.payment.payment-methods.buckaroo_magento2_paybybank.form"
+            template="LokiCheckout_Core::generic/container.phtml">
+            <block
+                name="loki-checkout.payment.payment-methods.buckaroo_magento2_paybybank.form.issuer" as="issuer"
+                template="LokiCheckout_Buckaroo::checkout/payment/method/paybybank.phtml"
+            />
+        </block>
+
+        <block
             name="loki-checkout.payment.payment-methods.buckaroo_magento2_sepadirectdebit.form"
             template="LokiCheckout_Core::generic/container.phtml">
 
