@@ -10,18 +10,22 @@ use LokiCheckout\Core\Component\Base\Generic\CheckoutContext;
  */
 class AfterpayRepository extends ComponentRepository
 {
+    private const PROPERTY_TERMS = 'termsCondition';
+    private const PROPERTY_CUSTOMER_IBAN = 'customer_iban';
+    private const PROPERTY_CUSTOMER_DOB = 'customer_DoB';
+
     public function getValue(): mixed
     {
         if (str_ends_with($this->getComponentName(), '.terms')) {
-            return (int)$this->getProperty('termsCondition', 0);
+            return (int)$this->getProperty(self::PROPERTY_TERMS, 0);
         }
 
         if (str_ends_with($this->getComponentName(), '.iban')) {
-            return (string)$this->getProperty('customer_iban', '');
+            return (string)$this->getProperty(self::PROPERTY_CUSTOMER_IBAN, '');
         }
 
         if (str_ends_with($this->getComponentName(), '.dob')) {
-            return (string)$this->getProperty('customer_Dob', '');
+            return (string)$this->getProperty(self::PROPERTY_CUSTOMER_DOB, '');
         }
 
         return '';
@@ -31,15 +35,15 @@ class AfterpayRepository extends ComponentRepository
     {
         if (str_ends_with($this->getComponentName(), '.terms')) {
             $termsCondition = (int)$value > 0 ? 1 : 0;
-            $this->saveProperty('termsCondition', $termsCondition);
+            $this->saveProperty(self::PROPERTY_TERMS, $termsCondition);
         }
 
         if (str_ends_with($this->getComponentName(), '.iban')) {
-            $this->saveProperty('customer_iban', (string)$value);
+            $this->saveProperty(self::PROPERTY_CUSTOMER_IBAN, (string)$value);
         }
 
         if (str_ends_with($this->getComponentName(), '.dob')) {
-            $this->saveProperty('customer_Dob', (string)$value);
+            $this->saveProperty(self::PROPERTY_CUSTOMER_DOB, (string)$value);
         }
     }
 
