@@ -19,7 +19,7 @@ use Loki\CssUtils\Util\CssClass;
             id="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-name-label"
             class="<?= /* @noEscape */ $css('inline-block mt-2 md:mt-0 mb-1.5', 'label') ?>"
             for="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-name-wrapper">
-            <?= __('Cardholder Name') ?>
+            <?= $escaper->escapeHtml(__('Cardholder Name')) ?>
         </label>
         <div
             id="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-name-wrapper"
@@ -35,7 +35,7 @@ use Loki\CssUtils\Util\CssClass;
             id="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-number-label"
             class="<?= /* @noEscape */ $css('inline-block mt-2 md:mt-0 mb-1.5', 'label') ?>"
             for="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-number-wrapper">
-            <?= __('Card Number') ?>
+            <?= $escaper->escapeHtml(__('Card Number')) ?>
         </label>
         <div
             id="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-number-wrapper"
@@ -51,7 +51,7 @@ use Loki\CssUtils\Util\CssClass;
             id="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-expiry-label"
             class="<?= /* @noEscape */ $css('inline-block mt-2 md:mt-0 mb-1.5', 'label') ?>"
             for="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-expiry-wrapper">
-            <?= __('Expiry Date') ?>
+            <?= $escaper->escapeHtml(__('Expiry Date')) ?>
         </label>
         <div
             id="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-expiry-wrapper"
@@ -67,7 +67,7 @@ use Loki\CssUtils\Util\CssClass;
             id="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-cvc-label"
             class="<?= /* @noEscape */ $css('inline-block mt-2 md:mt-0 mb-1.5', 'label') ?>"
             for="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-cvc-wrapper">
-            <?= __('CVC') ?>
+            <?= $escaper->escapeHtml(__('CVC')) ?>
         </label>
         <div
             id="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-cvc-wrapper"
