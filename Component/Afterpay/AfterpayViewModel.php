@@ -2,34 +2,19 @@
 
 namespace LokiCheckout\Buckaroo\Component\Afterpay;
 
-use Loki\Field\Component\Base\Field\FieldViewModel;
 use LokiCheckout\Core\Component\Base\Generic\CheckoutContext;
+use LokiCheckout\Core\Component\Base\Payment\AdditionalInformation\AdditionalInformationRepository;
+use LokiCheckout\Core\Component\Base\Payment\AdditionalInformation\AdditionalInformationViewModel;
 
 /**
  * @method CheckoutContext getContext()
+ * @method AdditionalInformationRepository getRepository()
  */
-class AfterpayViewModel extends FieldViewModel
+class AfterpayViewModel extends AdditionalInformationViewModel
 {
     public function isRequired(): bool
     {
         return true;
-    }
-
-    public function getFieldLabel(): string
-    {
-        if (str_ends_with($this->getComponentName(), '.terms')) {
-            return (string)__('Terms and Conditions:');
-        }
-
-        if (str_ends_with($this->getComponentName(), '.iban')) {
-            return (string)__('Bank Account Number:');
-        }
-
-        if (str_ends_with($this->getComponentName(), '.dob')) {
-            return (string)__('Date of Birth:');
-        }
-
-        return '';
     }
 
     public function getMax(): string
@@ -43,7 +28,7 @@ class AfterpayViewModel extends FieldViewModel
 
     public function getInputLabel(): string
     {
-        if (str_ends_with($this->getComponentName(), '.terms')) {
+        if ($this->getRepository()->getPropertyName() === 'termsCondition') {
             return (string)__(
                 'The general Terms and Conditions for the Riverty payment method apply. The privacy policy of Riverty can be found here.'
             );
@@ -54,7 +39,7 @@ class AfterpayViewModel extends FieldViewModel
 
     public function getComment(): string
     {
-        if (str_ends_with($this->getComponentName(), '.terms')) {
+        if ($this->getRepository()->getPropertyName() === 'termsCondition') {
             $text = $this->getContext()->getScopeConfig()->getValue(
                 'loki_checkout/buckaroo/afterpay_terms'
             );

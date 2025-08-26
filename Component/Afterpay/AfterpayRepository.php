@@ -2,73 +2,32 @@
 
 namespace LokiCheckout\Buckaroo\Component\Afterpay;
 
-use Loki\Components\Component\ComponentRepository;
 use LokiCheckout\Core\Component\Base\Generic\CheckoutContext;
+use LokiCheckout\Core\Component\Base\Payment\AdditionalInformation\AdditionalInformationRepository;
 
 /**
  * @method CheckoutContext getContext()
  */
-class AfterpayRepository extends ComponentRepository
+class AfterpayRepository extends AdditionalInformationRepository
 {
-    private const PROPERTY_TERMS = 'termsCondition';
-    private const PROPERTY_CUSTOMER_IBAN = 'customer_iban';
-    private const PROPERTY_CUSTOMER_DOB = 'customer_DoB';
-
     public function getValue(): mixed
     {
-        if (str_ends_with($this->getComponentName(), '.terms')) {
-            return (int)$this->getProperty(self::PROPERTY_TERMS, 0);
+        $defaultValue = '';
+        if ($this->getPropertyName() === 'termsCondition') {
+            $defaultValue = 0;
         }
 
-        if (str_ends_with($this->getComponentName(), '.iban')) {
-            return (string)$this->getProperty(self::PROPERTY_CUSTOMER_IBAN, '');
-        }
-
-        if (str_ends_with($this->getComponentName(), '.dob')) {
-            return (string)$this->getProperty(self::PROPERTY_CUSTOMER_DOB, '');
-        }
-
-        return '';
+        return $this->getPropertyValue($defaultValue);
     }
 
     public function saveValue(mixed $value): void
     {
-        if (str_ends_with($this->getComponentName(), '.terms')) {
-            $termsCondition = (int)$value > 0 ? 1 : 0;
-            $this->saveProperty(self::PROPERTY_TERMS, $termsCondition);
+        if ($this->getPropertyName() === 'termsCondition') {
+            $value = (int)$value > 0 ? 1 : 0;
+        } else {
+            $value = (string)$value;
         }
 
-        if (str_ends_with($this->getComponentName(), '.iban')) {
-            $this->saveProperty(self::PROPERTY_CUSTOMER_IBAN, (string)$value);
-        }
-
-        if (str_ends_with($this->getComponentName(), '.dob')) {
-            $this->saveProperty(self::PROPERTY_CUSTOMER_DOB, (string)$value);
-        }
-    }
-
-    private function getProperty(string $propertyName, mixed $defaultValue = null): mixed
-    {
-        $additionalInformation = $this->getAdditionalPaymentInformation();
-        if (array_key_exists($propertyName, $additionalInformation)) {
-            return $additionalInformation[$propertyName];
-        }
-
-        return $defaultValue;
-    }
-
-    private function saveProperty(string $propertyName, mixed $propertyValue): void
-    {
-        $quote = $this->getContext()->getCheckoutState()->getQuote();
-        $additionalInformation = $this->getAdditionalPaymentInformation();
-        $additionalInformation[$propertyName] = $propertyValue;
-
-        $quote->getPayment()->setAdditionalInformation($additionalInformation);
-        $this->getContext()->getCheckoutState()->saveQuote($quote);
-    }
-
-    private function getAdditionalPaymentInformation(): array
-    {
-        return $this->getContext()->getCheckoutState()->getQuote()->getPayment()->getAdditionalInformation();
+        $this->saveProperty($value);
     }
 }

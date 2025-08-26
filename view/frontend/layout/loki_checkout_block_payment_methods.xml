@@ -3,15 +3,54 @@
     <body>
         <block
             name="loki-checkout.payment.payment-methods.buckaroo_magento2_creditcard.form"
-            template="LokiCheckout_Buckaroo::checkout/payment/method/creditcard.phtml"/>
+            template="LokiCheckout_Core::generic/container.phtml">
+            <block
+                name="loki-checkout.payment.payment-methods.buckaroo_magento2_creditcard.form.card_type"
+                template="LokiCheckout_Buckaroo::checkout/payment/method/creditcard.phtml"/>
+        </block>
+
+        <block
+            name="loki-checkout.payment.payment-methods.buckaroo_magento2_transfer.additional"
+            template="LokiCheckout_Buckaroo::checkout/payment/method/transfer.phtml"/>
+
+        <block
+            name="loki-checkout.payment.payment-methods.buckaroo_magento2_sepadirectdebit.form"
+            template="LokiCheckout_Core::generic/container.phtml">
+
+            <block
+                name="loki-checkout.payment.payment-methods.buckaroo_magento2_sepadirectdebit.form.customer_account_name" as="customer_account_name"
+                template="Loki_FieldComponents::form/field.phtml">
+                <arguments>
+                    <argument name="field_label" xsi:type="string">Bank account holder</argument>
+                    <argument name="placeholder" xsi:type="string">John Doe</argument>
+                    <argument name="is_required" xsi:type="boolean">true</argument>
+                </arguments>
+            </block>
+
+            <block
+                name="loki-checkout.payment.payment-methods.buckaroo_magento2_sepadirectdebit.form.customer_iban" as="customer_iban"
+                template="Loki_FieldComponents::form/field.phtml">
+                <arguments>
+                    <argument name="field_label" xsi:type="string">Bank account number</argument>
+                    <argument name="alpine_mask" xsi:type="string">aa99 **** **** **** **** **** **** **** **</argument>
+                    <argument name="placeholder" xsi:type="string">NL00 ABCD 0000 0000 0000 0000 0000 0000 00</argument>
+                    <argument name="is_required" xsi:type="boolean">true</argument>
+                </arguments>
+            </block>
+        </block>
+
+        <block
+            name="loki-checkout.payment.payment-methods.buckaroo_magento2_sepadirectdebit.additional"
+            template="LokiCheckout_Buckaroo::checkout/payment/method/sepadirectdebit.phtml"/>
 
         <block
             name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay.form"
             template="LokiCheckout_Core::generic/container.phtml">
             <block
-                name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay.form.dob" as="dob"
+                name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay.form.customer_DoB" as="customer_DoB"
                 template="Loki_FieldComponents::form/field.phtml">
                 <arguments>
+                    <argument name="field_label" xsi:type="string">Date of Birth:</argument>
                     <argument name="minimum_age" xsi:type="number">18</argument>
                     <argument name="input_type" xsi:type="string">date</argument>
                     <argument name="is_required" xsi:type="boolean">true</argument>
@@ -19,9 +58,10 @@
             </block>
 
             <block
-                name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay.form.iban" as="iban"
+                name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay.form.customer_iban" as="customer_iban"
                 template="Loki_FieldComponents::form/field.phtml">
                 <arguments>
+                    <argument name="field_label" xsi:type="string">Bank Account Number:</argument>
                     <argument name="alpine_mask" xsi:type="string">aa99 **** **** **** **** **** **** **** **</argument>
                     <argument name="placeholder" xsi:type="string">NL00 ABCD 0000 0000 0000 0000 0000 0000 00</argument>
                     <argument name="is_required" xsi:type="boolean">true</argument>
@@ -29,9 +69,10 @@
             </block>
 
             <block
-                name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay.form.terms" as="terms"
+                name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay.form.termsCondition" as="termsCondition"
                 template="Loki_FieldComponents::form/field.phtml">
                 <arguments>
+                    <argument name="field_label" xsi:type="string">Terms and conditions:</argument>
                     <argument name="field_type" xsi:type="string">checkbox</argument>
                     <argument name="is_required" xsi:type="boolean">true</argument>
                 </arguments>
@@ -42,9 +83,10 @@
             name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay2.form"
             template="LokiCheckout_Core::generic/container.phtml">
             <block
-                name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay2.form.dob" as="dob"
+                name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay2.form.customer_DoB" as="customer_DoB"
                 template="Loki_FieldComponents::form/field.phtml">
                 <arguments>
+                    <argument name="field_label" xsi:type="string">Date of Birth:</argument>
                     <argument name="minimum_age" xsi:type="number">18</argument>
                     <argument name="input_type" xsi:type="string">date</argument>
                     <argument name="is_required" xsi:type="boolean">true</argument>
@@ -52,9 +94,10 @@
             </block>
 
             <block
-                name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay2.form.iban" as="iban"
+                name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay2.form.customer_iban" as="customer_iban"
                 template="Loki_FieldComponents::form/field.phtml">
                 <arguments>
+                    <argument name="field_label" xsi:type="string">Bank Account Number:</argument>
                     <argument name="alpine_mask" xsi:type="string">aa99 **** **** **** **** **** **** **** **</argument>
                     <argument name="placeholder" xsi:type="string">NL00 ABCD 0000 0000 0000 0000 0000 0000 00</argument>
                     <argument name="is_required" xsi:type="boolean">true</argument>
@@ -62,9 +105,10 @@
             </block>
 
             <block
-                name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay2.form.terms" as="terms"
+                name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay2.form.termsCondition" as="termsCondition"
                 template="Loki_FieldComponents::form/field.phtml">
                 <arguments>
+                    <argument name="field_label" xsi:type="string">Terms and conditions:</argument>
                     <argument name="field_type" xsi:type="string">checkbox</argument>
                     <argument name="is_required" xsi:type="boolean">true</argument>
                 </arguments>

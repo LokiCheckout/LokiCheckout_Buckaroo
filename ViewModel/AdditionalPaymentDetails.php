@@ -24,21 +24,44 @@ class AdditionalPaymentDetails implements ArgumentInterface
             $details = array_merge($details, $this->getAfterpayProperties());
         }
 
+        if ($paymentMethodCode === 'buckaroo_magento2_sepadirectdebit') {
+            $details = array_merge($details, $this->getSepadirectdebitProperties());
+        }
+
+        if ($paymentMethodCode === 'buckaroo_magento2_creditcard') {
+            $details = array_merge($details, $this->getCreditcardProperties());
+        }
+
         return $details;
     }
 
     private function getAfterpayProperties(): array
     {
         return [
-            'Date of Birth:' => $this->getProperty('customer_Dob'),
+            'Date of Birth:' => $this->getProperty('customer_DoB'),
             'Bank Account Number:' => $this->getProperty('customer_iban'),
+        ];
+    }
+
+    private function getSepadirectdebitProperties(): array
+    {
+        return [
+            'Bank account holder' => $this->getProperty('customer_account_name'),
+            'Bank account number' => $this->getProperty('customer_iban'),
+        ];
+    }
+
+    private function getCreditcardProperties(): array
+    {
+        return [
+            'Credit Card or Debit Card' => strtoupper($this->getProperty('card_type')),
         ];
     }
 
     private function getProperty(string $propertyName): mixed
     {
-        $additionalInformation = $this->checkoutState->getQuote()->getPayment()
-            ->getAdditionalInformation();
+        $additionalInformation = $this->checkoutState->getQuote()->getPayment()->getAdditionalInformation();
+
         if (isset($additionalInformation[$propertyName])) {
             return $additionalInformation[$propertyName];
         }

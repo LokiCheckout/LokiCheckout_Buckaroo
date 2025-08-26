@@ -2,32 +2,12 @@
 
 namespace LokiCheckout\Buckaroo\Component\Creditcard;
 
-use Loki\Components\Component\ComponentRepository;
 use LokiCheckout\Core\Component\Base\Generic\CheckoutContext;
+use LokiCheckout\Core\Component\Base\Payment\AdditionalInformation\AdditionalInformationRepository;
 
 /**
  * @method CheckoutContext getContext()
  */
-class CreditcardRepository extends ComponentRepository
+class CreditcardRepository extends AdditionalInformationRepository
 {
-    public function getValue(): mixed
-    {
-        $quote = $this->getContext()->getCheckoutState()->getQuote();
-        $additionalInformation = $quote->getPayment()->getAdditionalInformation();
-        return $additionalInformation['card_type'] ?? null;
-    }
-
-    public function saveValue(mixed $value): void
-    {
-        if (!is_string($value)) {
-            return;
-        }
-
-        $quote = $this->getContext()->getCheckoutState()->getQuote();
-        $additionalInformation = $quote->getPayment()->getAdditionalInformation();
-        $additionalInformation['card_type'] = $value;
-
-        $quote->getPayment()->setAdditionalInformation($additionalInformation);
-        $this->getContext()->getCheckoutState()->saveQuote($quote);
-    }
 }
