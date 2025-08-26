@@ -54,7 +54,7 @@ class AdditionalPaymentDetails implements ArgumentInterface
     private function getCreditcardProperties(): array
     {
         return [
-            'Credit Card or Debit Card' => strtoupper($this->getProperty('card_type')),
+            'Credit Card or Debit Card' => strtoupper((string)$this->getProperty('card_type')),
         ];
     }
 
