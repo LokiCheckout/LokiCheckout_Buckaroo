@@ -19,7 +19,9 @@
     <component
         name="loki-checkout.payment.payment-methods.buckaroo_magento2_creditcards.form"
         group="buckaroo-hosted-fields"
-    />
+    >
+        <target name="loki-checkout-buckaroo.sidebar.preview.payment_details.additional"/>
+    </component>
 
     <group name="buckaroo-afterpay-fields"
            context="LokiCheckout\Core\Component\Base\Generic\CheckoutContext"
