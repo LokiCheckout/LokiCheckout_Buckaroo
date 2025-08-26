@@ -6,6 +6,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.3] - 26 August 2025
+### Fixed
+- Disable Hosted Fields because they do not work yet
+- Set maximum age of today
+- Add support for Alpine Mask config via XML layout
+- Fix terms text translation
+- Make date of birth configurable
+- Add validators for afterpay
+- Make sure all fields are required
+- Refactor Afterpay form to separate components
+- Add new fields for afterpay and afterpay2 method
+- Lazyload hosted fields SDK
+- Add selection of card type for creditcard method
+- Add GitLab CI files
+- Prevent errors if `Buckaroo_Magento2` is disabled by using DI proxies
+- Add additional exception if `Buckaroo_Magento2` is disabled
+
 ## [2.0.2] - 21 August 2025
 ### Fixed
 - Add dependency with loki/magento2-css-utils
@@ -14,7 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Declare used PHP namespaces
 - Add escaping of template code
 - Document latest version of template
-- Add missing strict_types declaration
+- Add missing `strict_types` declaration
 - Lower requirements to PHP 8.1
 
 ## [2.0.1] - 07 August 2025
