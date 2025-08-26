@@ -71,8 +71,10 @@
             </block>
         </block>
 
+        <!--
         <block
             name="loki-checkout.payment.payment-methods.buckaroo_magento2_creditcards.form"
             template="LokiCheckout_Buckaroo::checkout/payment/method/hosted-fields.phtml"/>
+        -->
     </body>
 </page>
