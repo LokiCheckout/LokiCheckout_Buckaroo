@@ -5,7 +5,9 @@
         group="checkout"
         viewModel="LokiCheckout\Buckaroo\Component\Creditcard\CreditcardViewModel"
         repository="LokiCheckout\Buckaroo\Component\Creditcard\CreditcardRepository"
-    />
+    >
+        <target name="loki-checkout-buckaroo.sidebar.preview.payment_details.additional"/>
+    </component>
 
     <group name="buckaroo-hosted-fields"
            context="LokiCheckout\Buckaroo\Component\HostedFields\HostedFieldsContext"
