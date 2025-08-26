@@ -12,6 +12,7 @@
                 name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay.form.dob" as="dob"
                 template="Loki_FieldComponents::form/field.phtml">
                 <arguments>
+                    <argument name="minimum_age" xsi:type="number">18</argument>
                     <argument name="input_type" xsi:type="string">date</argument>
                     <argument name="is_required" xsi:type="boolean">true</argument>
                 </arguments>
@@ -42,6 +43,7 @@
                 name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay2.form.dob" as="dob"
                 template="Loki_FieldComponents::form/field.phtml">
                 <arguments>
+                    <argument name="minimum_age" xsi:type="number">18</argument>
                     <argument name="input_type" xsi:type="string">date</argument>
                     <argument name="is_required" xsi:type="boolean">true</argument>
                 </arguments>
