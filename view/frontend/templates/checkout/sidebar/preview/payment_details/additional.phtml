@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 
+use Loki\CssUtils\Util\CssClass;
 use Magento\Framework\View\Element\Template;
 use Loki\Components\Factory\ViewModelFactory;
 use LokiCheckout\Buckaroo\ViewModel\AdditionalPaymentDetails;
@@ -9,6 +10,8 @@ use LokiCheckout\Buckaroo\ViewModel\AdditionalPaymentDetails;
 /** @var Template $block */
 /** @var ViewModelFactory $viewModelFactory */
 /** @var AdditionalPaymentDetails $additionalPaymentDetails */
+/** @var CssClass $css */
+
 $additionalPaymentDetails = $viewModelFactory->create(AdditionalPaymentDetails::class);
 $details = $additionalPaymentDetails->getAdditionalDetails();
 
@@ -16,7 +19,7 @@ if (empty($details)) {
     return;
 }
 ?>
-<dl class="<?= $css('grid grid-cols-2', '@todo') ?>">
+<dl class="<?= /* @noEscape */ $css('grid grid-cols-2', '@todo') ?>">
     <?php foreach ($details as $detailLabel => $detailValue): ?>
     <dt><?= /* @noEscape */ __($detailLabel) ?></dt>
     <dd><?= /* @noEscape */ $detailValue ?></dd>

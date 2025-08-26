@@ -17,15 +17,14 @@ use Loki\CssUtils\Util\CssClass;
 $cards = $viewModel->getCards();
 ?>
 <div class="<?= /* @noEscape */ $css('mt-4') ?>">
-    <span class="<?= /* @noScape */
-/* @noEscape */ $css('', 'label') ?>">
+    <span class="<?= /* @noEscape */ $css('', 'label') ?>">
         <?= $escaper->escapeHtml(__('Select a Credit Card or Debit Card:')) ?>
     </span>
     <div>
         <?php foreach ($cards as $card): ?>
             <div class="<?= /* @noEscape */ $css('flex gap-3 my-3', 'item') ?>">
                 <div class="<?= /* @noEscape */ $css('w-8', 'item-image') ?>">
-                    <img src="<?= $card['img'] ?>""/>
+                    <img src="<?= $escaper->escapeUrl($card['img']) ?>""/>
                 </div>
                 <input
                     id="<?= $escaper->escapeHtml($viewModel->getElementId() . '-' . $card['code']) ?>"
@@ -34,13 +33,13 @@ $cards = $viewModel->getCards();
                     <?php if ($viewModel->getValue() === $card['code']): ?>checked<?php endif; ?>
                     type="radio"
                     required
-                    name="<?= $card['code'] ?>"
+                    name="<?= $escaper->escapeHtml($card['code']) ?>"
                 />
                 <label
                     for="<?= $escaper->escapeHtml($viewModel->getElementId() . '-' . $card['code']) ?>"
                     class="<?= /* @noEscape */ $css('', 'item-label') ?>"
                 >
-                    <?= $card['name'] ?>
+                    <?= $escaper->escapeHtml($card['name']) ?>
                 </label>
             </div>
         <?php endforeach; ?>
