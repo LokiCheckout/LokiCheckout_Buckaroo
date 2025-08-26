@@ -7,7 +7,7 @@
 
         <block
             name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay.form"
-            template="LokiCheckout_Buckaroo::checkout/payment/method/afterpay2.phtml">
+            template="LokiCheckout_Core::generic/container.phtml">
             <block
                 name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay.form.dob" as="dob"
                 template="Loki_FieldComponents::form/field.phtml">
@@ -40,7 +40,7 @@
 
         <block
             name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay2.form"
-            template="LokiCheckout_Buckaroo::checkout/payment/method/afterpay2.phtml">
+            template="LokiCheckout_Core::generic/container.phtml">
             <block
                 name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay2.form.dob" as="dob"
                 template="Loki_FieldComponents::form/field.phtml">
