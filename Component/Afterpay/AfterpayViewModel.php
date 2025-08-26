@@ -10,13 +10,6 @@ use LokiCheckout\Core\Component\Base\Generic\CheckoutContext;
  */
 class AfterpayViewModel extends FieldViewModel
 {
-    public function getTermsConditionsText(): string
-    {
-        return (string)$this->getContext()->getScopeConfig()->getValue(
-            'loki_checkout/buckaroo/afterpay_terms'
-        );
-    }
-
     public function isRequired(): bool
     {
         return true;
@@ -25,7 +18,7 @@ class AfterpayViewModel extends FieldViewModel
     public function getFieldLabel(): string
     {
         if (str_ends_with($this->getComponentName(), '.terms')) {
-            return (string)__('Terms and Conditions');
+            return (string)__('Terms and Conditions:');
         }
 
         if (str_ends_with($this->getComponentName(), '.iban')) {
@@ -60,7 +53,6 @@ class AfterpayViewModel extends FieldViewModel
             return (string)
             __(
                 $text,
-                $this->getTermsConditionsText(),
                 $this->getPaymentMethodLabel(),
                 $this->getTermsAndConditionsUrl(),
                 $this->getPrivacyPolicyUrl(),
