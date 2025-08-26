@@ -4,6 +4,8 @@
         <sequence>
             <module name="Buckaroo_Magento2"/>
             <module name="LokiCheckout_Core"/>
+            <module name="Loki_CssUtils"/>
+            <module name="Loki_FieldComponents"/>
             <module name="Loki_Components"/>
             <module name="Magento_Store"/>
             <module name="Yireo_IntegrationTestHelper"/>
