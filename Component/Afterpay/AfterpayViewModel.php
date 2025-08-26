@@ -32,6 +32,15 @@ class AfterpayViewModel extends FieldViewModel
         return '';
     }
 
+    public function getMax(): string
+    {
+        if (str_ends_with($this->getComponentName(), '.dob')) {
+            return date('Y-m-d');
+        }
+
+        return parent::getMax();
+    }
+
     public function getInputLabel(): string
     {
         if (str_ends_with($this->getComponentName(), '.terms')) {
