@@ -19,7 +19,7 @@ if (empty($details)) {
     return;
 }
 ?>
-<dl class="<?= /* @noEscape */ $css('grid grid-cols-2', '@todo') ?>">
+<dl class="<?= /* @noEscape */ $css('grid grid-cols-2') ?>">
     <?php foreach ($details as $detailLabel => $detailValue): ?>
     <dt><?= /* @noEscape */ __($detailLabel) ?></dt>
     <dd><?= /* @noEscape */ $detailValue ?></dd>
