@@ -94,7 +94,7 @@
                 name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay.form.termsCondition" as="termsCondition"
                 template="Loki_FieldComponents::form/field.phtml">
                 <arguments>
-                    <argument name="field_label" xsi:type="string">Terms and conditions:</argument>
+                    <argument name="field_label" xsi:type="string">Terms and Conditions:</argument>
                     <argument name="field_type" xsi:type="string">checkbox</argument>
                     <argument name="is_required" xsi:type="boolean">true</argument>
                 </arguments>
@@ -130,7 +130,7 @@
                 name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay2.form.termsCondition" as="termsCondition"
                 template="Loki_FieldComponents::form/field.phtml">
                 <arguments>
-                    <argument name="field_label" xsi:type="string">Terms and conditions:</argument>
+                    <argument name="field_label" xsi:type="string">Terms and Conditions:</argument>
                     <argument name="field_type" xsi:type="string">checkbox</argument>
                     <argument name="is_required" xsi:type="boolean">true</argument>
                 </arguments>
