@@ -6,6 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.4] - 27 August 2025
+### Fixed
+- Add COC Number to afterpay20
+- Change CSS scope from `@todo` to block
+- Add translations
+- Replace yireo/opensearch with yireo/opensearch-dummy in Gitlab CI
+- Add Paybybank
+- Add concept of Buckaroo Voucher
+
 ## [2.0.3] - 26 August 2025
 ### Fixed
 - Disable Hosted Fields because they do not work yet
