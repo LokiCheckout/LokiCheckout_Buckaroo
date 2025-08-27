@@ -85,6 +85,40 @@
         group="buckaroo-afterpay-fields"
     />
 
+    <!--
+    <component
+        name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay20.form.customer_DoB"
+        group="buckaroo-afterpay-fields">
+        <validator name="dob"/>
+    </component>
+
+    <component
+        name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay20.form.customer_identificationNumber"
+        group="buckaroo-afterpay-fields">
+    </component>
+
+    <component
+        name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay20.form.customer_telephone"
+        group="buckaroo-afterpay-fields">
+    </component>
+
+    <component
+        name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay20.form.customer_iban"
+        group="buckaroo-afterpay-fields">
+        <validator name="iban"/>
+    </component>
+    -->
+
+    <component
+        name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay20.form.customer_coc"
+        group="buckaroo-afterpay-fields">
+    </component>
+
+    <component
+        name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay20.form.termsCondition"
+        group="buckaroo-afterpay-fields"
+    />
+
     <!-- sepadirectdebit components -->
     <group name="buckaroo-sepadirectdebit-fields"
            context="LokiCheckout\Core\Component\Base\Generic\CheckoutContext"

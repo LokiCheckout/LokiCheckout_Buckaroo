@@ -24,6 +24,12 @@ class AdditionalPaymentDetails implements ArgumentInterface
             $details = array_merge($details, $this->getAfterpayProperties());
         }
 
+        if ($paymentMethodCode === 'buckaroo_magento2_afterpay20'
+        ) {
+            $details = array_merge($details, $this->getAfterpay20Properties());
+        }
+
+
         if ($paymentMethodCode === 'buckaroo_magento2_sepadirectdebit') {
             $details = array_merge($details, $this->getSepadirectdebitProperties());
         }
@@ -39,6 +45,12 @@ class AdditionalPaymentDetails implements ArgumentInterface
         return $details;
     }
 
+    private function getAfterpay20Properties(): array
+    {
+        return [
+            'COC Number:' => $this->getProperty('customer_coc'),
+        ];
+    }
     private function getAfterpayProperties(): array
     {
         return [
