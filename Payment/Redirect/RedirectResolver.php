@@ -38,7 +38,7 @@ class RedirectResolver implements RedirectResolverInterface
     private function getUrlFromResponse(): string
     {
         $response = $this->registry->registry('buckaroo_response');
-        if (!empty($response)) {
+        if (!empty($response) && !empty($response[0]) && !empty($response[0]->RequiredAction)) {
             return (string)$response[0]->RequiredAction->RedirectURL;
         }
 

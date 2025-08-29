@@ -85,13 +85,6 @@
         group="buckaroo-afterpay-fields"
     />
 
-    <!--
-    <component
-        name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay20.form.customer_DoB"
-        group="buckaroo-afterpay-fields">
-        <validator name="dob"/>
-    </component>
-
     <component
         name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay20.form.customer_identificationNumber"
         group="buckaroo-afterpay-fields">
@@ -103,11 +96,10 @@
     </component>
 
     <component
-        name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay20.form.customer_iban"
+        name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay20.form.customer_DoB"
         group="buckaroo-afterpay-fields">
-        <validator name="iban"/>
+        <validator name="dob"/>
     </component>
-    -->
 
     <component
         name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay20.form.customer_coc"

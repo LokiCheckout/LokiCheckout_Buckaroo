@@ -14,7 +14,32 @@ class AfterpayViewModel extends AdditionalInformationViewModel
 {
     public function isRequired(): bool
     {
-        return true;
+        return $this->isAllowRendering();
+    }
+
+    public function isAllowRendering(): bool
+    {
+        $propertyName = $this->getRepository()->getPropertyName();
+        $billingAddress = $this->getContext()->getCheckoutState()->getQuote()->getBillingAddress();
+
+        if ($propertyName === 'customer_identificationNumber') {
+            return $billingAddress->getCountryId() === 'FI';
+        }
+
+        if ($propertyName === 'customer_coc') {
+            // @todo: Check for customer_type to be b2c
+            return false === empty($billingAddress->getCompany());
+        }
+
+        if ($propertyName === 'customer_telephone') {
+            return in_array($billingAddress->getCountryId(), ['NL', 'BE']) && empty($billingAddress->getTelephone());
+        }
+
+        if ($propertyName === 'customer_DoB') {
+            return in_array($billingAddress->getCountryId(), ['NL', 'BE']) && empty($billingAddress->getCompany());
+        }
+
+        return parent::isAllowRendering();
     }
 
     public function getMax(): string
@@ -39,22 +64,25 @@ class AfterpayViewModel extends AdditionalInformationViewModel
 
     public function getComment(): string
     {
-        if ($this->getRepository()->getPropertyName() === 'termsCondition') {
-            $text = $this->getContext()->getScopeConfig()->getValue(
-                'loki_checkout/buckaroo/afterpay_terms'
-            );
-
-            return (string)
-            __(
-                $text,
-                $this->getPaymentMethodLabel(),
-                $this->getTermsAndConditionsUrl(),
-                $this->getPrivacyPolicyUrl(),
-                $this->getCookieStatementUrl(),
-            );
+        if ($this->getRepository()->getPropertyName() !== 'termsCondition') {
+            return '';
         }
 
-        return '';
+        $text = $this->getContext()->getScopeConfig()->getValue(
+            'loki_checkout/buckaroo/afterpay_terms'
+        );
+
+        if (empty($text)) {
+            return '';
+        }
+
+        return (string)__(
+            $text,
+            $this->getPaymentMethodLabel(),
+            $this->getTermsAndConditionsUrl(),
+            $this->getPrivacyPolicyUrl(),
+            $this->getCookieStatementUrl(),
+        );
     }
 
     private function getPaymentMethodLabel(): string
