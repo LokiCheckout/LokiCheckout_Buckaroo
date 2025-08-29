@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.5] - 29 August 2025
+### Fixed
+- Add logic to show relevant afterpay20 fields depending on customer type (b2c, b2b)
+
 ## [2.0.4] - 27 August 2025
 ### Fixed
 - Add COC Number to afterpay20
