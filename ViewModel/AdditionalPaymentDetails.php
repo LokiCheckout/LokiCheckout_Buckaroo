@@ -47,9 +47,18 @@ class AdditionalPaymentDetails implements ArgumentInterface
 
     private function getAfterpay20Properties(): array
     {
-        return [
-            'COC Number:' => $this->getProperty('customer_coc'),
-        ];
+        $properties = [];
+        $dob = $this->getProperty('customer_DoB');
+        if (!empty($dob)) {
+            $properties['Date of Birth:'] = $dob;
+        }
+
+        $coc = $this->getProperty('customer_DoB');
+        if (!empty($coc)) {
+            $properties['COC Number:'] = $coc;
+        }
+
+        return $properties;
     }
     private function getAfterpayProperties(): array
     {
