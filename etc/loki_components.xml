@@ -128,4 +128,28 @@
         group="buckaroo-sepadirectdebit-fields">
         <validator name="iban"/>
     </component>
+
+    <component name="loki-checkout.shipping.address.country_id">
+        <target name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay.form" />
+        <target name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay2.form" />
+        <target name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay20.form" />
+    </component>
+
+    <component name="loki-checkout.billing.address.country_id">
+        <target name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay.form" />
+        <target name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay2.form" />
+        <target name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay20.form" />
+    </component>
+
+    <component name="loki-checkout.shipping.address.company">
+        <target name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay.form" />
+        <target name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay2.form" />
+        <target name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay20.form" />
+    </component>
+
+    <component name="loki-checkout.billing.address.company">
+        <target name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay.form" />
+        <target name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay2.form" />
+        <target name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay20.form" />
+    </component>
 </components>
