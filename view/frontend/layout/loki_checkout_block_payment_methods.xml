@@ -52,8 +52,10 @@
                 template="Loki_FieldComponents::form/field.phtml">
                 <arguments>
                     <argument name="field_label" xsi:type="string">Bank account number</argument>
-                    <argument name="alpine_mask" xsi:type="string">aa99 **** **** **** **** **** **** **** **</argument>
-                    <argument name="placeholder" xsi:type="string">NL00 ABCD 0000 0000 0000 0000 0000 0000 00</argument>
+                    <argument name="field_attributes" xsi:type="array">
+                        <item name="x-mask" xsi:type="string">aa99 **** **** **** **** **** **** **** **</item>
+                        <item name="placeholder" xsi:type="string">NL00 ABCD 0000 0000 0000 0000 0000 0000 00</item>
+                    </argument>
                 </arguments>
             </block>
         </block>
@@ -80,8 +82,10 @@
                 template="Loki_FieldComponents::form/field.phtml">
                 <arguments>
                     <argument name="field_label" xsi:type="string">Bank Account Number:</argument>
-                    <argument name="alpine_mask" xsi:type="string">aa99 **** **** **** **** **** **** **** **</argument>
-                    <argument name="placeholder" xsi:type="string">NL00 ABCD 0000 0000 0000 0000 0000 0000 00</argument>
+                    <argument name="field_attributes" xsi:type="array">
+                        <item name="x-mask" xsi:type="string">aa99 **** **** **** **** **** **** **** **</item>
+                        <item name="placeholder" xsi:type="string">NL00 ABCD 0000 0000 0000 0000 0000 0000 00</item>
+                    </argument>
                 </arguments>
             </block>
 
@@ -113,8 +117,10 @@
                 template="Loki_FieldComponents::form/field.phtml">
                 <arguments>
                     <argument name="field_label" xsi:type="string">Bank Account Number:</argument>
-                    <argument name="alpine_mask" xsi:type="string">aa99 **** **** **** **** **** **** **** **</argument>
-                    <argument name="placeholder" xsi:type="string">NL00 ABCD 0000 0000 0000 0000 0000 0000 00</argument>
+                    <argument name="field_attributes" xsi:type="array">
+                        <item name="x-mask" xsi:type="string">aa99 **** **** **** **** **** **** **** **</item>
+                        <item name="placeholder" xsi:type="string">NL00 ABCD 0000 0000 0000 0000 0000 0000 00</item>
+                    </argument>
                 </arguments>
             </block>
 
