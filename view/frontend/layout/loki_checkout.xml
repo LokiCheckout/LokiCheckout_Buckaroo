@@ -1,5 +1,9 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:View/Layout:etc/page_configuration.xsd">
+    <head>
+        <remove src="Buckaroo_Magento2::css/credit-cards.css"/>
+        <remove src="Buckaroo_Magento2::css/styles.css"/>
+    </head>
     <body>
         <referenceContainer name="loki-components">
             <block template="LokiCheckout_Buckaroo::script/component/creditcard-component.phtml"/>
