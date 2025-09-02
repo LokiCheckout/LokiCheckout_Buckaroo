@@ -2,22 +2,22 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:View/Layout:etc/page_configuration.xsd">
     <body>
         <block
-            name="loki-checkout.payment.payment-methods.buckaroo_magento2_creditcard.form"
+            name="loki-checkout.payment.methods.buckaroo_magento2_creditcard.form"
             template="LokiCheckout_Core::generic/container.phtml">
             <block
-                name="loki-checkout.payment.payment-methods.buckaroo_magento2_creditcard.form.card_type"
+                name="loki-checkout.payment.methods.buckaroo_magento2_creditcard.form.card_type"
                 template="LokiCheckout_Buckaroo::checkout/payment/method/creditcard.phtml"/>
         </block>
 
         <block
-            name="loki-checkout.payment.payment-methods.buckaroo_magento2_transfer.additional"
+            name="loki-checkout.payment.methods.buckaroo_magento2_transfer.additional"
             template="LokiCheckout_Buckaroo::checkout/payment/method/transfer.phtml"/>
 
         <block
-            name="loki-checkout.payment.payment-methods.buckaroo_magento2_voucher.form"
+            name="loki-checkout.payment.methods.buckaroo_magento2_voucher.form"
             template="LokiCheckout_Core::generic/container.phtml">
             <block
-                name="loki-checkout.payment.payment-methods.buckaroo_magento2_voucher.form.voucher" as="voucher"
+                name="loki-checkout.payment.methods.buckaroo_magento2_voucher.form.voucher" as="voucher"
                 template="Loki_FieldComponents::form/field.phtml">
                 <arguments>
                     <argument name="field_label" xsi:type="string">Voucher code:</argument>
@@ -26,20 +26,20 @@
         </block>
 
         <block
-            name="loki-checkout.payment.payment-methods.buckaroo_magento2_paybybank.form"
+            name="loki-checkout.payment.methods.buckaroo_magento2_paybybank.form"
             template="LokiCheckout_Core::generic/container.phtml">
             <block
-                name="loki-checkout.payment.payment-methods.buckaroo_magento2_paybybank.form.issuer" as="issuer"
+                name="loki-checkout.payment.methods.buckaroo_magento2_paybybank.form.issuer" as="issuer"
                 template="LokiCheckout_Buckaroo::checkout/payment/method/paybybank.phtml"
             />
         </block>
 
         <block
-            name="loki-checkout.payment.payment-methods.buckaroo_magento2_sepadirectdebit.form"
+            name="loki-checkout.payment.methods.buckaroo_magento2_sepadirectdebit.form"
             template="LokiCheckout_Core::generic/container.phtml">
 
             <block
-                name="loki-checkout.payment.payment-methods.buckaroo_magento2_sepadirectdebit.form.customer_account_name" as="customer_account_name"
+                name="loki-checkout.payment.methods.buckaroo_magento2_sepadirectdebit.form.customer_account_name" as="customer_account_name"
                 template="Loki_FieldComponents::form/field.phtml">
                 <arguments>
                     <argument name="field_label" xsi:type="string">Bank account holder</argument>
@@ -48,7 +48,7 @@
             </block>
 
             <block
-                name="loki-checkout.payment.payment-methods.buckaroo_magento2_sepadirectdebit.form.customer_iban" as="customer_iban"
+                name="loki-checkout.payment.methods.buckaroo_magento2_sepadirectdebit.form.customer_iban" as="customer_iban"
                 template="Loki_FieldComponents::form/field.phtml">
                 <arguments>
                     <argument name="field_label" xsi:type="string">Bank account number</argument>
@@ -61,14 +61,14 @@
         </block>
 
         <block
-            name="loki-checkout.payment.payment-methods.buckaroo_magento2_sepadirectdebit.additional"
+            name="loki-checkout.payment.methods.buckaroo_magento2_sepadirectdebit.additional"
             template="LokiCheckout_Buckaroo::checkout/payment/method/sepadirectdebit.phtml"/>
 
         <block
-            name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay.form"
+            name="loki-checkout.payment.methods.buckaroo_magento2_afterpay.form"
             template="LokiCheckout_Core::generic/container.phtml">
             <block
-                name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay.form.customer_DoB" as="customer_DoB"
+                name="loki-checkout.payment.methods.buckaroo_magento2_afterpay.form.customer_DoB" as="customer_DoB"
                 template="Loki_FieldComponents::form/field.phtml">
                 <arguments>
                     <argument name="field_label" xsi:type="string">Date of Birth:</argument>
@@ -78,7 +78,7 @@
             </block>
 
             <block
-                name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay.form.customer_iban" as="customer_iban"
+                name="loki-checkout.payment.methods.buckaroo_magento2_afterpay.form.customer_iban" as="customer_iban"
                 template="Loki_FieldComponents::form/field.phtml">
                 <arguments>
                     <argument name="field_label" xsi:type="string">Bank Account Number:</argument>
@@ -90,7 +90,7 @@
             </block>
 
             <block
-                name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay.form.termsCondition" as="termsCondition"
+                name="loki-checkout.payment.methods.buckaroo_magento2_afterpay.form.termsCondition" as="termsCondition"
                 template="Loki_FieldComponents::form/field.phtml">
                 <arguments>
                     <argument name="field_label" xsi:type="string">Terms and Conditions:</argument>
@@ -100,10 +100,10 @@
         </block>
 
         <block
-            name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay2.form"
+            name="loki-checkout.payment.methods.buckaroo_magento2_afterpay2.form"
             template="LokiCheckout_Core::generic/container.phtml">
             <block
-                name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay2.form.customer_DoB" as="customer_DoB"
+                name="loki-checkout.payment.methods.buckaroo_magento2_afterpay2.form.customer_DoB" as="customer_DoB"
                 template="Loki_FieldComponents::form/field.phtml">
                 <arguments>
                     <argument name="field_label" xsi:type="string">Date of Birth:</argument>
@@ -113,7 +113,7 @@
             </block>
 
             <block
-                name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay2.form.customer_iban" as="customer_iban"
+                name="loki-checkout.payment.methods.buckaroo_magento2_afterpay2.form.customer_iban" as="customer_iban"
                 template="Loki_FieldComponents::form/field.phtml">
                 <arguments>
                     <argument name="field_label" xsi:type="string">Bank Account Number:</argument>
@@ -125,7 +125,7 @@
             </block>
 
             <block
-                name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay2.form.termsCondition" as="termsCondition"
+                name="loki-checkout.payment.methods.buckaroo_magento2_afterpay2.form.termsCondition" as="termsCondition"
                 template="Loki_FieldComponents::form/field.phtml">
                 <arguments>
                     <argument name="field_label" xsi:type="string">Terms and Conditions:</argument>
@@ -135,11 +135,11 @@
         </block>
 
         <block
-            name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay20.form"
+            name="loki-checkout.payment.methods.buckaroo_magento2_afterpay20.form"
             template="LokiCheckout_Core::generic/container.phtml">
 
             <block
-                name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay20.form.customer_identificationNumber" as="customer_identificationNumber"
+                name="loki-checkout.payment.methods.buckaroo_magento2_afterpay20.form.customer_identificationNumber" as="customer_identificationNumber"
                 template="Loki_FieldComponents::form/field.phtml">
                 <arguments>
                     <argument name="field_label" xsi:type="string">Identification number:</argument>
@@ -147,7 +147,7 @@
             </block>
 
             <block
-                name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay20.form.customer_telephone" as="customer_telephone"
+                name="loki-checkout.payment.methods.buckaroo_magento2_afterpay20.form.customer_telephone" as="customer_telephone"
                 template="Loki_FieldComponents::form/field.phtml">
                 <arguments>
                     <argument name="field_label" xsi:type="string">Phone:</argument>
@@ -155,7 +155,7 @@
             </block>
 
             <block
-                name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay20.form.customer_DoB" as="customer_DoB"
+                name="loki-checkout.payment.methods.buckaroo_magento2_afterpay20.form.customer_DoB" as="customer_DoB"
                 template="Loki_FieldComponents::form/field.phtml">
                 <arguments>
                     <argument name="field_label" xsi:type="string">Date of Birth:</argument>
@@ -165,7 +165,7 @@
             </block>
 
             <block
-                name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay20.form.customer_coc" as="customer_coc"
+                name="loki-checkout.payment.methods.buckaroo_magento2_afterpay20.form.customer_coc" as="customer_coc"
                 template="Loki_FieldComponents::form/field.phtml">
                 <arguments>
                     <argument name="field_label" xsi:type="string">COC Number:</argument>
@@ -173,7 +173,7 @@
             </block>
 
             <block
-                name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay20.form.termsCondition" as="termsCondition"
+                name="loki-checkout.payment.methods.buckaroo_magento2_afterpay20.form.termsCondition" as="termsCondition"
                 template="Loki_FieldComponents::form/field.phtml">
                 <arguments>
                     <argument name="field_label" xsi:type="string">Terms and Conditions:</argument>
@@ -184,7 +184,7 @@
 
         <!--
         <block
-            name="loki-checkout.payment.payment-methods.buckaroo_magento2_creditcards.form"
+            name="loki-checkout.payment.methods.buckaroo_magento2_creditcards.form"
             template="LokiCheckout_Buckaroo::checkout/payment/method/hosted-fields.phtml"/>
         -->
     </body>

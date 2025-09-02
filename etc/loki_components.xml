@@ -2,7 +2,7 @@
 <components xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Loki_Components:etc/loki_components.xsd">
     <!-- Individual components -->
     <component
-        name="loki-checkout.payment.payment-methods.buckaroo_magento2_creditcard.form.card_type"
+        name="loki-checkout.payment.methods.buckaroo_magento2_creditcard.form.card_type"
         group="checkout"
         viewModel="LokiCheckout\Buckaroo\Component\Creditcard\CreditcardViewModel"
         repository="LokiCheckout\Buckaroo\Component\Creditcard\CreditcardRepository"
@@ -11,7 +11,7 @@
     </component>
 
     <component
-        name="loki-checkout.payment.payment-methods.buckaroo_magento2_paybybank.form.issuer"
+        name="loki-checkout.payment.methods.buckaroo_magento2_paybybank.form.issuer"
         group="checkout"
         viewModel="LokiCheckout\Buckaroo\Component\Paybybank\PaybybankViewModel"
         repository="LokiCheckout\Buckaroo\Component\Paybybank\PaybybankRepository"
@@ -20,7 +20,7 @@
     </component>
 
     <component
-        name="loki-checkout.payment.payment-methods.buckaroo_magento2_voucher.form.voucher"
+        name="loki-checkout.payment.methods.buckaroo_magento2_voucher.form.voucher"
         group="checkout"
         viewModel="LokiCheckout\Buckaroo\Component\Voucher\VoucherViewModel"
         repository="LokiCheckout\Buckaroo\Component\Voucher\VoucherRepository"
@@ -37,7 +37,7 @@
     </group>
 
     <component
-        name="loki-checkout.payment.payment-methods.buckaroo_magento2_creditcards.form"
+        name="loki-checkout.payment.methods.buckaroo_magento2_creditcards.form"
         group="buckaroo-hosted-fields"
     >
         <target name="loki-checkout-buckaroo.sidebar.preview.payment_details.additional"/>
@@ -52,62 +52,62 @@
     </group>
 
     <component
-        name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay.form.customer_DoB"
+        name="loki-checkout.payment.methods.buckaroo_magento2_afterpay.form.customer_DoB"
         group="buckaroo-afterpay-fields">
         <validator name="dob"/>
     </component>
 
     <component
-        name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay.form.customer_iban"
+        name="loki-checkout.payment.methods.buckaroo_magento2_afterpay.form.customer_iban"
         group="buckaroo-afterpay-fields">
         <validator name="iban"/>
     </component>
 
     <component
-        name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay.form.termsCondition"
+        name="loki-checkout.payment.methods.buckaroo_magento2_afterpay.form.termsCondition"
         group="buckaroo-afterpay-fields"
     />
 
     <component
-        name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay2.form.customer_DoB"
+        name="loki-checkout.payment.methods.buckaroo_magento2_afterpay2.form.customer_DoB"
         group="buckaroo-afterpay-fields">
         <validator name="dob"/>
     </component>
 
     <component
-        name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay2.form.customer_iban"
+        name="loki-checkout.payment.methods.buckaroo_magento2_afterpay2.form.customer_iban"
         group="buckaroo-afterpay-fields">
         <validator name="iban"/>
     </component>
 
     <component
-        name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay2.form.termsCondition"
+        name="loki-checkout.payment.methods.buckaroo_magento2_afterpay2.form.termsCondition"
         group="buckaroo-afterpay-fields"
     />
 
     <component
-        name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay20.form.customer_identificationNumber"
+        name="loki-checkout.payment.methods.buckaroo_magento2_afterpay20.form.customer_identificationNumber"
         group="buckaroo-afterpay-fields">
     </component>
 
     <component
-        name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay20.form.customer_telephone"
+        name="loki-checkout.payment.methods.buckaroo_magento2_afterpay20.form.customer_telephone"
         group="buckaroo-afterpay-fields">
     </component>
 
     <component
-        name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay20.form.customer_DoB"
+        name="loki-checkout.payment.methods.buckaroo_magento2_afterpay20.form.customer_DoB"
         group="buckaroo-afterpay-fields">
         <validator name="dob"/>
     </component>
 
     <component
-        name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay20.form.customer_coc"
+        name="loki-checkout.payment.methods.buckaroo_magento2_afterpay20.form.customer_coc"
         group="buckaroo-afterpay-fields">
     </component>
 
     <component
-        name="loki-checkout.payment.payment-methods.buckaroo_magento2_afterpay20.form.termsCondition"
+        name="loki-checkout.payment.methods.buckaroo_magento2_afterpay20.form.termsCondition"
         group="buckaroo-afterpay-fields"
     />
 
@@ -120,11 +120,11 @@
     </group>
 
     <component
-        name="loki-checkout.payment.payment-methods.buckaroo_magento2_sepadirectdebit.form.customer_account_name"
+        name="loki-checkout.payment.methods.buckaroo_magento2_sepadirectdebit.form.customer_account_name"
         group="buckaroo-sepadirectdebit-fields"/>
 
     <component
-        name="loki-checkout.payment.payment-methods.buckaroo_magento2_sepadirectdebit.form.customer_iban"
+        name="loki-checkout.payment.methods.buckaroo_magento2_sepadirectdebit.form.customer_iban"
         group="buckaroo-sepadirectdebit-fields">
         <validator name="iban"/>
     </component>
