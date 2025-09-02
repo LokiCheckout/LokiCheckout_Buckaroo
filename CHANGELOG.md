@@ -6,6 +6,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.6] - 02 September 2025
+### Fixed
+- Change loki-checkout.payment.payment-methods to loki-checkout.payment.methods
+- Refresh payment methods when company or country changes
+- Refresh Afterpay form when changing company or country ID
+- Refactor hard-coded field attributes to FieldViewModel::getFieldAttributes()
+- Conditionally show props in sidebar
+- Add Playwright tests
+- Refactor Loki-library location in Playwright tests
+
 ## [2.0.5] - 29 August 2025
 ### Fixed
 - Add logic to show relevant afterpay20 fields depending on customer type (b2c, b2b)
