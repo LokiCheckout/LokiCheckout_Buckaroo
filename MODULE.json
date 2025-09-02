@@ -25,12 +25,16 @@
         "loki-checkout.payment.methods.buckaroo_magento2_afterpay20.form.customer_coc",
         "loki-checkout.payment.methods.buckaroo_magento2_afterpay20.form.termsCondition",
         "loki-checkout.payment.methods.buckaroo_magento2_sepadirectdebit.form.customer_account_name",
-        "loki-checkout.payment.methods.buckaroo_magento2_sepadirectdebit.form.customer_iban"
+        "loki-checkout.payment.methods.buckaroo_magento2_sepadirectdebit.form.customer_iban",
+        "loki-checkout.shipping.address.country_id",
+        "loki-checkout.billing.address.country_id",
+        "loki-checkout.shipping.address.company",
+        "loki-checkout.billing.address.company"
     ],
     "config": [],
     "tests": {
         "unit": 0,
         "integration": 2,
-        "functional": 0
+        "functional": 4
     }
 }
