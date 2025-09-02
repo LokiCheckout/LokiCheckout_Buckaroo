@@ -42,15 +42,6 @@ class AfterpayViewModel extends AdditionalInformationViewModel
         return parent::isAllowRendering();
     }
 
-    public function getMax(): string
-    {
-        if (str_ends_with($this->getComponentName(), '.dob')) {
-            return date('Y-m-d');
-        }
-
-        return parent::getMax();
-    }
-
     public function getInputLabel(): string
     {
         if ($this->getRepository()->getPropertyName() === 'termsCondition') {
