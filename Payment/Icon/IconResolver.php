@@ -6,7 +6,7 @@ use Buckaroo\Magento2\Block\Info;
 use Magento\Framework\Module\Manager as ModuleManager;
 use LokiCheckout\Core\Payment\Icon\IconResolverContext;
 use LokiCheckout\Core\Payment\Icon\IconResolverInterface;
-use Loki\Field\ViewModel\ImageOutput;
+use Loki\Components\Util\ImageOutput;
 
 class IconResolver implements IconResolverInterface
 {
