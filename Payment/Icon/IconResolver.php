@@ -31,7 +31,7 @@ class IconResolver implements IconResolverInterface
 
         $paymentLogo = $this->infoBlock->getPaymentLogo($match[1]);
         if ($paymentLogo) {
-            return $this->imageOutput->getByUrl($paymentLogo);
+            return $this->imageOutput->getByUrl($paymentLogo, $iconResolverContext->getAttributes());
         }
 
         $iconFilePath = $iconResolverContext->getIconPath(
