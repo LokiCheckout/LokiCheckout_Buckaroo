@@ -5,11 +5,11 @@
         <remove src="Buckaroo_Magento2::css/styles.css"/>
     </head>
     <body>
-        <referenceContainer name="loki.script.component">
+        <referenceBlock name="loki.script.component">
             <block template="LokiCheckout_Buckaroo::script/component/creditcard-component.phtml"/>
             <block template="LokiCheckout_Buckaroo::script/component/paybybank-component.phtml"/>
             <block template="LokiCheckout_Buckaroo::script/component/afterpay-component.phtml"/>
             <block template="LokiCheckout_Buckaroo::script/component/hosted-fields-component.phtml"/>
-        </referenceContainer>
+        </referenceBlock>
     </body>
 </page>
