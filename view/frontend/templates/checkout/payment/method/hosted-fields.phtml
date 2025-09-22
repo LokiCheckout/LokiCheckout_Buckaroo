@@ -12,7 +12,7 @@ use Loki\CssUtils\Util\CssClass;
 /** @var Template $block */
 /** @var CssClass $css */
 ?>
-<div class="<?= /* @noEscape */ $css('my-4 grid grid-cols-2 gap-4') ?>">
+<div class="<?= $escaper->escapeHtmlAttr($css('my-4 grid grid-cols-2 gap-4')) ?>">
     <div class="<?= /* @noEscape */ $css('field required col-span-2', 'cc-name-container') ?>">
         <label
             id="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-name-label"
