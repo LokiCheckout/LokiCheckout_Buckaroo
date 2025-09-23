@@ -6,13 +6,13 @@ use Buckaroo\Magento2\Block\Info;
 use Magento\Framework\Module\Manager as ModuleManager;
 use LokiCheckout\Core\Payment\Icon\IconResolverContext;
 use LokiCheckout\Core\Payment\Icon\IconResolverInterface;
-use Loki\Components\Util\ImageOutput;
+use Loki\Components\Util\Block\ImageRenderer;
 
 class IconResolver implements IconResolverInterface
 {
     public function __construct(
         private ModuleManager $moduleManager,
-        private ImageOutput $imageOutput,
+        private ImageRenderer $imageRenderer,
         private Info $infoBlock,
     ) {
     }
@@ -31,7 +31,7 @@ class IconResolver implements IconResolverInterface
 
         $paymentLogo = $this->infoBlock->getPaymentLogo($match[1]);
         if ($paymentLogo) {
-            return $this->imageOutput->get($paymentLogo, $iconResolverContext->getAttributes());
+            return $this->imageRenderer->get($paymentLogo, $iconResolverContext->getAttributes());
         }
 
         $iconFilePath = $iconResolverContext->getIconPath(
