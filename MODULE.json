@@ -65,6 +65,5 @@
         "unit": 0,
         "integration": 2,
         "functional": 4
-    },
-    "phpcs_severity": "9"
+    }
 }
