@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.10] - 24 September 2025
+### Fixed
+- Implement new imageRenderer
+- Change containers into blocks to allow for caching
+- Rename loki-components to loki.script.component
+
 ## [2.0.9] - 16 September 2025
 ### Fixed
 - Additional margins for subforms
