@@ -19,9 +19,9 @@ if (empty($details)) {
     return;
 }
 ?>
-<dl class="<?= /* @noEscape */ $css('grid grid-cols-2') ?>">
+<dl class="<?= $escaper->escapeHtmlAttr($css('grid grid-cols-2')) ?>">
     <?php foreach ($details as $detailLabel => $detailValue): ?>
-    <dt><?= /* @noEscape */ __($detailLabel) ?></dt>
+    <dt><?= $escaper->escapeHtml(__($detailLabel)) ?></dt>
     <dd><?= /* @noEscape */ $detailValue ?></dd>
     <?php endforeach; ?>
 </dl>

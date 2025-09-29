@@ -17,19 +17,19 @@ use Loki\CssUtils\Util\CssClass;
 
 $issuers = $viewModel->getIssuers();
 ?>
-<div class="<?= /* @noEscape */ $css('my-4') ?>">
-    <span class="<?= /* @noEscape */ $css('', 'label') ?>">
+<div class="<?= $escaper->escapeHtmlAttr($css('my-4')) ?>">
+    <span class="<?= $escaper->escapeHtmlAttr($css('', 'label')) ?>">
         <?= $escaper->escapeHtml(__('Select an issuer:')) ?>
     </span>
     <div>
         <?php foreach ($issuers as $card): ?>
-            <div class="<?= /* @noEscape */ $css('flex gap-3 my-3', 'item') ?>">
-                <div class="<?= /* @noEscape */ $css('w-8', 'item-image') ?>">
+            <div class="<?= $escaper->escapeHtmlAttr($css('flex gap-3 my-3', 'item')) ?>">
+                <div class="<?= $escaper->escapeHtmlAttr($css('w-8', 'item-image')) ?>">
                     <img src="<?= $escaper->escapeUrl($card['img']) ?>""/>
                 </div>
                 <input
                     id="<?= $escaper->escapeHtml($viewModel->getElementId() . '-' . $card['code']) ?>"
-                    class="<?= /* @noEscape */ $css('', 'item-input') ?>"
+                    class="<?= $escaper->escapeHtmlAttr($css('', 'item-input')) ?>"
                     @change="selectIssuer"
                     <?php if ($viewModel->getValue() === $card['code']): ?>checked<?php endif; ?>
                     type="radio"
@@ -38,7 +38,7 @@ $issuers = $viewModel->getIssuers();
                 />
                 <label
                     for="<?= $escaper->escapeHtml($viewModel->getElementId() . '-' . $card['code']) ?>"
-                    class="<?= /* @noEscape */ $css('', 'item-label') ?>"
+                    class="<?= $escaper->escapeHtmlAttr($css('', 'item-label')) ?>"
                 >
                     <?= $escaper->escapeHtml($card['name']) ?>
                 </label>
