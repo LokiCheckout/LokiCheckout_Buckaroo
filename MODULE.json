@@ -61,9 +61,5 @@
         "loki-checkout.shipping.address.country_id"
     ],
     "config": [],
-    "tests": {
-        "unit": 0,
-        "integration": 2,
-        "functional": 4
-    }
+    "tests": []
 }
