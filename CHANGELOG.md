@@ -6,6 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.11] - 29 September 2025
+### Fixed
+- Sort entries of module.xml file
+- Sort dependencies of composer.json
+- Copy generic CI/CD files
+- Update MODULE.json
+- Update README
+- Add escaping
+
 ## [2.0.10] - 24 September 2025
 ### Fixed
 - Implement new imageRenderer
