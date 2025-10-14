@@ -34,7 +34,6 @@
         "Magento_Store",
         "Magento_Vault",
         "Yireo_CspUtilities",
-        "Yireo_HyvaThemeAutoRegistration",
         "Yireo_IntegrationTestHelper"
     ],
     "components": [
@@ -61,5 +60,9 @@
         "loki-checkout.shipping.address.country_id"
     ],
     "config": [],
-    "tests": []
+    "tests": {
+        "unit": 0,
+        "integration": 2,
+        "functional": 4
+    }
 }
