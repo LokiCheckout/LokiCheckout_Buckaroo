@@ -228,10 +228,9 @@
             </block>
         </block>
 
-        <!--
         <block
+            ifconfig="payment/buckaroo_magento2_creditcards/active"
             name="loki-checkout.payment.methods.buckaroo_magento2_creditcards.form"
             template="LokiCheckout_Buckaroo::checkout/payment/method/hosted-fields.phtml"/>
-        -->
     </body>
 </page>

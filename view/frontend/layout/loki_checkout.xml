@@ -6,10 +6,26 @@
     </head>
     <body>
         <referenceBlock name="loki.script.component">
-            <block template="LokiCheckout_Buckaroo::script/component/creditcard-component.phtml"/>
-            <block template="LokiCheckout_Buckaroo::script/component/paybybank-component.phtml"/>
-            <block template="LokiCheckout_Buckaroo::script/component/afterpay-component.phtml"/>
-            <block template="LokiCheckout_Buckaroo::script/component/hosted-fields-component.phtml"/>
+            <block
+                name="loki-checkout-buckaroo.script.component.creditcard-component"
+                template="LokiCheckout_Buckaroo::script/component/creditcard-component.phtml"
+            />
+
+            <block
+                name="loki-checkout-buckaroo.script.component.paybybank-component"
+                template="LokiCheckout_Buckaroo::script/component/paybybank-component.phtml"
+            />
+
+            <block
+                name="loki-checkout-buckaroo.script.component.afterpay-component"
+                template="LokiCheckout_Buckaroo::script/component/afterpay-component.phtml"
+            />
+
+            <block
+                ifconfig="payment/buckaroo_magento2_creditcards/active"
+                name="loki-checkout-buckaroo.script.component.hosted-fields-component"
+                template="LokiCheckout_Buckaroo::script/component/hosted-fields-component.phtml"
+            />
         </referenceBlock>
     </body>
 </page>
