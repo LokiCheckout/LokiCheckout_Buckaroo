@@ -1,6 +1,6 @@
 {
     "name": "loki-checkout/magento2-buckaroo",
-    "version": "2.0.12",
+    "version": "2.0.13",
     "description": "N/A",
     "keywords": [
         "loki-payment"
@@ -14,7 +14,7 @@
     ],
     "type": "magento2-module",
     "require": {
-        "buckaroo/magento2": "^1.40 | ^2.0",
+        "buckaroo/magento2": "^1.50",
         "ext-json": "*",
         "ext-pcre": "*",
         "loki-checkout/magento2-core": "^2.0",

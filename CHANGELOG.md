@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.13] - 14 October 2025
+### Fixed
+- Conditionally add all hosted field blocks
+- Add loki_checkout_payment_before_save_quote event for additional information
+- Allow installation of Buckaroo 2.0
+
 ## [2.0.12] - 01 October 2025
 ### Fixed
 - Simplify image rendering
