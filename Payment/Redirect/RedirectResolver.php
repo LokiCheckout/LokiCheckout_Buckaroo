@@ -9,8 +9,9 @@ use Magento\Framework\Registry;
 
 class RedirectResolver implements RedirectResolverInterface
 {
+
     public function __construct(
-        private Registry $registry
+        private Registry $registry,
     ) {
     }
 
@@ -33,7 +34,6 @@ class RedirectResolver implements RedirectResolverInterface
 
         return false;
     }
-
 
     private function getUrlFromResponse(): string
     {

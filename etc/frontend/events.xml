@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="loki_checkout_payment_before_save_quote">
+        <observer
+            name="LokiCheckout_Buckaroo::saveModuleVersionToQuote"
+            instance="LokiCheckout\Buckaroo\Observer\SaveModuleVersionToQuote" />
+    </event>
+</config>
