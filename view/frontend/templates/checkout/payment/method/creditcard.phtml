@@ -16,19 +16,19 @@ use Loki\CssUtils\Util\CssClass;
 
 $cards = $viewModel->getCards();
 ?>
-<div class="<?= $escaper->escapeHtmlAttr($css('my-4')) ?>">
-    <span class="<?= $escaper->escapeHtmlAttr($css('', 'label')) ?>">
+<div class="<?= $escaper->escapeHtml($css('my-4')) ?>">
+    <span class="<?= $escaper->escapeHtml($css('', 'label')) ?>">
         <?= $escaper->escapeHtml(__('Select a Credit Card or Debit Card:')) ?>
     </span>
     <div>
         <?php foreach ($cards as $card): ?>
-            <div class="<?= $escaper->escapeHtmlAttr($css('flex gap-3 my-3', 'item')) ?>">
-                <div class="<?= $escaper->escapeHtmlAttr($css('w-8', 'item-image')) ?>">
+            <div class="<?= $escaper->escapeHtml($css('flex gap-3 my-3', 'item')) ?>">
+                <div class="<?= $escaper->escapeHtml($css('w-8', 'item-image')) ?>">
                     <img src="<?= $escaper->escapeUrl($card['img']) ?>""/>
                 </div>
                 <input
                     id="<?= $escaper->escapeHtml($viewModel->getElementId() . '-' . $card['code']) ?>"
-                    class="<?= $escaper->escapeHtmlAttr($css('', 'item-input')) ?>"
+                    class="<?= $escaper->escapeHtml($css('', 'item-input')) ?>"
                     @change="selectCard"
                     <?php if ($viewModel->getValue() === $card['code']): ?>checked<?php endif; ?>
                     type="radio"
@@ -37,7 +37,7 @@ $cards = $viewModel->getCards();
                 />
                 <label
                     for="<?= $escaper->escapeHtml($viewModel->getElementId() . '-' . $card['code']) ?>"
-                    class="<?= $escaper->escapeHtmlAttr($css('', 'item-label')) ?>"
+                    class="<?= $escaper->escapeHtml($css('', 'item-label')) ?>"
                 >
                     <?= $escaper->escapeHtml($card['name']) ?>
                 </label>

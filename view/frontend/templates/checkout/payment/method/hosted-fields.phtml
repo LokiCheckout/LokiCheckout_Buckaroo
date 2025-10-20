@@ -12,65 +12,65 @@ use Loki\CssUtils\Util\CssClass;
 /** @var Template $block */
 /** @var CssClass $css */
 ?>
-<div class="<?= $escaper->escapeHtmlAttr($css('my-4 grid grid-cols-2 gap-4')) ?>">
-    <div class="<?= $escaper->escapeHtmlAttr($css('field required col-span-2', 'cc-name-container')) ?>">
+<div class="<?= $escaper->escapeHtml($css('my-4 grid grid-cols-2 gap-4')) ?>">
+    <div class="<?= $escaper->escapeHtml($css('field required col-span-2', 'cc-name-container')) ?>">
         <label
             id="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-name-label"
-            class="<?= $escaper->escapeHtmlAttr($css('inline-block mt-2 md:mt-0 mb-1.5', 'label')) ?>"
+            class="<?= $escaper->escapeHtml($css('inline-block mt-2 md:mt-0 mb-1.5', 'label')) ?>"
             for="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-name-wrapper">
             <?= $escaper->escapeHtml(__('Cardholder Name')) ?>
         </label>
         <div
             id="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-name-wrapper"
-            class="<?= $escaper->escapeHtmlAttr($css('form-input w-full', 'input')) ?>"
+            class="<?= $escaper->escapeHtml($css('form-input w-full', 'input')) ?>"
         ></div>
         <div
             id="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-name-error"
         ></div>
     </div>
 
-    <div class="<?= $escaper->escapeHtmlAttr($css('field required col-span-2', 'cc-number-container')) ?>">
+    <div class="<?= $escaper->escapeHtml($css('field required col-span-2', 'cc-number-container')) ?>">
         <label
             id="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-number-label"
-            class="<?= $escaper->escapeHtmlAttr($css('inline-block mt-2 md:mt-0 mb-1.5', 'label')) ?>"
+            class="<?= $escaper->escapeHtml($css('inline-block mt-2 md:mt-0 mb-1.5', 'label')) ?>"
             for="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-number-wrapper">
             <?= $escaper->escapeHtml(__('Card Number')) ?>
         </label>
         <div
             id="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-number-wrapper"
-            class="<?= $escaper->escapeHtmlAttr($css('form-input w-full', 'input')) ?>"
+            class="<?= $escaper->escapeHtml($css('form-input w-full', 'input')) ?>"
         ></div>
         <div
             id="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-number-error"
         ></div>
     </div>
 
-    <div class="<?= $escaper->escapeHtmlAttr($css('field required', 'cc-expiry-container')) ?>">
+    <div class="<?= $escaper->escapeHtml($css('field required', 'cc-expiry-container')) ?>">
         <label
             id="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-expiry-label"
-            class="<?= $escaper->escapeHtmlAttr($css('inline-block mt-2 md:mt-0 mb-1.5', 'label')) ?>"
+            class="<?= $escaper->escapeHtml($css('inline-block mt-2 md:mt-0 mb-1.5', 'label')) ?>"
             for="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-expiry-wrapper">
             <?= $escaper->escapeHtml(__('Expiry Date')) ?>
         </label>
         <div
             id="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-expiry-wrapper"
-            class="<?= $escaper->escapeHtmlAttr($css('form-input w-full', 'input')) ?>"
+            class="<?= $escaper->escapeHtml($css('form-input w-full', 'input')) ?>"
         ></div>
         <div
             id="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-expiry-error"
         ></div>
     </div>
 
-    <div class="<?= $escaper->escapeHtmlAttr($css('field required', 'cc-cvc-container')) ?>">
+    <div class="<?= $escaper->escapeHtml($css('field required', 'cc-cvc-container')) ?>">
         <label
             id="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-cvc-label"
-            class="<?= $escaper->escapeHtmlAttr($css('inline-block mt-2 md:mt-0 mb-1.5', 'label')) ?>"
+            class="<?= $escaper->escapeHtml($css('inline-block mt-2 md:mt-0 mb-1.5', 'label')) ?>"
             for="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-cvc-wrapper">
             <?= $escaper->escapeHtml(__('CVC')) ?>
         </label>
         <div
             id="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-cvc-wrapper"
-            class="<?= $escaper->escapeHtmlAttr($css('form-input w-full', 'input')) ?>"
+            class="<?= $escaper->escapeHtml($css('form-input w-full', 'input')) ?>"
         ></div>
         <div
             id="<?= $escaper->escapeHtml($viewModel->getElementId()) ?>-cc-cvc-error"
