@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.14] - 22 October 2025
+### Fixed
+- Do not escape `$css()` with `escapeHtmlAttr()` but `escapeHtml()`
+- Fix merge conflict in templates
+
 ## [2.0.13] - 14 October 2025
 ### Fixed
 - Conditionally add all hosted field blocks
