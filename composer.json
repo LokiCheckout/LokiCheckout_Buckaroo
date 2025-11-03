@@ -3,8 +3,8 @@
     "version": "2.0.14",
     "description": "N/A",
     "keywords": [
-        "loki-checkout-payment",
-        "loki-checkout"
+        "loki-checkout",
+        "loki-checkout-category-payment"
     ],
     "homepage": "https://loki-checkout.com/",
     "authors": [
