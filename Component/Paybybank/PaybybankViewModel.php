@@ -16,11 +16,6 @@ class PaybybankViewModel extends AdditionalInformationViewModel
     ) {
     }
 
-    public function isRequired(): bool
-    {
-        return true;
-    }
-
     public function getJsComponentName(): ?string
     {
         return 'LokiCheckoutBuckarooPaybybank';
