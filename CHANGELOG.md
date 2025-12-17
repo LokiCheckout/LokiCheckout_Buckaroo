@@ -6,6 +6,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.15] - 17 December 2025
+### Fixed
+- Cleanup ViewModels require-flag which now defaults to true
+- Render payperemail details in sidebar
+- Add payperemail method
+- Add new gender options for payperemail
+- Add instructions on missing payment methods
+- Update composer keywords
+- Update composer keywords
+- Update composer keywords
+
 ## [2.0.14] - 22 October 2025
 ### Fixed
 - Do not escape `$css()` with `escapeHtmlAttr()` but `escapeHtml()`
