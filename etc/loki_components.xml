@@ -129,6 +129,42 @@
         <validator name="iban"/>
     </component>
 
+    <!-- payperemail components -->
+    <group name="buckaroo-payperemail-fields"
+           context="LokiCheckout\Core\Component\Base\Generic\CheckoutContext"
+           viewModel="LokiCheckout\Buckaroo\Component\Payperemail\PayperemailViewModel"
+           repository="LokiCheckout\Buckaroo\Component\Payperemail\PayperemailRepository">
+        <target name="loki-checkout-buckaroo.sidebar.preview.payment_details.additional"/>
+    </group>
+
+    <component
+        name="loki-checkout.payment.methods.buckaroo_magento2_payperemail.form.customer_gender"
+        group="buckaroo-payperemail-fields">
+        <validator name="options"/>
+    </component>
+
+    <component
+        name="loki-checkout.payment.methods.buckaroo_magento2_payperemail.form.customer_email"
+        group="buckaroo-payperemail-fields">
+        <validator name="email"/>
+    </component>
+
+    <component
+        name="loki-checkout.payment.methods.buckaroo_magento2_payperemail.form.customer_billingFirstName"
+        group="buckaroo-payperemail-fields">
+    </component>
+
+    <component
+        name="loki-checkout.payment.methods.buckaroo_magento2_payperemail.form.customer_billingMiddleName"
+        group="buckaroo-payperemail-fields">
+    </component>
+
+    <component
+        name="loki-checkout.payment.methods.buckaroo_magento2_payperemail.form.customer_billingLastName"
+        group="buckaroo-payperemail-fields">
+    </component>
+
+    <!-- other component definitions -->
     <component name="loki-checkout.shipping.address.country_id">
         <target name="loki-checkout.payment.methods" />
     </component>
