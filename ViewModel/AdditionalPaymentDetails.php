@@ -42,6 +42,10 @@ class AdditionalPaymentDetails implements ArgumentInterface
             $details = array_merge($details, $this->getPaybybankProperties());
         }
 
+        if ($paymentMethodCode === 'buckaroo_magento2_payperemail') {
+            $details = array_merge($details, $this->getPayperemailProperties());
+        }
+
         return $details;
     }
 
@@ -82,6 +86,18 @@ class AdditionalPaymentDetails implements ArgumentInterface
             'Issuer' => $this->getProperty('issuer'),
         ];
     }
+
+    private function getPayperemailProperties(): array
+    {
+        return [
+            'Gender' => $this->getProperty('customer_gender'),
+            'Email' => $this->getProperty('customer_email'),
+            'First name' => $this->getProperty('customer_billingFirstName'),
+            'Middle name' => $this->getProperty('customer_billingMiddleName'),
+            'Last name' => $this->getProperty('customer_billingLastName'),
+        ];
+    }
+
 
     private function getCreditcardProperties(): array
     {
