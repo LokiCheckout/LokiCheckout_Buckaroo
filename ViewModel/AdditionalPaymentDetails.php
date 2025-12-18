@@ -2,6 +2,7 @@
 
 namespace LokiCheckout\Buckaroo\ViewModel;
 
+use LokiCheckout\Buckaroo\ViewModel\OptionModel\GenderOptionModel;
 use Magento\Framework\View\Element\Block\ArgumentInterface;
 use LokiCheckout\Core\ViewModel\CheckoutState;
 
@@ -9,6 +10,7 @@ class AdditionalPaymentDetails implements ArgumentInterface
 {
     public function __construct(
         private readonly CheckoutState $checkoutState,
+        private readonly GenderOptionModel $genderOptionModel,
     ) {
     }
 
@@ -89,8 +91,12 @@ class AdditionalPaymentDetails implements ArgumentInterface
 
     private function getPayperemailProperties(): array
     {
+        $genderId = $this->getProperty('customer_gender');
+        $genderOptions = $this->genderOptionModel->getAllOptions();
+        $gender = array_key_exists($genderId, $genderOptions) ? $genderOptions[$genderId] : '';
+
         return [
-            'Gender' => $this->getProperty('customer_gender'),
+            'Gender' => $gender,
             'Email' => $this->getProperty('customer_email'),
             'First name' => $this->getProperty('customer_billingFirstName'),
             'Middle name' => $this->getProperty('customer_billingMiddleName'),

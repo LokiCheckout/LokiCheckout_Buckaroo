@@ -11,6 +11,11 @@ class GenderOptionModel implements ArgumentInterface, OptionModelInterface
 {
     public function getOptions(ComponentViewModelInterface $viewModel): array
     {
+        return $this->getAllOptions();
+    }
+
+    public function getAllOptions(): array
+    {
         return [
             '1' => __('Mr.'),
             '2' => __('Mrs.'),
