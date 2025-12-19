@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.16] - 19 December 2025
+### Fixed
+- Allow for default Payperemail values from quote
+- Render chosen gender in sidebar
+
 ## [2.0.15] - 17 December 2025
 ### Fixed
 - Cleanup ViewModels require-flag which now defaults to true
