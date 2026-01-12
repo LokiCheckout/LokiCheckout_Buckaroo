@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.17] - 12 January 2026
+### Fixed
+- Add new GitHub Action workflows
+
 ## [2.0.16] - 19 December 2025
 ### Fixed
 - Allow for default Payperemail values from quote
