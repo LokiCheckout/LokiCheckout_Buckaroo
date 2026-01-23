@@ -24,7 +24,7 @@ class PayperemailRepository extends AdditionalInformationRepository
         }
 
         if ($properyName === 'customer_billingLastName') {
-            return $quote->getBillingAddress()->getLastname().'2';
+            return $quote->getBillingAddress()->getLastname();
         }
 
         return parent::getDefaultValue();
