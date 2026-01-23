@@ -1,35 +1,25 @@
 import {PaymentMethod, PlaceOrderButton} from '@loki/checkout-objects';
 import {setupCheckout} from '@loki/setup-checkout';
-import {test, expect} from '@loki/test';
+import {test} from '@loki/test';
 
 import {BuckarooPortal} from './helpers/buckaroo-objects';
 import buckarooConfig from './config/config';
 
-test.describe('Creditcard payment test', () => {
+test.describe('iDeal Processing payment test', () => {
     test('should allow me to go to the checkout', async ({page, context}) => {
         await setupCheckout(page, context, {
             ...buckarooConfig,
             config: {
                 ...buckarooConfig.config,
-                'payment/buckaroo_magento2_creditcard/active': 1,
-                'payment/buckaroo_magento2_creditcard/allowed_issuers': 'amex,cartebancaire,cartebleuevisa,dankort,maestro,mastercard',
+                'payment/buckaroo_magento2_idealprocessing/active': 1,
             }
         });
 
-        const paymentMethod = new PaymentMethod(page, 'buckaroo_magento2_creditcard');
+        const paymentMethod = new PaymentMethod(page, 'buckaroo_magento2_idealprocessing');
         await paymentMethod.select();
-
-        const card = page.getByLabel('American Express');
-        await card.check();
-        await card.blur();
-        await page.waitForLoadState('networkidle');
-        await expect(card).toBeEditable();
-        await expect(card).toBeChecked();
 
         const placeOrderButton = new PlaceOrderButton(page);
         await placeOrderButton.click();
-
-        page.off('pageerror', onPageError);
 
         const buckarooPortal = new BuckarooPortal(page);
         await buckarooPortal.expectTestPaymentPage();
