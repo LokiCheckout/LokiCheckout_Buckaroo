@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.19] - 13 February 2026
+### Fixed
+- Add proper error handling when value is required but empty
+
 ## [2.0.18] - 23 January 2026
 ### Fixed
 - New Playwright tests

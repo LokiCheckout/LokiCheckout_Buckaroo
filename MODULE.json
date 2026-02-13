@@ -32,6 +32,7 @@
         "Magento_Sales",
         "Magento_Shipping",
         "Magento_Store",
+        "Magento_Tax",
         "Magento_Vault",
         "Yireo_CspUtilities",
         "Yireo_IntegrationTestHelper"
@@ -53,6 +54,11 @@
         "loki-checkout.payment.methods.buckaroo_magento2_creditcard.form.card_type",
         "loki-checkout.payment.methods.buckaroo_magento2_creditcards.form",
         "loki-checkout.payment.methods.buckaroo_magento2_paybybank.form.issuer",
+        "loki-checkout.payment.methods.buckaroo_magento2_payperemail.form.customer_billingFirstName",
+        "loki-checkout.payment.methods.buckaroo_magento2_payperemail.form.customer_billingLastName",
+        "loki-checkout.payment.methods.buckaroo_magento2_payperemail.form.customer_billingMiddleName",
+        "loki-checkout.payment.methods.buckaroo_magento2_payperemail.form.customer_email",
+        "loki-checkout.payment.methods.buckaroo_magento2_payperemail.form.customer_gender",
         "loki-checkout.payment.methods.buckaroo_magento2_sepadirectdebit.form.customer_account_name",
         "loki-checkout.payment.methods.buckaroo_magento2_sepadirectdebit.form.customer_iban",
         "loki-checkout.payment.methods.buckaroo_magento2_voucher.form.voucher",
@@ -63,6 +69,6 @@
     "tests": {
         "unit": 0,
         "integration": 2,
-        "functional": 4
+        "functional": 9
     }
 }
