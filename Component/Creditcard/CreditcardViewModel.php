@@ -4,12 +4,12 @@ namespace LokiCheckout\Buckaroo\Component\Creditcard;
 
 use Buckaroo\Magento2\Model\ConfigProvider\Method\Creditcard as CreditcardConfigProvider;
 use LokiCheckout\Core\Component\Base\Generic\CheckoutContext;
-use LokiCheckout\Core\Component\Base\Generic\CheckoutViewModel;
+use LokiCheckout\Core\Component\Checkout\Billing\PaymentMethod\PaymentMethodViewModel;
 
 /**
  * @method CheckoutContext getContext()
  */
-class CreditcardViewModel extends CheckoutViewModel
+class CreditcardViewModel extends PaymentMethodViewModel
 {
     public function __construct(
         private readonly CreditcardConfigProvider $creditcardConfigProvider

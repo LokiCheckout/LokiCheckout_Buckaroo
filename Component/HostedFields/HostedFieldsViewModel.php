@@ -2,12 +2,12 @@
 
 namespace LokiCheckout\Buckaroo\Component\HostedFields;
 
-use LokiCheckout\Core\Component\Base\Generic\CheckoutViewModel;
+use LokiCheckout\Core\Component\Checkout\Billing\PaymentMethod\PaymentMethodViewModel;
 
 /**
  * @method HostedFieldsContext getContext()
  */
-class HostedFieldsViewModel extends CheckoutViewModel
+class HostedFieldsViewModel extends PaymentMethodViewModel
 {
     public function getJsComponentName(): ?string
     {

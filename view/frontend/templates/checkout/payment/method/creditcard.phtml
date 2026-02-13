@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 use Loki\Components\Factory\ViewModelFactory;
+use Loki\Components\Util\Block\BlockRenderer;
 use LokiCheckout\Buckaroo\Component\Creditcard\CreditcardViewModel;
 use Magento\Framework\Escaper;
 use Magento\Framework\View\Element\Template;
@@ -13,10 +14,11 @@ use Loki\CssUtils\Util\CssClass;
 /** @var CssClass $css */
 /** @var CreditcardViewModel $viewModel */
 /** @var ViewModelFactory $viewModelFactory */
+/** @var BlockRenderer $blockRenderer */
 
 $cards = $viewModel->getCards();
 ?>
-<div class="<?= $escaper->escapeHtml($css('my-4')) ?>">
+<div class="<?= $escaper->escapeHtml($css('my-8')) ?>" role="group">
     <span class="<?= $escaper->escapeHtml($css('', 'label')) ?>">
         <?= $escaper->escapeHtml(__('Select a Credit Card or Debit Card:')) ?>
     </span>
@@ -44,4 +46,6 @@ $cards = $viewModel->getCards();
             </div>
         <?php endforeach; ?>
     </div>
+
+    <?= /* @noEscape */ $blockRenderer->html($block,  'loki-components.utils.local-messages') ?>
 </div>

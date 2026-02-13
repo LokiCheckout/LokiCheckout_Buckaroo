@@ -10,21 +10,6 @@ use Magento\Framework\View\Element\Template;
     document.addEventListener('alpine:init', () => {
         Alpine.data('LokiCheckoutBuckarooAfterpay', () => ({
             ...LokiFieldComponentType,
-            /*saveCustomerIban(event) {
-                this.post({
-                    customerIban: event.target.value,
-                });
-            },
-            saveCustomerDob(event) {
-                this.post({
-                    customerDob: event.target.value,
-                });
-            },
-            saveTermsCondition(event) {
-                this.post({
-                    termsCondition: event.target.checked ? 1 : 0,
-                });
-            }*/
         }));
     });
 </script>
