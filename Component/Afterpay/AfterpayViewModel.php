@@ -12,11 +12,6 @@ use LokiCheckout\Core\Component\Base\Payment\AdditionalInformation\AdditionalInf
  */
 class AfterpayViewModel extends AdditionalInformationViewModel
 {
-    public function isRequired(): bool
-    {
-        return $this->isAllowRendering();
-    }
-
     public function isAllowRendering(): bool
     {
         $propertyName = $this->getRepository()->getPropertyName();
