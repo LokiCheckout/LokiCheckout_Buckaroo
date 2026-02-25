@@ -6,6 +6,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.20] - 25 February 2026
+### Fixed
+- Add dep with quote module
+- Add proper Playwright tests for all supported methods
+- Add better error messages to paybybank and creditcard
+- When modifying telephone, refresh payment methods (because of afterpay)
+- Do not make Sepadirectdebit required as a whole, because there are subfields instead
+- Fix afterpay20 logic for customer-type `both`
+- Restructure XML layout for better management
+- Cleanup required duplicate flag for Afterpay
+- Hosted fields subform as required
+- Improve error message of no card selected
+- Make creditcard subselection required again
+
 ## [2.0.19] - 13 February 2026
 ### Fixed
 - Add proper error handling when value is required but empty
