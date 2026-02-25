@@ -5,6 +5,8 @@ namespace LokiCheckout\Buckaroo\Component\Afterpay;
 use LokiCheckout\Core\Component\Base\Generic\CheckoutContext;
 use LokiCheckout\Core\Component\Base\Payment\AdditionalInformation\AdditionalInformationRepository;
 use LokiCheckout\Core\Component\Base\Payment\AdditionalInformation\AdditionalInformationViewModel;
+use Magento\Quote\Api\Data\AddressInterface;
+use Magento\Store\Model\ScopeInterface;
 
 /**
  * @method CheckoutContext getContext()
@@ -12,26 +14,29 @@ use LokiCheckout\Core\Component\Base\Payment\AdditionalInformation\AdditionalInf
  */
 class AfterpayViewModel extends AdditionalInformationViewModel
 {
+    const CUSTOMER_TYPE_B2B = 'b2b';
+    const CUSTOMER_TYPE_B2C = 'b2c';
+    const CUSTOMER_TYPE_BOTH = 'both';
+
     public function isAllowRendering(): bool
     {
         $propertyName = $this->getRepository()->getPropertyName();
-        $billingAddress = $this->getContext()->getCheckoutState()->getQuote()->getBillingAddress();
+        $billingAddress = $this->getBillingAddress();
 
         if ($propertyName === 'customer_identificationNumber') {
             return $billingAddress->getCountryId() === 'FI';
         }
 
         if ($propertyName === 'customer_coc') {
-            // @todo: Check for customer_type to be b2c
-            return false === empty($billingAddress->getCompany());
+            return $this->isB2B();
         }
 
         if ($propertyName === 'customer_telephone') {
-            return in_array($billingAddress->getCountryId(), ['NL', 'BE']) && empty($billingAddress->getTelephone());
+            return $this->isCountry(['NL', 'BE']) && empty($billingAddress->getTelephone());
         }
 
         if ($propertyName === 'customer_DoB') {
-            return in_array($billingAddress->getCountryId(), ['NL', 'BE']) && empty($billingAddress->getCompany());
+            return $this->isCountry(['NL', 'BE']) && $this->isB2C();
         }
 
         return parent::isAllowRendering();
@@ -55,7 +60,8 @@ class AfterpayViewModel extends AdditionalInformationViewModel
         }
 
         $text = $this->getContext()->getScopeConfig()->getValue(
-            'loki_checkout/buckaroo/afterpay_terms'
+            'loki_checkout/buckaroo/afterpay_terms',
+            ScopeInterface::SCOPE_STORE
         );
 
         if (empty($text)) {
@@ -80,21 +86,68 @@ class AfterpayViewModel extends AdditionalInformationViewModel
     private function getTermsAndConditionsUrl(): string
     {
         return (string)$this->getContext()->getScopeConfig()->getValue(
-            'loki_checkout/buckaroo/afterpay_terms_conditions_url'
+            'loki_checkout/buckaroo/afterpay_terms_conditions_url',
+            ScopeInterface::SCOPE_STORE
         );
     }
 
     private function getPrivacyPolicyUrl(): string
     {
         return (string)$this->getContext()->getScopeConfig()->getValue(
-            'loki_checkout/buckaroo/afterpay_privacy_statement_url'
+            'loki_checkout/buckaroo/afterpay_privacy_statement_url',
+            ScopeInterface::SCOPE_STORE
         );
     }
 
     private function getCookieStatementUrl(): string
     {
         return (string)$this->getContext()->getScopeConfig()->getValue(
-            'loki_checkout/buckaroo/afterpay_cookie_statement_url'
+            'loki_checkout/buckaroo/afterpay_cookie_statement_url',
+            ScopeInterface::SCOPE_STORE
         );
+    }
+
+    private function getCustomerType(): string
+    {
+        return (string)$this->getContext()->getScopeConfig()->getValue(
+            'payment/buckaroo_magento2_afterpay20/customer_type',
+            ScopeInterface::SCOPE_STORE
+        );
+    }
+
+    private function isB2C(): bool
+    {
+        if ($this->getCustomerType() === self::CUSTOMER_TYPE_B2C) {
+            return true;
+        }
+
+        if ($this->getCustomerType() === self::CUSTOMER_TYPE_BOTH) {
+            return $this->getBillingAddress()->getCompany() === '';
+        }
+
+        return false;
+    }
+
+    private function isB2B(): bool
+    {
+        if ($this->getCustomerType() === self::CUSTOMER_TYPE_B2B) {
+            return true;
+        }
+
+        if ($this->getCustomerType() === self::CUSTOMER_TYPE_BOTH) {
+            return strlen($this->getBillingAddress()->getCompany()) > 0;
+        }
+
+        return false;
+    }
+
+    private function isCountry(array $countryIds): bool
+    {
+        return in_array($this->getBillingAddress()->getCountryId(), $countryIds);
+    }
+
+    private function getBillingAddress(): AddressInterface
+    {
+        return $this->getContext()->getCheckoutState()->getQuote()->getBillingAddress();
     }
 }
