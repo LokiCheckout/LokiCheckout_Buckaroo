@@ -180,4 +180,12 @@
     <component name="loki-checkout.billing.address.company">
         <target name="loki-checkout.payment.methods" />
     </component>
+
+    <component name="loki-checkout.shipping.address.telephone">
+        <target name="loki-checkout.payment.methods" />
+    </component>
+
+    <component name="loki-checkout.billing.address.telephone">
+        <target name="loki-checkout.payment.methods" />
+    </component>
 </components>
