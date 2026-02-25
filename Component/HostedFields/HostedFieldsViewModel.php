@@ -9,6 +9,8 @@ use LokiCheckout\Core\Component\Checkout\Billing\PaymentMethod\PaymentMethodView
  */
 class HostedFieldsViewModel extends PaymentMethodViewModel
 {
+    protected bool $isRequiredByDefault = true;
+
     public function getJsComponentName(): ?string
     {
         return 'LokiCheckoutBuckarooHostedFields';
