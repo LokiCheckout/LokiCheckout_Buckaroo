@@ -17,7 +17,7 @@ use Loki\CssUtils\Util\CssClass;
 
 $issuers = $viewModel->getIssuers();
 ?>
-<div class="<?= $escaper->escapeHtml($css('my-8')) ?>">
+<div class="<?= $escaper->escapeHtml($css('my-8')) ?>" role="group">
     <span class="<?= $escaper->escapeHtml($css('', 'label')) ?>">
         <?= $escaper->escapeHtml(__('Select an issuer:')) ?>
     </span>
@@ -44,5 +44,7 @@ $issuers = $viewModel->getIssuers();
                 </label>
             </div>
         <?php endforeach; ?>
+
+        <?= /* @noEscape */ $blockRenderer->html($block,  'loki-components.utils.local-messages') ?>
     </div>
 </div>
