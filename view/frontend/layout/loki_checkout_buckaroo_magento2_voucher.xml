@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:View/Layout:etc/page_configuration.xsd">
+    <body>
+        <block
+            name="loki-checkout.payment.methods.buckaroo_magento2_voucher.form"
+            template="LokiCheckout_Core::generic/container.phtml">
+            <block
+                name="loki-checkout.payment.methods.buckaroo_magento2_voucher.form.voucher" as="voucher"
+                template="Loki_FieldComponents::form/field.phtml">
+                <arguments>
+                    <argument name="field_label" xsi:type="string">Voucher code</argument>
+                </arguments>
+            </block>
+        </block>
+    </body>
+</page>

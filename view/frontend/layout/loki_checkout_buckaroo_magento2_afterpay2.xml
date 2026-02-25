@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:View/Layout:etc/page_configuration.xsd">
+    <body>
+        <block
+            name="loki-checkout.payment.methods.buckaroo_magento2_afterpay2.form"
+            template="LokiCheckout_Core::generic/container.phtml">
+            <arguments>
+                <argument name="css_classes" xsi:type="array">
+                    <item name="block" xsi:type="array">
+                        <item name="default" xsi:type="string">my-4</item>
+                    </item>
+                </argument>
+            </arguments>
+
+            <block
+                name="loki-checkout.payment.methods.buckaroo_magento2_afterpay2.form.customer_DoB" as="customer_DoB"
+                template="Loki_FieldComponents::form/field.phtml">
+                <arguments>
+                    <argument name="field_label" xsi:type="string">Date of Birth</argument>
+                    <argument name="minimum_age" xsi:type="number">18</argument>
+                    <argument name="input_type" xsi:type="string">date</argument>
+                </arguments>
+            </block>
+
+            <block
+                name="loki-checkout.payment.methods.buckaroo_magento2_afterpay2.form.customer_iban" as="customer_iban"
+                template="Loki_FieldComponents::form/field.phtml">
+                <arguments>
+                    <argument name="field_label" xsi:type="string">Bank Account Number</argument>
+                    <argument name="field_attributes" xsi:type="array">
+                        <item name="x-mask" xsi:type="string">aa99 **** **** **** **** **** **** **** **</item>
+                        <item name="placeholder" xsi:type="string">NL00 ABCD 0000 0000 0000 0000 0000 0000 00</item>
+                    </argument>
+                </arguments>
+            </block>
+
+            <block
+                name="loki-checkout.payment.methods.buckaroo_magento2_afterpay2.form.termsCondition" as="termsCondition"
+                template="Loki_FieldComponents::form/field.phtml">
+                <arguments>
+                    <argument name="field_label" xsi:type="string">Terms and Conditions</argument>
+                    <argument name="field_type" xsi:type="string">checkbox</argument>
+                </arguments>
+            </block>
+        </block>
+    </body>
+</page>
