@@ -11,6 +11,8 @@ use LokiCheckout\Core\Component\Checkout\Billing\PaymentMethod\PaymentMethodView
  */
 class CreditcardViewModel extends PaymentMethodViewModel
 {
+    protected bool $isRequiredByDefault = true;
+
     public function __construct(
         private readonly CreditcardConfigProvider $creditcardConfigProvider
     ) {
