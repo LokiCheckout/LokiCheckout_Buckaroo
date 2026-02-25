@@ -10,4 +10,5 @@ use LokiCheckout\Core\Component\Base\Payment\AdditionalInformation\AdditionalInf
  */
 class SepadirectdebitViewModel extends AdditionalInformationViewModel
 {
+    protected bool $isRequiredByDefault = false;
 }
