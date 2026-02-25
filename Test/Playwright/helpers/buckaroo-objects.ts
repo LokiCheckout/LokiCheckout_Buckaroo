@@ -15,4 +15,8 @@ export class BuckarooPortal {
     async expectTestCheckoutPage() {
         await expect(this.page).toHaveURL(/testcheckout.buckaroo.nl/, {timeout: 10000});
     }
+
+    async expectRivertyPage() {
+        await expect(this.page).toHaveURL(/riverty.io/, {timeout: 10000});
+    }
 }
