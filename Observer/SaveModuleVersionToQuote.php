@@ -14,6 +14,9 @@ class SaveModuleVersionToQuote implements ObserverInterface
     public function execute(Observer $observer)
     {
         $quote = $observer->getQuote();
+        if (false === str_starts_with($quote->getPayment()->getMethod(), 'buckaroo')) {
+            return;
+        }
 
         $version = 'unknown';
 
