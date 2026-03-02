@@ -12,6 +12,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Do not add debug info to non-Buckaroo orders
 - Add composer patch file
 
+## [2.0.21] - 02 March 2026
+### Fixed
+- Add integration flag to MODULE.json
+- Do not add debug info to non-Buckaroo orders
+- Add composer patch file
+
 ## [2.0.20] - 25 February 2026
 ### Fixed
 - Add dep with quote module
