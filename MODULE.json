@@ -1,5 +1,4 @@
 {
-    "integration": true,
     "sequence": [
         "Buckaroo_Magento2",
         "LokiCheckout_Core",
