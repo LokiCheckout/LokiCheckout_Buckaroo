@@ -19,6 +19,8 @@
                     <argument name="field_label" xsi:type="string">Date of Birth</argument>
                     <argument name="minimum_age" xsi:type="number">18</argument>
                     <argument name="input_type" xsi:type="string">date</argument>
+                    <argument name="min_date" xsi:type="string">120 years ago</argument>
+                    <argument name="max_date" xsi:type="string">18 years ago</argument>
                 </arguments>
             </block>
 
