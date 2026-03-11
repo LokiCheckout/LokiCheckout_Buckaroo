@@ -135,7 +135,7 @@ class AfterpayViewModel extends AdditionalInformationViewModel
         }
 
         if ($this->getCustomerType() === self::CUSTOMER_TYPE_BOTH) {
-            return strlen($this->getBillingAddress()->getCompany()) > 0;
+            return strlen((string)$this->getBillingAddress()->getCompany()) > 0;
         }
 
         return false;
