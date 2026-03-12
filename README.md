@@ -22,3 +22,10 @@ To add additional fields, create a new block `loki-checkout.payment.methods.buck
 Make sure the block `loki-checkout.payment.methods.buckaroo_magento2_FOOBAR.form` is registered as a Loki Component via the file `etc/loki_components.xml`. Also create a corresponding Component ViewModel and Component Repository. Note that each alias (`as`) of additional Buckaroo field in the XML layout (see `loki_checkout_block_payment_methods.xml`) - for example `customer_DoB` - corresponds with the property name - for example `customer_DoB` - that is saved to the quote via the `AdditionalInformationRepository` class.
 
 Which fields need to be added? Each payment method is backed by a class in the PHP namespace `Buckaroo\Magento2\Model\Method`. Within such a method class, the XML construction is initiated, giving evidence of what kind of fields are needed. For example, the code segment `$payment->getAdditionalInformation('customer_email')` suggests that a field `customer_email` should be created.
+
+## Error on `Model/Method/Afterpay.php`
+```
+Deprecated Functionality: str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in vendor/buckaroo/magento2/Model/Method/Afterpay.php on line 823
+```
+
+The method `afterpay2` or `afterpay` is deprecated and can not be used under PHP 8.3. This has nothing to do with the LokiCheckout.
