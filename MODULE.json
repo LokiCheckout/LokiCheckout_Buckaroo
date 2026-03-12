@@ -73,7 +73,5 @@
         "unit": 0,
         "integration": 2,
         "functional": 20
-    },
-    "phpcs_severity": "9",
-    "phpstan_level": "5"
+    }
 }
