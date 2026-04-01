@@ -20,13 +20,15 @@ class HostedFieldsRepository extends ComponentRepository
             return;
         }
 
-        $additionalInformation = [
-            'token' => $value['token'],
-            'service' => $value['service'],
-        ]; // @todo: Pass through the right information
-
         $quote = $this->getContext()->getCheckoutState()->getQuote();
-        $quote->getPayment()->setAdditionalInformation($additionalInformation);
+
+        $quote->getPayment()->setAdditionalInformation('customer_encrypteddata', $value['token']);
+        $quote->getPayment()->setAdditionalInformation(
+            'customer_creditcardcompany',
+            $value['service'] ?? 'visa'
+        );
+
+
         $this->getContext()->getCheckoutState()->saveQuote($quote);
     }
 }
