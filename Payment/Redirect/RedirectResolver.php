@@ -2,46 +2,75 @@
 
 namespace LokiCheckout\Buckaroo\Payment\Redirect;
 
-use Buckaroo\Magento2\Model\Method\AbstractMethod;
+use Buckaroo\Magento2\Model\Method\BuckarooAdapter;
 use LokiCheckout\Core\Payment\Redirect\RedirectResolverInterface;
 use LokiCheckout\Core\Step\FinalStep\RedirectContext;
+use Buckaroo\Magento2\Api\Data\BuckarooResponseDataInterface;
 use Magento\Framework\Registry;
 
 class RedirectResolver implements RedirectResolverInterface
 {
 
     public function __construct(
-        private Registry $registry,
+        private readonly Registry $registry,
+        private readonly BuckarooResponseDataInterface $buckarooResponseData,
     ) {
     }
 
     public function resolve(RedirectContext $redirectContext): false|string
     {
         $paymentMethod = $redirectContext->getPaymentMethod();
-        if (false === $paymentMethod instanceof AbstractMethod) {
+
+        if (false === $paymentMethod instanceof BuckarooAdapter) {
             return false;
         }
 
-        $redirectUrl = $this->getUrlFromResponse();
-        if (!empty($redirectUrl)) {
-            return $redirectUrl;
+        if ($this->hasRedirect()) {
+            return $this->getResponse()->RequiredAction->RedirectURL;
         }
 
-        $redirectUrl = $paymentMethod->getOrderPlaceRedirectUrl();
-        if (is_string($redirectUrl)) {
-            return $redirectUrl;
+        if ($this->isSuccessfulPayment()) {
+            return 'checkout/onepage/success';
+        }
+
+        if ($paymentMethod && method_exists($paymentMethod, 'getOrderPlaceRedirectUrl')) {
+            $redirectUrl = $paymentMethod->getOrderPlaceRedirectUrl();
+            if (is_string($redirectUrl)) {
+                return $redirectUrl;
+            }
         }
 
         return false;
     }
 
-    private function getUrlFromResponse(): string
+    private function getResponse()
     {
-        $response = $this->registry->registry('buckaroo_response');
-        if (!empty($response) && !empty($response[0]) && !empty($response[0]->RequiredAction)) {
-            return (string)$response[0]->RequiredAction->RedirectURL;
+        if ($this->registry && $this->registry->registry('buckaroo_response')) {
+            return $this->registry->registry('buckaroo_response')[0];
         }
 
-        return '';
+        if ($this->buckarooResponseData->getResponse()) {
+            return json_decode(json_encode($this->buckarooResponseData->getResponse()->toArray()));
+        }
+
+        return null;
+    }
+
+
+    private function hasRedirect(): bool
+    {
+        $response = $this->getResponse();
+
+        return !empty($response->RequiredAction->RedirectURL);
+    }
+
+    private function isSuccessfulPayment(): bool
+    {
+        $response = $this->getResponse();
+        if (!$response) {
+            return false;
+        }
+
+        return !empty($response->Status->Code->Code) && $response->Status->Code->Code == 190;
     }
 }
