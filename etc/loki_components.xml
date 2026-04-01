@@ -11,15 +11,6 @@
     </component>
 
     <component
-        name="loki-checkout.payment.methods.buckaroo_magento2_paybybank.form.issuer"
-        group="checkout"
-        viewModel="LokiCheckout\Buckaroo\Component\Paybybank\PaybybankViewModel"
-        repository="LokiCheckout\Buckaroo\Component\Paybybank\PaybybankRepository"
-    >
-        <target name="loki-checkout-buckaroo.sidebar.preview.payment_details.additional"/>
-    </component>
-
-    <component
         name="loki-checkout.payment.methods.buckaroo_magento2_voucher.form.voucher"
         group="checkout"
         viewModel="LokiCheckout\Buckaroo\Component\Voucher\VoucherViewModel"

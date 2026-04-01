@@ -6,7 +6,6 @@
     <update handle="loki_checkout_buckaroo_magento2_afterpay20"/>
     <update handle="loki_checkout_buckaroo_magento2_creditcard"/>
     <update handle="loki_checkout_buckaroo_magento2_creditcards"/>
-    <update handle="loki_checkout_buckaroo_magento2_paybybank"/>
     <update handle="loki_checkout_buckaroo_magento2_payperemail"/>
     <update handle="loki_checkout_buckaroo_magento2_sepadirectdebit"/>
     <update handle="loki_checkout_buckaroo_magento2_transfer"/>
