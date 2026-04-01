@@ -13,6 +13,8 @@ use Magento\Framework\View\Element\Template;
         Alpine.data('LokiCheckoutBuckarooHostedFields', () => ({
             ...LokiCheckoutComponentType,
             jwtToken: '',
+            service: '',
+            buckarooHostedFieldsClient: null,
             //tokenExpires: 0, @todo: Automatically expire token
             allowedIssuers: [],
             async initHostedFields() {
@@ -27,48 +29,22 @@ use Magento\Framework\View\Element\Template;
             async renderHostedFields() {
                 const jwtToken = JSON.parse(JSON.stringify(this.jwtToken));
                 const allowedIssuers = JSON.parse(JSON.stringify(this.allowedIssuers));
-                console.log('Buckaroo initHostedFields', jwtToken, allowedIssuers);
 
-                buckarooHostedFieldsClient = new BuckarooHostedFieldsSdk.HFClient(jwtToken);
-                buckarooHostedFieldsClient.setLanguage('nl');
-                buckarooHostedFieldsClient.setSupportedServices(allowedIssuers);
+                this.buckarooHostedFieldsClient = new BuckarooHostedFieldsSdk.HFClient(jwtToken);
+                this.buckarooHostedFieldsClient.setLanguage('nl'); // @todo
+                this.buckarooHostedFieldsClient.setSupportedServices(allowedIssuers);
 
-                /*
-                let options = {
-                    id: this.elementId + "-cc-number",
-                    placeHolder: "John Doe",
-                    labelSelector: "#cc-name-label",
-                    baseStyling: {
-                        width: "100",
-                        background: "inherit",
-                        placeholderColor:'grey'
-                    },
-                    validStyling: {},
-                    invalidStyling: {},
-                };
-
-                const subtextStyle = {
-                    color: '#757575',
-                    fontWeight: 'bold',
-                };
-
-                 */
-
-                // @todo: window.location.replace(response.RequiredAction.RedirectURL);
-                // @todo: shippingAddress.extension_attributes.tig_housenumber
-                // @todo: shippingAddress.extension_attributes.tig_housenumber_addition
-
-                await buckarooHostedFieldsClient.startSession((event) => {
-                    // @todo: See https://docs.buckaroo.io/docs/creditcards-hosted-fields#initialize-hosted-fields
-                    buckarooHostedFieldsClient.handleValidation(
+                await this.buckarooHostedFieldsClient.startSession((event) => {
+                    this.buckarooHostedFieldsClient.handleValidation(
                         event,
                         this.elementId + '-cc-name-error',
                         this.elementId + '-cc-number-error',
                         this.elementId + '-cc-expiry-error',
                         this.elementId + '-cc-cvc-error'
                     );
-                    // this.valid = buckarooHostedFieldsClient.formIsValid();
-                    // buckarooHostedFieldsClient.getService()
+
+                    this.valid = this.buckarooHostedFieldsClient.formIsValid();
+                    this.service = this.buckarooHostedFieldsClient.getService();
                 });
 
                 const cardLogoStyling = {
@@ -91,15 +67,12 @@ use Magento\Framework\View\Element\Template;
                     background: '#fefefe',
                     color: '#333333',
                     placeholderColor: '#888888',
-                    borderRadius: '5px',
-                    padding: '8px 10px',
                     boxShadow: 'none',
                     transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
-                    border: '1px solid #d6d6d6',
                     cardLogoStyling: cardLogoStyling
                 };
 
-                const mountCardHolderNamePromise =  buckarooHostedFieldsClient.mountCardHolderName("#" + this.elementId + "-cc-name-wrapper", {
+                const mountCardHolderNamePromise = this.buckarooHostedFieldsClient.mountCardHolderName("#" + this.elementId + "-cc-name-wrapper", {
                     id: "ccname",
                     placeHolder: "John Doe",
                     labelSelector: "#" + this.elementId + "-cc-name-label",
@@ -109,20 +82,37 @@ use Magento\Framework\View\Element\Template;
                     return field;
                 });
 
+                const mountCardNumberPromise =  this.buckarooHostedFieldsClient.mountCardNumber("#" + this.elementId + "-cc-number-wrapper", {
+                    id: "ccnumber",
+                    placeHolder: "0000000000000000000",
+                    labelSelector: "#" + this.elementId + "-cc-name-label",
+                    baseStyling: styling,
+                });
+
+                const mountCardExpiryPromise =  this.buckarooHostedFieldsClient.mountExpiryDate("#" + this.elementId + "-cc-expiry-wrapper", {
+                    id: "ccexpiry",
+                    placeHolder: "01/30",
+                    labelSelector: "#" + this.elementId + "-cc-name-label",
+                    baseStyling: styling,
+                });
+
+                const mountCardCvcPromise =  this.buckarooHostedFieldsClient.mountCvc("#" + this.elementId + "-cc-cvc-wrapper", {
+                    id: "cvc",
+                    placeHolder: "000",
+                    labelSelector: "#" + this.elementId + "-cc-name-label",
+                    baseStyling: styling,
+                });
+
                 await Promise.all([
                     mountCardHolderNamePromise,
+                    mountCardNumberPromise,
+                    mountCardExpiryPromise,
+                    mountCardCvcPromise,
                 ]);
-
-                //buckarooHostedFieldsClient.mountCardNumber('#' + this.elementId + "-cc-number-wrapper", options);
-                //buckarooHostedFieldsClient.mountCardHolderName('#' + this.elementId + "-cc-name-wrapper", options);
-                /*await buckarooHostedFieldsClient.mountCardHolderName('#' + this.elementId + "-cc-name-wrapper", options)
-                    .then(function (cardHolderNameField) {
-                        cardHolderNameField.focus();
-                    });*/
-
             },
             async beforePostNextStep() {
-                if (!this.valid) {
+                if (false === this.buckarooHostedFieldsClient.formIsValid()) {
+                    this.valid = false;
                     return;
                 }
 
@@ -132,9 +122,11 @@ use Magento\Framework\View\Element\Template;
                     return;
                 }*/
 
-                const paymentToken = await buckarooHostedFieldsClient.submitSession();
+                this.valid = true;
+                const paymentToken = await this.buckarooHostedFieldsClient.submitSession();
                 this.post({
-                    paymentToken
+                    token: paymentToken,
+                    service: this.service,
                 });
             }
         }));

@@ -20,7 +20,10 @@ class HostedFieldsRepository extends ComponentRepository
             return;
         }
 
-        $additionalInformation = []; // @todo: Pass through the right information
+        $additionalInformation = [
+            'token' => $value['token'],
+            'service' => $value['service'],
+        ]; // @todo: Pass through the right information
 
         $quote = $this->getContext()->getCheckoutState()->getQuote();
         $quote->getPayment()->setAdditionalInformation($additionalInformation);
