@@ -1,5 +1,4 @@
 name: Playwright test
-on: ['push', 'pull_request']
 
 on:
   schedule:
