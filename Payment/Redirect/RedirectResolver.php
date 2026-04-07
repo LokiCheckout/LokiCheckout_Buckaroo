@@ -33,7 +33,7 @@ class RedirectResolver implements RedirectResolverInterface
             return 'checkout/onepage/success';
         }
 
-        if ($paymentMethod && method_exists($paymentMethod, 'getOrderPlaceRedirectUrl')) {
+        if (method_exists($paymentMethod, 'getOrderPlaceRedirectUrl')) {
             $redirectUrl = $paymentMethod->getOrderPlaceRedirectUrl();
             if (is_string($redirectUrl)) {
                 return $redirectUrl;
@@ -45,7 +45,7 @@ class RedirectResolver implements RedirectResolverInterface
 
     private function getResponse()
     {
-        if ($this->registry && $this->registry->registry('buckaroo_response')) {
+        if ($this->registry->registry('buckaroo_response')) {
             return $this->registry->registry('buckaroo_response')[0];
         }
 
