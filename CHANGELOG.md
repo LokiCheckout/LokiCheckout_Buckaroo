@@ -6,6 +6,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.0.0] - 08 April 2026
+### Removed
+- Removed support for Buckaroo 1.X
+- Removed support for PHP 8.3 and older
+
+### Added
+- Hosted Fields are working now
+- Bump major and Buckaroo dep to 2.X
+
+### Fixed
+- Remove obsolete issuer selection for Paybybank
+- Redirect using new Buckaroo 2.X mechanism
+- Properly check for company length when determining B2C with Riverty
+
 ## [2.0.22] - 12 March 2026
 ### Fixed
 - `strlen` error on company with `null` value
