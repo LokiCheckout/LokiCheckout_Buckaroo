@@ -80,5 +80,15 @@
         "functional": 20
     },
     "phpcs_severity": "7",
-    "phpstan_level": "5"
+    "phpstan_level": "5",
+    "module_name": "LokiCheckout_Buckaroo",
+    "composer_name": "loki-checkout/magento2-buckaroo",
+    "php_versions": [
+        "8.3",
+        "8.4"
+    ],
+    "skip_magento_versions": [
+        "2.4.5-p14 2.4.7-p4 2.4.7-p7"
+    ],
+    "skip_css_utils": false
 }
