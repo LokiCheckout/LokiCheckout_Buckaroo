@@ -41,7 +41,7 @@ test.describe('afterpay20 b2b payment test', () => {
          */
 
         await new PlaceOrderButton(page).click();
-        await new Messages(page).expectMessage(/An error occurred while processing the transaction: Authorize rejected/);
+        await new Messages(page).expectMessage('An error occurred while processing the transaction: Authorize rejected');
     });
 
     test('should not proceed with empty form', async ({page, context}) => {
