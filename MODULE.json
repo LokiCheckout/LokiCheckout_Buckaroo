@@ -6,8 +6,7 @@
         "Loki_CssUtils",
         "Loki_FieldComponents",
         "Magento_Quote",
-        "Magento_Store",
-        "Yireo_IntegrationTestHelper"
+        "Magento_Store"
     ],
     "modules": [
         "Buckaroo_Magento2",
@@ -41,8 +40,7 @@
         "Magento_Ui",
         "Magento_Vault",
         "PayPal_Braintree",
-        "Yireo_CspUtilities",
-        "Yireo_IntegrationTestHelper"
+        "Yireo_CspUtilities"
     ],
     "components": [
         "loki-checkout.billing.address.company",
