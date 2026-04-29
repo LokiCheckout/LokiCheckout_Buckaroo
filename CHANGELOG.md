@@ -6,6 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.0.1] - 29 April 2026
+### Fixed
+- Add alt to image tag
+- Change assumption from regex to string
+- Add tsconfig.json
+- Remove dep with Yireo_IntegrationTestHelper
+- Pending changes
+- Remove old Magento and PHP versions
+
 ## [3.0.0] - 08 April 2026
 ### Removed
 - Removed support for Buckaroo 1.X
