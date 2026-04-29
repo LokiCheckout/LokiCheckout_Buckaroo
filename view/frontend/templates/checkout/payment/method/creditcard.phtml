@@ -26,7 +26,7 @@ $cards = $viewModel->getCards();
         <?php foreach ($cards as $card): ?>
             <div class="<?= $escaper->escapeHtml($css('flex gap-3 my-3', 'item')) ?>">
                 <div class="<?= $escaper->escapeHtml($css('w-8', 'item-image')) ?>">
-                    <img src="<?= $escaper->escapeUrl($card['img']) ?>""/>
+                    <img src="<?= $escaper->escapeUrl($card['img']) ?>" alt="<?= $escaper->escapeUrl($card['code']) ?>"/>
                 </div>
                 <input
                     id="<?= $escaper->escapeHtml($viewModel->getElementId() . '-' . $card['code']) ?>"
