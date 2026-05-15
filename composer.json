@@ -1,7 +1,7 @@
 {
     "name": "loki-checkout/magento2-buckaroo",
     "version": "3.0.1",
-    "description": "N/A",
+    "description": "Compatibility module for the Buckaroo payment solution",
     "keywords": [
         "loki-checkout",
         "loki-checkout-category-payment"
