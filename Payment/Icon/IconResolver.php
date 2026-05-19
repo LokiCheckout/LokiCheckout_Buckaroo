@@ -29,7 +29,7 @@ class IconResolver implements IconResolverInterface
 
         $paymentLogo = $this->infoBlock->getPaymentLogo($match[1]);
         if ($paymentLogo) {
-            return $iconResolverContext->getIconOutput($paymentLogo);
+            return $iconResolverContext->getIconOutput($paymentLogo, htmlAttributes: ['alt' => $paymentMethodCode]);
         }
 
         $iconFilePath = $iconResolverContext->getIconPath(
