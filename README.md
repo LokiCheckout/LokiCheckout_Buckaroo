@@ -1,5 +1,13 @@
 # LokiCheckout_Buckaroo
 
+<!-- badges.specs.start -->
+![Magento version](https://img.shields.io/badge/Magento-2.4.6%20%7C%202.4.9-orange)
+![PHP version](https://img.shields.io/badge/PHP-8.2%E2%80%938.5-777BB4)
+![License](https://img.shields.io/badge/License-OSL--3.0-blue)
+![Latest Version](https://img.shields.io/packagist/v/loki-checkout/magento2-buckaroo)
+<!-- badges.specs.end -->
+
+
 **This Magento 2 module is an add-on package for adding support for the payment solution of Buckaroo to the LokiCheckout.**
 
 ## Installation
@@ -29,3 +37,13 @@ Deprecated Functionality: str_replace(): Passing null to parameter #3 ($subject)
 ```
 
 The method `afterpay2` or `afterpay` is deprecated and can not be used under PHP 8.3. This has nothing to do with the LokiCheckout.
+
+## Current status
+
+<!-- badges.test.start -->
+![Static Tests](https://img.shields.io/github/actions/workflow/status/LokiCheckout/LokiCheckout_Buckaroo/static-tests.yml?label=static-tests)
+![Unit Tests](https://img.shields.io/github/actions/workflow/status/LokiCheckout/LokiCheckout_Buckaroo/unit-tests.yml?label=unit-tests)
+![Integration Tests](https://img.shields.io/github/actions/workflow/status/LokiCheckout/LokiCheckout_Buckaroo/integration-tests.yml?label=integration-tests)
+![Playwright](https://img.shields.io/github/actions/workflow/status/LokiCheckout/LokiCheckout_Buckaroo/playwright.yml?label=playwright)
+![DI Compilation](https://img.shields.io/github/actions/workflow/status/LokiCheckout/LokiCheckout_Buckaroo/compile.yml?label=compile)
+<!-- badges.test.end -->
