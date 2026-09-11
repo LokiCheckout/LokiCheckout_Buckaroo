@@ -38,5 +38,17 @@
         "psr-4": {
             "LokiCheckout\\Buckaroo\\": ""
         }
+    },
+    "extra": {
+        "loki": {
+            "countries": [
+                "AT",
+                "BE",
+                "DE",
+                "FR",
+                "NL",
+                "PL"
+            ]
+        }
     }
 }
