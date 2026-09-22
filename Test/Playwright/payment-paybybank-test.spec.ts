@@ -1,4 +1,4 @@
-import {PaymentMethod, PlaceOrderButton, Messages} from '@loki/checkout-objects';
+import {PaymentMethod, PlaceOrderButton, Messages} from '@loki-checkout/checkout-objects';
 import {setupCheckout} from '@loki/setup-checkout';
 import {test, expect} from '@loki/test';
 import merge from '@loki/util/merge';

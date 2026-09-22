@@ -1,4 +1,4 @@
-import {PaymentMethod, PlaceOrderButton} from '@loki/checkout-objects';
+import {PaymentMethod, PlaceOrderButton} from '@loki-checkout/checkout-objects';
 import {BuckarooPortal} from './helpers/buckaroo-objects';
 
 import {setupCheckout} from '@loki/setup-checkout';
