@@ -48,7 +48,7 @@ class HostedFieldsViewModel extends PaymentMethodViewModel
         ];
 
         $scopeConfig = $this->getContext()->getScopeConfig();
-        $allowedIssuers = trim((string)$scopeConfig->getValue('payment/buckaroo_magento2_creditcards/allowed_issuers'));
+        $allowedIssuers = trim((string)$scopeConfig->getValue('payment/buckaroo_magento2_creditcards/allowed_issuers'), " \f\n\r\t\v\x00");
         if (empty($allowedIssuers)) {
             return $defaultIssuers;
         }
