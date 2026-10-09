@@ -28,7 +28,8 @@
         "php": ">=8.2 <8.6"
     },
     "require-dev": {
-        "yireo/magento2-integration-test-helper": "~0.0"
+        "yireo/magento2-integration-test-helper": "~0.0",
+        "loki-checkout/magento2-functional-tests": "*"
     },
     "license": "OSL-3.0",
     "autoload": {
