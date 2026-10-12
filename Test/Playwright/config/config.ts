@@ -2,6 +2,7 @@ import coreConfig from '@loki/config';
 import merge from '@loki/util/merge';
 
 export default merge(coreConfig, {
+    product: true,
     modules: [
         'LokiCheckout_Buckaroo',
         'Buckaroo_Magento2',
