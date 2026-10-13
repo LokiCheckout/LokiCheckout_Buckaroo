@@ -3,9 +3,11 @@ import {setupCheckout} from '@loki/setup-checkout';
 import {test, expect} from '@loki/test';
 import merge from '@loki/util/merge';
 
-import buckarooConfig from './config/config';
+import buckarooConfig, {skipWithoutCredentials} from './config/config';
 
 test.describe('afterpay20 b2b payment test', () => {
+    skipWithoutCredentials(test);
+
     const currentConfig = merge(buckarooConfig, {
         config: {
             'payment/buckaroo_magento2_afterpay20/active': 1,

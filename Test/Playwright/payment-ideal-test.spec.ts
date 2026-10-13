@@ -5,9 +5,11 @@ import {setupCheckout} from '@loki/setup-checkout';
 import {test} from '@loki/test';
 import merge from '@loki/util/merge';
 
-import buckarooConfig from './config/config';
+import buckarooConfig, {skipWithoutCredentials} from './config/config';
 
 test.describe('iDeal payment test', () => {
+    skipWithoutCredentials(test);
+
     const currentConfig = merge(buckarooConfig, {
         catchErrors: false,
         config: {

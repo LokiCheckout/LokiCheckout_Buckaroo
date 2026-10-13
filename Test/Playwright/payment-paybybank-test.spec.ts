@@ -4,9 +4,11 @@ import {test, expect} from '@loki/test';
 import merge from '@loki/util/merge';
 
 //import {BuckarooPortal} from './helpers/buckaroo-objects';
-import buckarooConfig from './config/config';
+import buckarooConfig, {skipWithoutCredentials} from './config/config';
 
 test.describe('PayByBank payment test', () => {
+    skipWithoutCredentials(test);
+
     const currentConfig = merge(buckarooConfig, {
         catchErrors: false,
         config: {

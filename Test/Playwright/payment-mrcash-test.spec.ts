@@ -3,10 +3,12 @@ import {setupCheckout} from '@loki/setup-checkout';
 import {test} from '@loki/test';
 import merge from '@loki/util/merge';
 
-import buckarooConfig from './config/config';
+import buckarooConfig, {skipWithoutCredentials} from './config/config';
 import {BuckarooPortal} from "./helpers/buckaroo-objects";
 
 test.describe('Bancontact / Mr Cash payment test', () => {
+    skipWithoutCredentials(test);
+
     const currentConfig = merge(buckarooConfig, {
         catchErrors: false,
         config: {
