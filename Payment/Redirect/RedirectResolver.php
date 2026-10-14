@@ -7,6 +7,7 @@ use LokiCheckout\Core\Payment\Redirect\RedirectResolverInterface;
 use LokiCheckout\Core\Step\FinalStep\RedirectContext;
 use Buckaroo\Magento2\Api\Data\BuckarooResponseDataInterface;
 use Magento\Framework\Registry;
+use Magento\Framework\UrlInterface;
 
 class RedirectResolver implements RedirectResolverInterface
 {
@@ -14,6 +15,7 @@ class RedirectResolver implements RedirectResolverInterface
     public function __construct(
         private readonly Registry $registry,
         private readonly BuckarooResponseDataInterface $buckarooResponseData,
+        private readonly UrlInterface $url,
     ) {
     }
 
@@ -30,7 +32,7 @@ class RedirectResolver implements RedirectResolverInterface
         }
 
         if ($this->isSuccessfulPayment()) {
-            return 'checkout/onepage/success';
+            return $this->url->getUrl('checkout/onepage/success');
         }
 
         if (method_exists($paymentMethod, 'getOrderPlaceRedirectUrl')) {
