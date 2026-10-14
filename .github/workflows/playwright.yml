@@ -43,7 +43,6 @@ jobs:
       DISABLE_GRAPHQL: ${{ vars.DISABLE_GRAPHQL || false }}
       DISABLE_ADOBE: ${{ vars.DISABLE_ADOBE || false }}
       GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
-      ADDITIONAL_SETTINGS: ${{ secrets.ADDITIONAL_SETTINGS || '{}' }}
 
     services:
       php:
@@ -299,6 +298,23 @@ jobs:
             sleep 1
           done
           echo "ERROR: Magento front-end not reachable"; exit 1
+
+      - name: Load extra Playwright env
+        if: env.SKIP_JOB != 'true'
+        env:
+          PLAYWRIGHT_ENV: ${{ secrets.PLAYWRIGHT_ENV }}
+        shell: bash
+        run: |
+          [ -n "$PLAYWRIGHT_ENV" ] || exit 0
+          while IFS= read -r line || [ -n "$line" ]; do
+            line="${line%$'\r'}"
+            case "$line" in ''|'#'*) continue ;; *=*) ;; *) echo "Skipping invalid line"; continue ;; esac
+            key="${line%%=*}"
+            value="${line#*=}"
+            echo "$key" | grep -qE '^[A-Za-z_][A-Za-z0-9_]*$' || { echo "Skipping invalid line"; continue; }
+            [ -n "$value" ] && echo "::add-mask::$value"
+            echo "$key=$value" >> "$GITHUB_ENV"
+          done <<< "$PLAYWRIGHT_ENV"
 
       - name: Run Playwright tests
         if: env.SKIP_JOB != 'true'

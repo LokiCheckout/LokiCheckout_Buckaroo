@@ -1,15 +1,14 @@
 import coreConfig from '@loki/config';
 import merge from '@loki/util/merge';
 
-const additionalSettings = JSON.parse(process.env.ADDITIONAL_SETTINGS || '{}');
-const merchantKey: string = additionalSettings.BUCKAROO_MERCHANT_KEY || process.env.BUCKAROO_MERCHANT_KEY || '';
-const secretKey: string = additionalSettings.BUCKAROO_SECRET_KEY || process.env.BUCKAROO_SECRET_KEY || '';
+const merchantKey: string = process.env.BUCKAROO_MERCHANT_KEY || '';
+const secretKey: string = process.env.BUCKAROO_SECRET_KEY || '';
 
 // Buckaroo hides all of its payment methods when no merchant key or secret key is configured
 export const skipWithoutCredentials = (test): void => {
     test.skip(
         !merchantKey.trim() || !secretKey.trim(),
-        'Missing Buckaroo credentials: BUCKAROO_MERCHANT_KEY and BUCKAROO_SECRET_KEY (in ADDITIONAL_SETTINGS)'
+        'Missing Buckaroo credentials: BUCKAROO_MERCHANT_KEY and BUCKAROO_SECRET_KEY'
     );
 };
 
