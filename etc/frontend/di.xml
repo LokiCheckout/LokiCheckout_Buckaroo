@@ -15,4 +15,8 @@
             </argument>
         </arguments>
     </type>
+
+    <type name="Buckaroo\Magento2\Gateway\Request\Recipient\AfterpayDataBuilder">
+        <plugin name="LokiCheckout_Buckaroo::addChamberOfCommerceToAfterpayRecipient" type="LokiCheckout\Buckaroo\Plugin\AddChamberOfCommerceToAfterpayRecipientPlugin"/>
+    </type>
 </config>

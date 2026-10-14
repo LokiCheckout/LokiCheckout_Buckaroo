@@ -59,7 +59,7 @@ class AdditionalPaymentDetails implements ArgumentInterface
             $properties['Date of Birth:'] = $dob;
         }
 
-        $coc = $this->getProperty('customer_DoB');
+        $coc = $this->getProperty('customer_coc');
         if (!empty($coc)) {
             $properties['COC Number:'] = $coc;
         }
