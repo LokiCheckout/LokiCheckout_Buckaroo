@@ -1,4 +1,4 @@
-import coreConfig from '@loki/config';
+import coreConfig from '@loki-checkout/config';
 import merge from '@loki/util/merge';
 
 const merchantKey: string = process.env.BUCKAROO_MERCHANT_KEY || '';
