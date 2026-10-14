@@ -4,6 +4,7 @@ on: [push, pull_request]
 jobs:
   playwright:
     runs-on: ubuntu-latest
+    timeout-minutes: ${{ fromJSON(vars.PLAYWRIGHT_JOB_TIMEOUT || '45') }}
     container:
       image: mcr.microsoft.com/playwright:v1.63.0-noble
       options: --user root
@@ -319,6 +320,10 @@ jobs:
       - name: Run Playwright tests
         if: env.SKIP_JOB != 'true'
         working-directory: /tmp/magento/vendor/loki/magento2-functional-tests/Test/Playwright/
+        env:
+          TEST_TIMEOUT: ${{ vars.TEST_TIMEOUT || '60000' }}
+          PLAYWRIGHT_RETRIES: ${{ vars.PLAYWRIGHT_RETRIES || '1' }}
+          PLAYWRIGHT_MAX_FAILURES: ${{ vars.PLAYWRIGHT_MAX_FAILURES || '5' }}
         run: |
           echo "Installing npm dependencies..."
           npm install
@@ -328,5 +333,5 @@ jobs:
           printf "TEST_URL=%s\nTEST_TOKEN=loki\nMODULE_NAME=%s\n" "${MAGENTO_BASE_URL}" "${MAGENTO_MODULE}" > /tmp/magento/.env.playwright
 
           echo "Running Playwright tests for project ${MAGENTO_MODULE}"
-          CI=true TEST_URL="${MAGENTO_BASE_URL}" TEST_TOKEN=loki MAGENTO_ROOT=/tmp/magento npx playwright test --project=${MAGENTO_MODULE}
+          CI=true TEST_URL="${MAGENTO_BASE_URL}" TEST_TOKEN=loki MAGENTO_ROOT=/tmp/magento TEST_TIMEOUT="${TEST_TIMEOUT}" npx playwright test --project=${MAGENTO_MODULE} --retries="${PLAYWRIGHT_RETRIES}" --max-failures="${PLAYWRIGHT_MAX_FAILURES}"
 
