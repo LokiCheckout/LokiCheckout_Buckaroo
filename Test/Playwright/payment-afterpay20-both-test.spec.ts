@@ -82,11 +82,11 @@ test.describe('afterpay20 both payment test', () => {
     });
 
     test('empty phone', async ({page, context}) => {
-        await setupCheckout(page, context, currentConfig);
-
-        const globalTelephone = page.getById('loki-checkout-shipping-address-telephone-field');
-        await globalTelephone.fill('');
-        await globalTelephone.blur();
+        await setupCheckout(page, context, merge(currentConfig, {
+            customer: {
+                telephone: '',
+            },
+        }));
 
         const paymentMethod = new PaymentMethod(page, 'buckaroo_magento2_afterpay20');
         await paymentMethod.select();

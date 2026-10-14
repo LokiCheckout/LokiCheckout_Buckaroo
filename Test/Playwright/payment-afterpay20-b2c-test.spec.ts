@@ -11,6 +11,9 @@ test.describe('afterpay20 b2c payment test', () => {
     skipWithoutCredentials(test);
 
     const currentConfig = merge(buckarooConfig, {
+        customer: {
+            company: '',
+        },
         config: {
             'payment/buckaroo_magento2_afterpay20/active': 1,
             'payment/buckaroo_magento2_afterpay20/customer_type': 'b2c',
