@@ -1,4 +1,4 @@
-import {PaymentMethod, PlaceOrderButton, SuccessPage, Messages} from '@loki-checkout/checkout-objects';
+import {PaymentMethod, PlaceOrderButton, SuccessPage} from '@loki-checkout/checkout-objects';
 import {setupCheckout} from '@loki/setup-checkout';
 import {test, expect} from '@loki/test';
 import merge from '@loki/util/merge';
@@ -35,15 +35,8 @@ test.describe('afterpay20 b2b payment test', () => {
         await tac.check();
         await tac.blur();
 
-        /*
-        const placeOrderButton = new PlaceOrderButton(page);
-        await placeOrderButton.click();
-
-        await new SuccessPage(page).expectToBeLoaded();
-         */
-
         await new PlaceOrderButton(page).click();
-        await new Messages(page).expectMessage('An error occurred while processing the transaction: Authorize rejected');
+        await new SuccessPage(page).expectToBeLoaded();
     });
 
     test('should not proceed with empty form', async ({page, context}) => {

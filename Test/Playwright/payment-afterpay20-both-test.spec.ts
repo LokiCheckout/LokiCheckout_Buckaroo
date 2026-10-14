@@ -1,4 +1,4 @@
-import {PaymentMethod, PlaceOrderButton, SuccessPage, Messages} from '@loki-checkout/checkout-objects';
+import {PaymentMethod, PlaceOrderButton, SuccessPage} from '@loki-checkout/checkout-objects';
 import {BuckarooPortal} from './helpers/buckaroo-objects';
 
 import {setupCheckout} from '@loki/setup-checkout';
@@ -41,15 +41,8 @@ test.describe('afterpay20 both payment test', () => {
         await tac.check();
         await tac.blur();
 
-        /*
-        const placeOrderButton = new PlaceOrderButton(page);
-        await placeOrderButton.click();
-
-        await new SuccessPage(page).expectToBeLoaded();
-         */
-
         await new PlaceOrderButton(page).click();
-        await new Messages(page).expectMessage(/An error occurred while processing the transaction: Authorize rejected/);
+        await new SuccessPage(page).expectToBeLoaded();
     });
 
     test('b2c checkout', async ({page, context}) => {
