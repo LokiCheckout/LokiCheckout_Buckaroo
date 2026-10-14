@@ -299,13 +299,13 @@ jobs:
           done
           echo "ERROR: Magento front-end not reachable"; exit 1
 
-      - name: Load extra Playwright env
+      - name: Load repository secrets
         if: env.SKIP_JOB != 'true'
         env:
-          PLAYWRIGHT_ENV: ${{ secrets.PLAYWRIGHT_ENV }}
+          REPOSITORY_SECRETS: ${{ secrets.REPOSITORY_SECRETS }}
         shell: bash
         run: |
-          [ -n "$PLAYWRIGHT_ENV" ] || exit 0
+          [ -n "$REPOSITORY_SECRETS" ] || exit 0
           while IFS= read -r line || [ -n "$line" ]; do
             line="${line%$'\r'}"
             case "$line" in ''|'#'*) continue ;; *=*) ;; *) echo "Skipping invalid line"; continue ;; esac
@@ -314,7 +314,7 @@ jobs:
             echo "$key" | grep -qE '^[A-Za-z_][A-Za-z0-9_]*$' || { echo "Skipping invalid line"; continue; }
             [ -n "$value" ] && echo "::add-mask::$value"
             echo "$key=$value" >> "$GITHUB_ENV"
-          done <<< "$PLAYWRIGHT_ENV"
+          done <<< "$REPOSITORY_SECRETS"
 
       - name: Run Playwright tests
         if: env.SKIP_JOB != 'true'
