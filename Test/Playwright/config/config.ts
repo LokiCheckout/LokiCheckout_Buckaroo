@@ -11,12 +11,14 @@ export const BUCKAROO_MODE_LIVE = 2;
 const merchantKey: string = process.env.BUCKAROO_MERCHANT_KEY || '';
 const secretKey: string = process.env.BUCKAROO_SECRET_KEY || '';
 
-// Buckaroo hides all of its payment methods when no merchant key or secret key is configured
-export const skipWithoutCredentials = (test): void => {
-    test.skip(
-        !merchantKey.trim() || !secretKey.trim(),
-        'Missing Buckaroo credentials: BUCKAROO_MERCHANT_KEY and BUCKAROO_SECRET_KEY'
-    );
+// Buckaroo hides all of its payment methods when no merchant key or secret key is configured,
+// so fail loudly instead of silently skipping
+export const requireCredentials = (test): void => {
+    test.beforeEach(() => {
+        if (!merchantKey.trim() || !secretKey.trim()) {
+            throw new Error('Missing Buckaroo credentials: BUCKAROO_MERCHANT_KEY and BUCKAROO_SECRET_KEY');
+        }
+    });
 };
 
 export default merge(coreConfig, {

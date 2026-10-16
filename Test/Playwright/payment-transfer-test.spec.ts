@@ -3,10 +3,10 @@ import {setupCheckout} from '@loki/setup-checkout';
 import {test} from '@loki/test';
 import merge from '@loki/util/merge';
 
-import buckarooConfig, {BUCKAROO_MODE_TEST, skipWithoutCredentials} from './config/config';
+import buckarooConfig, {BUCKAROO_MODE_TEST, requireCredentials} from './config/config';
 
 test.describe('bank transfer payment test', () => {
-    skipWithoutCredentials(test);
+    requireCredentials(test);
 
     test('should allow me to go to the checkout', async ({page, context}) => {
         await setupCheckout(page, context, merge(buckarooConfig, {
