@@ -3,7 +3,7 @@ import {setupCheckout} from '@loki/setup-checkout';
 import {test} from '@loki/test';
 import merge from '@loki/util/merge';
 
-import buckarooConfig, {skipWithoutCredentials} from './config/config';
+import buckarooConfig, {BUCKAROO_MODE_TEST, skipWithoutCredentials} from './config/config';
 
 test.describe('PayByBank payment test', () => {
     skipWithoutCredentials(test);
@@ -11,7 +11,7 @@ test.describe('PayByBank payment test', () => {
     const currentConfig = merge(buckarooConfig, {
         catchErrors: false,
         config: {
-            'payment/buckaroo_magento2_paybybank/active': 1,
+            'payment/buckaroo_magento2_paybybank/active': BUCKAROO_MODE_TEST,
         }
     });
 

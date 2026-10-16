@@ -1,6 +1,13 @@
 import coreConfig from '@loki-checkout/config';
 import merge from '@loki/util/merge';
 
+// Values of payment/buckaroo_magento2_*/active (Buckaroo\Magento2\Model\Config\Source\Enablemode).
+// The per-method value decides whether Buckaroo runs in test or live mode, so tests must use BUCKAROO_MODE_TEST.
+// Note that buckaroo_magento2/account/active is a plain Yes/No flag and does not select the mode.
+export const BUCKAROO_MODE_OFF = 0;
+export const BUCKAROO_MODE_TEST = 1;
+export const BUCKAROO_MODE_LIVE = 2;
+
 const merchantKey: string = process.env.BUCKAROO_MERCHANT_KEY || '';
 const secretKey: string = process.env.BUCKAROO_SECRET_KEY || '';
 

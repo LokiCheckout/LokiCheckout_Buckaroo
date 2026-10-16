@@ -3,7 +3,7 @@ import {setupCheckout} from '@loki/setup-checkout';
 import {test} from '@loki/test';
 import merge from '@loki/util/merge';
 
-import buckarooConfig, {skipWithoutCredentials} from './config/config';
+import buckarooConfig, {BUCKAROO_MODE_TEST, skipWithoutCredentials} from './config/config';
 
 test.describe('bank transfer payment test', () => {
     skipWithoutCredentials(test);
@@ -11,7 +11,7 @@ test.describe('bank transfer payment test', () => {
     test('should allow me to go to the checkout', async ({page, context}) => {
         await setupCheckout(page, context, merge(buckarooConfig, {
             config: {
-                'payment/buckaroo_magento2_transfer/active': 1,
+                'payment/buckaroo_magento2_transfer/active': BUCKAROO_MODE_TEST,
             }
         }));
 

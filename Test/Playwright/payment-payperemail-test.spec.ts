@@ -3,14 +3,14 @@ import {setupCheckout} from '@loki/setup-checkout';
 import {test, expect} from '@loki/test';
 import merge from '@loki/util/merge';
 
-import buckarooConfig, {skipWithoutCredentials} from './config/config';
+import buckarooConfig, {BUCKAROO_MODE_TEST, skipWithoutCredentials} from './config/config';
 
 test.describe('payperemail payment test', () => {
     skipWithoutCredentials(test);
 
     const currentConfig = merge(buckarooConfig, {
         config: {
-            'payment/buckaroo_magento2_payperemail/active': 1,
+            'payment/buckaroo_magento2_payperemail/active': BUCKAROO_MODE_TEST,
             'payment/buckaroo_magento2_payperemail/visible_front_back': 'both',
         }
     });

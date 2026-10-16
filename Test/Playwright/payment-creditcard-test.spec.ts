@@ -4,7 +4,7 @@ import {test, expect} from '@loki/test';
 import merge from '@loki/util/merge';
 
 import {BuckarooPortal} from './helpers/buckaroo-objects';
-import buckarooConfig, {skipWithoutCredentials} from './config/config';
+import buckarooConfig, {BUCKAROO_MODE_TEST, skipWithoutCredentials} from './config/config';
 
 test.describe('Creditcard payment test', () => {
     skipWithoutCredentials(test);
@@ -12,7 +12,7 @@ test.describe('Creditcard payment test', () => {
     const currentConfig = merge(buckarooConfig, {
         catchErrors: false,
         config: {
-            'payment/buckaroo_magento2_creditcard/active': 1,
+            'payment/buckaroo_magento2_creditcard/active': BUCKAROO_MODE_TEST,
             'payment/buckaroo_magento2_creditcard/allowed_issuers': 'amex,cartebancaire,cartebleuevisa,dankort,maestro,mastercard',
         }
     });

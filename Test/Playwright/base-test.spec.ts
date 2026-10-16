@@ -1,7 +1,7 @@
 import {Field} from '@loki-checkout/checkout-objects';
 import {setupCheckout} from '@loki/setup-checkout';
 import {test} from '@loki/test';
-import buckarooConfig, {skipWithoutCredentials} from './config/config';
+import buckarooConfig, {BUCKAROO_MODE_TEST, skipWithoutCredentials} from './config/config';
 import merge from '@loki/util/merge';
 
 test.describe('LokiCheckout_Buckaroo test', () => {
@@ -9,7 +9,7 @@ test.describe('LokiCheckout_Buckaroo test', () => {
 
     const currentConfig = merge(buckarooConfig, {
         config: {
-            'payment/buckaroo_magento2_ideal/active': 1,
+            'payment/buckaroo_magento2_ideal/active': BUCKAROO_MODE_TEST,
         }
     });
 
