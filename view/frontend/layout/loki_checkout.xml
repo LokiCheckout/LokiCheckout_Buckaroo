@@ -12,11 +12,6 @@
             />
 
             <block
-                name="loki-checkout-buckaroo.script.component.paybybank-component"
-                template="LokiCheckout_Buckaroo::script/component/paybybank-component.phtml"
-            />
-
-            <block
                 name="loki-checkout-buckaroo.script.component.afterpay-component"
                 template="LokiCheckout_Buckaroo::script/component/afterpay-component.phtml"
             />
