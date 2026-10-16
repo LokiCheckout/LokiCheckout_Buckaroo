@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Fixed
 - Remove leftover PayByBank issuer template, JS component and preview detail
+- Fix Playwright tests for PayByBank and PayPerEmail
+- Remove Playwright test for iDEAL Processing (no longer a separate method in Buckaroo)
 
 ## [3.0.2] - 21 May 2026
 ### Fixed
