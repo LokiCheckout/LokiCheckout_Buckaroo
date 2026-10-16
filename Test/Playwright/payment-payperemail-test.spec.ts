@@ -11,7 +11,7 @@ test.describe('payperemail payment test', () => {
     const currentConfig = merge(buckarooConfig, {
         config: {
             'payment/buckaroo_magento2_payperemail/active': 1,
-            'payment/buckaroo_magento2_payperemail/customer_type': 'both',
+            'payment/buckaroo_magento2_payperemail/visible_front_back': 'both',
         }
     });
 
