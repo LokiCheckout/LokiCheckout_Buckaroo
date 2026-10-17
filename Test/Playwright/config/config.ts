@@ -23,6 +23,9 @@ export const requireCredentials = (test): void => {
 
 export default merge(coreConfig, {
     product: true,
+    // The Buckaroo sandbox rejects invoice numbers used before (InvoiceNumberUsedInThePast),
+    // while every fresh CI environment restarts its order numbers
+    unique_order_ids: true,
     modules: [
         'LokiCheckout_Buckaroo',
         'Buckaroo_Magento2',

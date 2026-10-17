@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fail Playwright tests instead of skipping them when Buckaroo credentials are missing
 - Force EUR as display currency in Playwright tests, so that they also pass on CI (installed with USD)
 - Allow HTML-escaped quotes in PayByBank Playwright test error message
+- Use unique order IDs in Playwright tests to prevent `InvoiceNumberUsedInThePast` errors from the Buckaroo sandbox
 
 ## [3.0.2] - 21 May 2026
 ### Fixed
