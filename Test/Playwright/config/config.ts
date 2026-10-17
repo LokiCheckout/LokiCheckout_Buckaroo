@@ -33,6 +33,9 @@ export default merge(coreConfig, {
     },
     config: {
         'buckaroo_magento2/account/active': 1,
+        // Methods like iDEAL and Riverty only support EUR, while CI installs Magento with USD
+        'currency/options/default': 'EUR',
+        'currency/options/allow': 'EUR',
         'customer/address/telephone_show': 'opt'
     }
 });
