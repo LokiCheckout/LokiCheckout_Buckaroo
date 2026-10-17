@@ -1,4 +1,4 @@
-import {PaymentMethod, PlaceOrderButton, SuccessPage} from '@loki-checkout/checkout-objects';
+import {PaymentMethod, PlaceOrderButton} from '@loki-checkout/checkout-objects';
 import {BuckarooPortal} from './helpers/buckaroo-objects';
 
 import {setupCheckout} from '@loki/setup-checkout';
@@ -42,7 +42,7 @@ test.describe('afterpay20 both payment test', () => {
         await tac.blur();
 
         await new PlaceOrderButton(page).click();
-        await new SuccessPage(page).expectToBeLoaded();
+        await new BuckarooPortal(page).expectSuccessPage();
     });
 
     test('b2c checkout', async ({page, context}) => {

@@ -1,4 +1,5 @@
-import {PaymentMethod, PlaceOrderButton, SuccessPage} from '@loki-checkout/checkout-objects';
+import {PaymentMethod, PlaceOrderButton} from '@loki-checkout/checkout-objects';
+import {BuckarooPortal} from './helpers/buckaroo-objects';
 import {setupCheckout} from '@loki/setup-checkout';
 import {test, expect} from '@loki/test';
 import merge from '@loki/util/merge';
@@ -36,7 +37,7 @@ test.describe('afterpay20 b2b payment test', () => {
         await tac.blur();
 
         await new PlaceOrderButton(page).click();
-        await new SuccessPage(page).expectToBeLoaded();
+        await new BuckarooPortal(page).expectSuccessPage();
     });
 
     test('should not proceed with empty form', async ({page, context}) => {
