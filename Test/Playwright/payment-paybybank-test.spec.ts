@@ -22,6 +22,7 @@ test.describe('PayByBank payment test', () => {
         await paymentMethod.select();
 
         await new PlaceOrderButton(page).click();
-        await new Messages(page).expectMessage(/No valid subscription found for service 'paybybank'./i);
+        // Quotes might be HTML-escaped depending on how the Loki_Base version renders messages
+        await new Messages(page).expectMessage(/No valid subscription found for service (&#039;|')paybybank(&#039;|')/i);
     });
 });

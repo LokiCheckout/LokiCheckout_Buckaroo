@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Remove Playwright test for iDEAL Processing (no longer a separate method in Buckaroo)
 - Fail Playwright tests instead of skipping them when Buckaroo credentials are missing
 - Force EUR as display currency in Playwright tests, so that they also pass on CI (installed with USD)
+- Allow HTML-escaped quotes in PayByBank Playwright test error message
 
 ## [3.0.2] - 21 May 2026
 ### Fixed
